@@ -58,7 +58,7 @@ const Header = ({ pageRef: _pageRef }) => {
           )}
         </div>
         
-        {/*<div className="header-controls__nav-toggle">
+        <div className="header-controls__nav-toggle">
           <input 
             type="checkbox" 
             name="nav-toggle" 
@@ -71,10 +71,20 @@ const Header = ({ pageRef: _pageRef }) => {
         <ul className={isNavOpen ? 'show-nav' : ''}>
           <li>
             <a 
+              className="button button--primary" 
+              href="#section-adopt"
+              data-scroll="true"
+              onClick={(e) => handleScrollClick(e, '#adopt')}
+            >
+              Adopt
+            </a>
+          </li>
+          <li>
+            <a 
               className="button" 
               href="#section-about"
               data-scroll="true"
-              onClick={(e) => handleScrollClick(e, '#section-about')}
+              onClick={(e) => handleScrollClick(e, '#about')}
             >
               About
             </a>
@@ -82,14 +92,24 @@ const Header = ({ pageRef: _pageRef }) => {
           <li>
             <a 
               className="button" 
-              href="#section-contact"
+              href="#section-services"
               data-scroll="true"
-              onClick={(e) => handleScrollClick(e, '#section-contact')}
+              onClick={(e) => handleScrollClick(e, '#services')}
+            >
+              Services
+            </a>
+          </li>
+          <li>
+            <a 
+              className="button" 
+              href="#section-support"
+              data-scroll="true"
+              onClick={(e) => handleScrollClick(e, '#support')}
             >
               Contact
             </a>
           </li>
-        </ul>*/}
+        </ul>
       </div>
     </div>
   );
