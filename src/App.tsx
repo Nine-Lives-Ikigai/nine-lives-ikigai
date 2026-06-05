@@ -32,11 +32,14 @@ function App() {
         {/* 404 page */}
         <Route path="*" element={
           <Layout pagename="Page Not Found">
-            <div className="content">
+
+            <div className="content flex-content flex--center">
               <div className="section__container">
-                <div className="section__content">
-                  <h1>404 - Page Not Found</h1>
-                  <p>The page you're looking for doesn't exist.</p>
+                <div className="section__content section__content--badge center">
+                  <div className="flex__small--12 flex__large--12">
+                    <h1 className="section__title" id="section-404">404 - Page Not Found</h1>
+                    <p>The page you're looking for doesn't exist.</p>
+                  </div>
                 </div>
               </div>
             </div>

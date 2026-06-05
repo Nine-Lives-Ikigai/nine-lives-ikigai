@@ -7,28 +7,29 @@ export const useLayoutStyles = () => {
 
   useEffect(() => {
     const footer = document.querySelector('.footer-container');
-    const main = document.querySelector('.main-content');
-    if (!footer || !main) return;
+    if (!footer) return;
 
     const footerObserver = new ResizeObserver(([entry]) => {
       setFooterHeight(entry.contentRect.height);
     });
 
-    const mainObserver = new ResizeObserver(([entry]) => {
-      setExceedsViewport(entry.contentRect.height > window.innerHeight);
+    const pageObserver = new ResizeObserver(() => {
+      setExceedsViewport(document.documentElement.scrollHeight > window.innerHeight);
     });
 
     footerObserver.observe(footer);
-    mainObserver.observe(main);
+    pageObserver.observe(document.documentElement);
 
     return () => {
       footerObserver.disconnect();
-      mainObserver.disconnect();
+      pageObserver.disconnect();
     };
   }, []);
 
   return {
-    height: exceedsViewport ? '100%' : `calc(100vh - ${footerHeight}px)`,
-    paddingBottom: `${footerHeight}px`,
+    mainContent: {
+      height: exceedsViewport ? '100%' : `calc(100vh - ${footerHeight}px)`,
+      paddingBottom: `${footerHeight}px`,
+    },
   };
 };
