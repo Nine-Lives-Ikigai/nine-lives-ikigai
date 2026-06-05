@@ -4,7 +4,7 @@
     display: inline-block;
     margin: 22px 0;
     min-width: 80px;
-    padding: 11px;
+    padding: 11px 22px;
 
     border: 2px solid color(secondary, dark);
     border-radius: 10px;
@@ -33,6 +33,41 @@
 
     &.full {
         max-width: 100%;
+    }
+
+    // Button variants
+    &--primary {
+        background-color: color(primary, dark);
+        border-color: color(primary, dark);
+        color: color(gray, light);
+
+        &:hover {
+            background-color: color(primary, mid);
+            border-color: color(primary, mid);
+            color: color(gray, light);
+        }
+    }
+
+    &--secondary {
+        background-color: transparent;
+        border-color: color(secondary, dark);
+        color: color(secondary, dark);
+
+        &:hover {
+            background-color: color(secondary, dark);
+            color: color(gray, light);
+        }
+    }
+
+    &--tertiary {
+        background-color: transparent;
+        border-color: color(gray, mid);
+        color: color(gray, mid);
+
+        &:hover {
+            background-color: color(gray, mid);
+            color: color(gray, light);
+        }
     }
 }
 
