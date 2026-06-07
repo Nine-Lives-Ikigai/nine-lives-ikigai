@@ -12,7 +12,7 @@ const ScrollToTop = ({ pageRef }) => {
 
   return (
     <a 
-      className="button__return-top"
+      className="button button__return-top"
       style={{
         opacity: isVisible ? 1 : 0,
         visibility: isVisible ? 'visible' : 'hidden'
@@ -20,10 +20,7 @@ const ScrollToTop = ({ pageRef }) => {
       href="#section-top"
       onClick={handleClick}
     >
-      <img 
-        src={`${pageRef}app/img/icon-arrow-up.svg`} 
-        alt="Return to top" 
-      />
+      <span>→</span>
     </a>
   );
 };

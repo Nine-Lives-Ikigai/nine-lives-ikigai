@@ -68,21 +68,34 @@
 }
 
 .button__return-top {
-    background-color: color(gray, jet);
+    background-color: color(primary, dark);
     border-radius: 50%;
-    bottom: 66px;
-    color: white;
     height: 44px;
     line-height: 44px;
-    position: fixed;
-    right: 11px;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
+    min-height: auto;
+    min-width: auto;
+    padding: 0;
     width: 44px;
+    
+    position: fixed;
+    bottom: 66px;
+    right: 11px;
+
+    transform: rotate(-90deg);
+    transition: all 0.3s ease-in-out;
 
     &:hover { 
-        transform: translateY(-0.25rem); 
+        border-color: color(gray, light);
+        background-color: color(primary, mid);
+        transform: rotate(-90deg) translateX(2px); 
+    }
+
+    span {
+        height: 44px;
+        line-height: 33px;
+        width: 44px;
+
+        font-size: 33px;
     }
 
     img {        
