@@ -1,47 +1,47 @@
 // src/App.tsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
-import Home from './pages/Home';
-// Import other pages as you create them
-// import About from './pages/About';
-// import Contact from './pages/Contact';
 
-// Import your data
-import data from './data/data.json';
+// Pages
+import Home from './pages/Home';
+import Adopt from './pages/Adopt';
+
+// Data
+import { homeData, adoptData } from './utils/data';
 import './styles/main.scss';
 
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Home page */}
         <Route path="/" element={
           <Layout pagename="Home">
-            <Home data={data} />
+            <Home data={homeData} />
           </Layout>
         } />
-        
-        {/* Add other routes as needed */}
-        {/* 
-        <Route path="/about" element={
-          <Layout pagename="About">
-            <About data={data} />
+
+        {/* Adopt page */}
+        <Route path="/adopt" element={
+          <Layout pagename="Adopt">
+            <Adopt data={adoptData} />
           </Layout>
         } />
-        */}
         
         {/* 404 page */}
         <Route path="*" element={
           <Layout pagename="Page Not Found">
-
-            <div className="content flex-content flex--center">
-              <div className="section__container">
-                <div className="section__content section__content--badge center">
-                  <div className="flex__small--12 flex__large--12">
-                    <h1 className="section__title" id="section-404">404 - Page Not Found</h1>
-                    <p>The page you're looking for doesn't exist.</p>
+            <div className="flex-content flex--center flex--tall">
+              <section className="section section__hero section__hero--page">
+                <div className="section__container">
+                  <div className="section__content">
+                    <div className="xl-card">
+                      <h1 className="xl-card__title">404 - Page Not Found</h1>
+                      <p>The page you're looking for doesn't exist.</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </section>
             </div>
           </Layout>
         } />

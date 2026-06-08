@@ -1,0 +1,122 @@
+@use '../utilities' as *;
+
+.card-grid {
+  margin: 22px 0 0;
+}
+
+// Cat card
+.cat-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+// Cat card content
+.cat-card__image {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  width: 100%;
+}
+
+.cat-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 22px 0 0;
+}
+
+.cat-card__name {
+  font-size: 20px;
+  margin: 0 0 6px;
+}
+
+.cat-card__meta {
+  color: color(secondary, dark);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin: 0 0 11px;
+  text-transform: uppercase;
+}
+
+.cat-card__description {
+  color: color(gray, mid);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 22px;
+}
+
+.cat-card__cta {
+  margin-top: auto;
+}
+
+// Service card
+.service-card {
+  background-color: color(primary, mid);
+  border: 3px solid color(secondary, dark);
+  border-radius: 16px;
+  box-shadow: 2px 2px 4px 0px rgba(color(gray, darkest), 0.5);
+  min-height: 250px;
+  text-align: left;
+}
+
+// Service card modifiers
+.service-card--tall {
+  min-height: 300px;
+}
+
+// Service card content
+.service-card__number {
+  color: color(secondary, mid);
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 11px;
+}
+
+.service-card__title {
+  color: color(gray, lightest);
+  font-size: 20px;
+  margin: 0 11px 11px;
+
+  @include breakpoint($small-screen) {
+    font-size: 22px;
+  }
+}
+
+.service-card__description {
+  color: color(gray, lightest);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 11px 11px;
+}
+
+// Alternate service card
+.service-card--alt {
+  background-color: transparent;
+
+  .service-card__number,
+  .service-card__title {
+    color: color(secondary, lightest);
+  }
+
+  .service-card__description {
+    color: color(secondary, mid);
+  }
+}
+
+// Extra large card (Under Construction & 404)
+.xl-card {
+  background-color: color(primary, dark);
+  border: 6px solid color(secondary, dark);
+  border-radius: 30px;
+  box-shadow: 2px 2px 4px 0px rgba(color(gray, darkest), 0.5);
+  color: color(secondary, lightest);
+  display: block;
+  padding: 22px;
+  text-align: center;
+}
+
+.xl-card__title {
+  text-align: center;
+}

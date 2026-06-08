@@ -1,25 +1,27 @@
 @use '../utilities' as *;
 
+button,
 .button {
+    background-color: transparent;
+    border: 2px solid color(secondary, mid);
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px 0px rgba(color(gray, darkest), 0.8);
+    color: color(secondary, light);
+    cursor: pointer;
     display: inline-block;
+    font-size: 16px;
+    line-height: 16px;
     margin: 22px 0;
     min-width: 80px;
     padding: 11px 22px;
-
-    border: 2px solid color(secondary, dark);
-    border-radius: 10px;
-    box-shadow: 2px 2px 4px 0px rgba(color(gray, jet), 0.8);
-    color: color(secondary, light);
-    font-size: 16px;
-    line-height: 16px;
     text-decoration: none;
     text-align: center;
     transition: all 0.3s ease-out;
 
     &:hover { 
-        border-color: color(gray, light);
+        border-color: color(gray, lightest);
         box-shadow: none;
-        color: color(gray, light);
+        color: color(gray, lightest);
         text-decoration: none;
     }
 
@@ -34,36 +36,28 @@
     &.full {
         max-width: 100%;
     }
+}
 
-    // Button variants
-    &--primary {
-        background-color: color(primary, dark);;
-        border-color: color(primary, dark);
-        color: color(gray, light);
+// Button variants
+.button--alt {
+    background-color: color(primary, dark);
+    border: 2px solid color(secondary, dark);
+    color: color(secondary, mid);
 
-        &:hover {
-            background-color: color(primary, dark);
-        }
+    &:hover {
+        background-color: color(primary, dark);
     }
+}
 
-    &--secondary {
-        background-color: transparent;
-        border-color: color(secondary, dark);
-        color: color(secondary, dark);
+.button--alt2 {
+    background-color: transparent;
+    border-color: color(gray, mid);
+    color: color(gray, lightest);
 
-        &:hover {
-            background-color: color(secondary, dark);
-        }
-    }
-
-    &--tertiary {
-        background-color: transparent;
-        border-color: color(gray, mid);
-        color: color(gray, light);
-
-        &:hover {
-            background-color: color(gray, mild);
-        }
+    &:hover {
+        background-color: color(gray, dark);
+        border-color: color(gray, lightest);
+        color: color(secondary, lightest);
     }
 }
 
@@ -75,19 +69,18 @@
     min-height: auto;
     min-width: auto;
     padding: 0;
+    transform: rotate(-90deg);
+    transition: all 0.3s ease-in-out;
     width: 44px;
     
     position: fixed;
     bottom: 66px;
     right: 11px;
 
-    transform: rotate(-90deg);
-    transition: all 0.3s ease-in-out;
-
     &:hover { 
-        border-color: color(gray, light);
+        border-color: color(gray, lightest);
         background-color: color(primary, mid);
-        transform: rotate(-90deg) translateX(2px); 
+        transform: rotate(-90deg) translateX(2px);
     }
 
     span {
@@ -104,4 +97,61 @@
         width: calc(100% - 22px);
         vertical-align: middle;
     }
+}
+
+.button__chip {
+    background-color: transparent;
+    border: 2px solid color(secondary, dark);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 2px 22px;
+    padding: 4px 14px;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+    &:hover {
+        border-color: color(gray, lightest);
+        color: color(gray, lightest);
+    }
+
+    &.button__chip--active {
+        background-color: color(secondary, lightest);
+        color: color(grey, dark);
+    }
+}
+
+.accordion-button {
+    align-items: center;
+    background-color: transparent;
+    color: color(secondary, dark);
+    display: flex;
+    font-size: 18px;
+    justify-content: space-between;
+    padding: 22px 11px;
+    text-align: left;
+    width: 100%;
+
+    &[aria-expanded="true"] {
+        border-color: color(secondary, light);
+        color: color(secondary, light);
+
+        .accordion-button__icon {
+            color: color(secondary, light);
+        }
+    }
+}
+
+.accordion-button__icon {
+    color: color(secondary, dark);
+    flex-shrink: 0;
+    font-size: 22px;
+    line-height: 1;
+}
+
+.accordion-button__content {
+    color: color(secondary, mid);
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+    padding: 11px 11px 22px;
 }

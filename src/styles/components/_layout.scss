@@ -1,101 +1,69 @@
 @use '../utilities' as *;
 
+// Base flex container
 .flex-content {
-  align-items: start;
+  align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
+  gap: 11px;
+  justify-content: center;
+}
+
+// Alignment modifiers (apply to .flex-content)
+.flex--tall {
+  height: 100%;
 }
 
 .flex--center {
   align-items: center;
 }
 
-.flex__small--alt {
+.flex--stretch {
   align-items: stretch;
 }
 
-[class^="flex__small--"] {
-  flex: 1 1 100%;
-  max-width: 100%;
-  padding: 0 5.5px;
+.flex--column {
+  flex-direction: column;
 }
 
+.flex--row {
+  flex-direction: row;
+}
+
+[class^="flex__small--"],
 [class^="flex__large--"] {
   flex: 1 1 100%;
   max-width: 100%;
-  padding: 0 11px;
 }
 
-.flex__small--1 {  
-  flex: 1 1 calc(8.333% - 22px);
-}
-.flex__small--2 {  
-  flex: 1 1 calc(16.667% - 22px);
-}
-.flex__small--3 {  
-  flex: 1 1 calc(25% - 22px);
-}
-.flex__small--4 {  
-  flex: 1 1 calc(33.333% - 22px);
-}
-.flex__small--5 {  
-  flex: 1 1 calc(41.667% - 22px);
-}
-.flex__small--6 {  
-  flex: 1 1 calc(50% - 22px);
-}
-.flex__small--7 {  
-  flex: 1 1 calc(58.333% - 22px);
-}
-.flex__small--8 {  
-  flex: 1 1 calc(66.667% - 22px);
-}
-.flex__small--9 {  
-  flex: 1 1 calc(75% - 22px);
-}
-.flex__small--10 {  
-  flex: 1 1 calc(83.333% - 22px);
-}
-.flex__small--11 {  
-  flex: 1 1 calc(91.667% - 22px);
-}
-.flex__small--12 {  
-  flex: 1 1 calc(100% - 22px);
-}
+// Flex container padding
+[class^="flex__small--"] { padding: 0 5.5px; }
+[class^="flex__large--"] { padding: 0 11px; }
 
-.flex__large--1 {  
-  @include breakpoint($small-screen) { flex: 1 1 calc(8.333% - 22px); }
-}
-.flex__large--2 {  
-  @include breakpoint($small-screen) { flex: 1 1 calc(16.667% - 22px); }
-}
-.flex__large--3 {  
-  @include breakpoint($small-screen) { flex: 1 1 calc(25% - 22px); }
-}
-.flex__large--4 {  
-  @include breakpoint($small-screen) { flex: 1 1 calc(33.333% - 22px); }
-}
-.flex__large--5 {  
-  @include breakpoint($small-screen) { flex: 1 1 calc(41.667% - 22px); }
-}
-.flex__large--6 {  
-  @include breakpoint($small-screen) { flex: 1 1 calc(50% - 22px); }
-}
-.flex__large--7 {  
-  @include breakpoint($small-screen) { flex: 1 1 calc(58.333% - 22px); }
-}
-.flex__large--8 {  
-  @include breakpoint($small-screen) { flex: 1 1 calc(66.667% - 22px); }
-}
-.flex__large--9 {  
-  @include breakpoint($small-screen) { flex: 1 1 calc(75% - 22px); }
-}
-.flex__large--10 {  
-  @include breakpoint($small-screen) { flex: 1 1 calc(83.333% - 22px); }
-}
-.flex__large--11 {  
-  @include breakpoint($small-screen) { flex: 1 1 calc(91.667% - 22px); }
-}
-.flex__large--12 {  
-  @include breakpoint($small-screen) { flex: 1 1 calc(100% - 22px); }
-}
+// Small screen flex containers
+.flex__small--1  { flex-basis: calc(8.333%  - 11px); }
+.flex__small--2  { flex-basis: calc(16.667% - 11px); }
+.flex__small--3  { flex-basis: calc(25%     - 11px); }
+.flex__small--4  { flex-basis: calc(33.333% - 11px); }
+.flex__small--5  { flex-basis: calc(41.667% - 11px); }
+.flex__small--6  { flex-basis: calc(50%     - 11px); }
+.flex__small--7  { flex-basis: calc(58.333% - 11px); }
+.flex__small--8  { flex-basis: calc(66.667% - 11px); }
+.flex__small--9  { flex-basis: calc(75%     - 11px); }
+.flex__small--10 { flex-basis: calc(83.333% - 11px); }
+.flex__small--11 { flex-basis: calc(91.667% - 11px); }
+.flex__small--12 { flex-basis: calc(100%    - 11px); }
+
+// Mid and large screen flex containers
+.flex__large--1  { @include breakpoint($small-screen) { flex-basis: calc(8.333%  - 22px); } }
+.flex__large--2  { @include breakpoint($small-screen) { flex-basis: calc(16.667% - 22px); } }
+.flex__large--3  { @include breakpoint($small-screen) { flex-basis: calc(25%     - 22px); } }
+.flex__large--4  { @include breakpoint($small-screen) { flex-basis: calc(33.333% - 22px); } }
+.flex__large--5  { @include breakpoint($small-screen) { flex-basis: calc(41.667% - 22px); } }
+.flex__large--6  { @include breakpoint($small-screen) { flex-basis: calc(50%     - 22px); } }
+.flex__large--7  { @include breakpoint($small-screen) { flex-basis: calc(58.333% - 22px); } }
+.flex__large--8  { @include breakpoint($small-screen) { flex-basis: calc(66.667% - 22px); } }
+.flex__large--9  { @include breakpoint($small-screen) { flex-basis: calc(75%     - 22px); } }
+.flex__large--10 { @include breakpoint($small-screen) { flex-basis: calc(83.333% - 22px); } }
+.flex__large--11 { @include breakpoint($small-screen) { flex-basis: calc(91.667% - 22px); } }
+.flex__large--12 { @include breakpoint($small-screen) { flex-basis: calc(100%    - 22px); } }

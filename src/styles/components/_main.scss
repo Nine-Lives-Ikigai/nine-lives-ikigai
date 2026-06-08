@@ -50,7 +50,7 @@ p {
 }
 
 a {
-  color: color(primary, light);
+  color: color(primary, lightest);
   font-weight: 700;
   text-decoration: none;
 
@@ -66,7 +66,7 @@ h4,
 h5,
 h6 {
 	font-family: $header-font;
-  text-shadow: rgba(color(gray, jet), 0.8) 2px 2px 4px;
+  text-shadow: rgba(color(gray, darkest), 0.8) 2px 2px 4px;
 }
 
 p,
@@ -76,7 +76,7 @@ small,
 ul,
 li {
 	font-family: $default-font;
-  text-shadow: rgba(color(gray, jet), 0.8) 1px 1px 2px;
+  text-shadow: rgba(color(gray, darkest), 0.8) 1px 1px 2px;
 }
 
 .main-container {
@@ -84,8 +84,8 @@ li {
   min-height: 100%;
   position: relative;
 
-  background: linear-gradient(135deg, color(gray, dark), color(gray, jet));
-  color: color(gray, light);
+  background: linear-gradient(135deg, color(gray, dark), color(gray, darkest));
+  color: color(gray, lightest);
 }
 
 .main-content {

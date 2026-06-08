@@ -70,12 +70,7 @@ const Header = ({ pageRef: _pageRef }) => {
         
         <ul className={isNavOpen ? 'show-nav' : ''}>
           <li>
-            <a 
-              className="button button--primary" 
-              href="#section-adopt"
-              data-scroll="true"
-              onClick={(e) => handleScrollClick(e, '#adopt')}
-            >
+            <a className="button button--alt" href="/adopt">
               Adopt
             </a>
           </li>

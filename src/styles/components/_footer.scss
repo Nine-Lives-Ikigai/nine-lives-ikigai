@@ -8,7 +8,7 @@
    min-height: 55px;
    background-color: color(primary, dark);
    border-top: 2px solid color(secondary, dark);
-   box-shadow: 0px 2px 4px 0px rgba(color(gray, jet), 0.8) inset;
+   box-shadow: 0px 2px 4px 0px rgba(color(gray, darkest), 0.8) inset;
    
    .footer-controls {
       margin: 0 auto;
@@ -23,7 +23,7 @@
    .footer-signature {
       margin: 11px;
       display: inline-block;
-      color: color(secondary, light);
+      color: color(secondary, lightest);
       font-size: 12px;
       font-weight: 600;
       line-height: 16px;

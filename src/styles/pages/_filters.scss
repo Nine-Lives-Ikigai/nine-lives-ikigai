@@ -1,0 +1,29 @@
+@use '../utilities' as *;
+ 
+.filters__bar {
+  margin: 0 auto;
+  max-width: $large-screen;
+  padding: 0 22px;
+}
+ 
+.filters__toggle {
+  @include breakpoint($small-screen) {
+    display: none;
+  }
+}
+ 
+.filters__controls {
+  display: none;
+  flex-direction: column;
+  margin: 11px 0 0;
+ 
+  &.filters__controls--open {
+    display: flex;
+  }
+ 
+  @include breakpoint($small-screen) {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+  }
+}

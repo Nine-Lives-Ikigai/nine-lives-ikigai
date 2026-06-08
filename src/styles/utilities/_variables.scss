@@ -1,29 +1,34 @@
 // Colors accessible via nested maps
 $color-map: (
     primary: (
-        light   : #d1dacc,
-        mild    : #a3b59a,
-        mid     : #859d78,
-        dark    : #678557
+        lightest    : #d1dacc,
+        light       : #a3b59a,
+        mid         : #80a06f,
+        dark        : #678557,
+        darkest     : #526a45
     ),
     secondary: (
-        light   : #ffd700,
-        dark    : #ccac00
+        lightest    : #ffe34c,
+        light       : #ffd700,
+        mid         : #e5c100,
+        dark        : #ccac00,
+        darkest     : #a38900
     ),
     gray: (     
-        light   : #f0f2f3,
-        mild    : #a9b2bc,
-        mid     : #708090,
-        dark    : #434c56,
-        jet     : #21262b
+        lightest    : #f0f2f3,
+        light       : #a9b2bc,
+        mid         : #708090,
+        dark        : #434c56,
+        darkest     : #21262b
     )
 );
 
 // Media query upper sizes
-$mobile-screen: 480px;
+$mobile-screen:  480px;
 $small-screen: 768px;
 $medium-screen: 1024px;
 $large-screen: 1366px;
+$xl-screen:  1440px;
 
 // Fonts
 $default-font: 'Oxygen', sans-serif;

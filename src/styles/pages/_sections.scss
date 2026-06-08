@@ -1,61 +1,40 @@
 @use '../utilities' as *;
 
-.section__container {
-  margin: 0 auto;
-  padding: 0 0 11px;
-
-  @include breakpoint($small-screen) { 
-    padding: 0 0 44px;
-  }
-
-  hr:after { background-color: color(gray, light); }
-}
-
-.section__container--alt {
-  color: white;
-  margin: 55px 0 0;
-  padding: 0;
+// Base section
+.section {
+  padding: 44px 0;
 
   @include breakpoint($small-screen) {
-    margin: 99px 0 0;
+    padding: 88px 0;
   }
 }
 
+// Section content
 .section__content {
   margin: 0 auto;
-  max-width: $large-screen;
+  max-width: $medium-screen;
   padding: 11px 22px 11px;
 
-  @include breakpoint($small-screen) { 
+  @include breakpoint($small-screen) {
     padding: 22px 22px 44px;
   }
-}
-
-.section__content--badge {
-  border: 6px solid color(secondary, dark);
-  border-radius: 30px;
-  box-shadow: 2px 2px 4px 0px rgba(color(gray, jet), 0.5);
 }
 
 .section__title {
   text-align: center;
 }
 
-.section__title--alt {
-  color: color(secondary, light);
-}
-
-// Hero section specific styles
-.section__hero {
-  padding: 44px 0 66px;
-
-  @include breakpoint($small-screen) {
-    padding: 88px 0 132px;
-  }
+.section__label {
+  color: color(secondary, mid);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 0 11px;
+  text-transform: uppercase;
 }
 
 .section__body {
-  color: color(gray, dark);
+  color: color(gray, light);
   font-size: 18px;
   line-height: 1.6;
   margin: 0 auto 22px;
@@ -66,41 +45,7 @@
   }
 }
 
-.section__body--alt {
-  color: color(gray, light);
-}
-
-.section__label {
-  color: color(secondary, dark);
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin: 0 0 11px;
-  text-transform: uppercase;
-}
-
-.section__ctas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 22px;
-  justify-content: center;
-  margin: 22px 0 0;
-
-  .button {
-    margin: 0;
-  }
-}
-
-// Manifesto section
-.section__manifesto {
-  padding: 66px 0;
-  background-color: color(gray, light);
-
-  @include breakpoint($small-screen) {
-    padding: 88px 0;
-  }
-}
-
+// Quote & Cite
 .section__quote {
   display: inline-block;
   font-style: italic;
@@ -114,120 +59,58 @@
   }
 
   p {
-    margin: 0 0 22px;
+    color: color(secondary, mid);
+    margin: 0;
   }
 
   cite {
-    color: color(gray, mid);
+    color: color(gray, lightest);
     display: block;
     font-size: 16px;
-    font-style: normal;
+    margin: 0 0 22px;
     text-align: right;
   }
 }
 
-// Services section
-.section__services {
-  padding: 66px 0;
+// Alternative sections
+.section--alt {
+  background-color: color(primary, dark);
+
+  .section__title {
+    color: color(secondary, lightest);
+  }
+
+  .section__label {
+    color: color(gray, lightest);
+    font-size: 12px;  
+  }
+
+  .section__body {
+    color: color(gray, lightest);
+  }
+}
+
+.section--narrow {
+  padding: 22px 0;
 
   @include breakpoint($small-screen) {
-    padding: 88px 0;
+    padding: 33px 0;
+  }
+
+  .section__content {
+    max-width: $small-screen;
   }
 }
 
-.services__grid {
-  display: grid;
-  gap: 44px;
-  margin: 44px 0 0;
+// Section modifiers
+.section--wide {
+  padding: 44px 0 88px;
 
   @include breakpoint($small-screen) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 44px 66px;
+    padding: 132px 0 88px;
   }
 
-  @include breakpoint($large-screen) {
-    grid-template-columns: repeat(4, 1fr);
+  .section__content {
+    max-width: $large-screen;
   }
-}
-
-.service__item {
-  text-align: left;
-}
-
-.service__number {
-  color: color(secondary, dark);
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.service__title {
-  color: color(gray, light);
-  font-size: 20px;
-  margin: 11px 0 0;
-
-  @include breakpoint($small-screen) {
-    font-size: 22px;
-  }
-}
-
-.service__description {
-  color: color(gray, mid);
-  font-size: 16px;
-  line-height: 1.6;
-  margin: 11px 0 0;
-}
-
-// Philosophy section
-.section__philosophy {
-  padding: 66px 0;
-  background-color: color(gray, light);
-
-  @include breakpoint($small-screen) {
-    padding: 88px 0;
-  }
-}
-
-// Final CTA section
-.section__cta {
-  padding: 66px 0 88px;
-  text-align: center;
-
-  @include breakpoint($small-screen) {
-    padding: 88px 0 132px;
-  }
-}
-
-.section__tabs-container { 
-  margin: 0 0 22px; 
-}
-
-.section__tabs-list {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  overflow: hidden;
-  list-style: none;
-  text-align: left;
-
-  li {
-    padding: 22px 0;
-    display: block;
-    float: left;
-    width: 33%;
-    text-align: center;
-    background: color(primary, light);
-
-    &.selected { background: color(primary, mid); }
-  }
-}
-
-.section__tabs-content {
-  padding: 22px;
-  display: none;
-  font-size: 16px;
-  margin: 22px 0 0;
-  line-height: 22px;
-  background: color(primary, mid);
-
-  &.visible { display: block; }
 }
