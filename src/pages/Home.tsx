@@ -65,7 +65,7 @@ const Home = ({ data }: { data: { featuredCats: CatListing[] } }) => {
   return (
     <>
       {/* Hero Section */}
-      <section className="section section--wide">
+      <section className="section section--132">
         <div className="section__content center">
           <h1 className="section__title">{HERO.title}</h1>
           <p className="section__label">{HERO.label}</p>

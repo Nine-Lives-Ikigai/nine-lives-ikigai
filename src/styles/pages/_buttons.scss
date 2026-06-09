@@ -9,6 +9,7 @@ button,
     color: color(secondary, light);
     cursor: pointer;
     display: inline-block;
+    font-size: 14px;
     line-height: 16px;
     margin: 0 0 22px;
     min-width: 80px;
@@ -16,6 +17,10 @@ button,
     text-decoration: none;
     text-align: center;
     transition: all 0.3s ease-out;
+
+    @include breakpoint($small-screen) { 
+        font-size: 16px;
+    }
 
     &:hover { 
         border-color: color(gray, lightest);
@@ -102,9 +107,14 @@ button,
     border: 2px solid color(secondary, dark);
     border-radius: 5px;
     cursor: pointer;
+    font-size: 13.5px;
     margin: 0 2px 11px;
     padding: 4px 14px;
     transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+    @include breakpoint($small-screen) { 
+        font-size: 14px;
+    }
 
     &:hover {
         border-color: color(gray, lightest);

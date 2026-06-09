@@ -30,17 +30,20 @@
   letter-spacing: 1px;
   margin: 0 0 11px;
   text-transform: uppercase;
+
+  @include breakpoint($small-screen) {
+    margin: 0 0 22px;
+  }
 }
 
 .section__body {
   color: color(gray, light);
-  font-size: 18px;
   line-height: 1.6;
-  margin: 0 auto 22px;
+  margin: 0 auto 11px;
   max-width: 600px;
 
   @include breakpoint($small-screen) {
-    font-size: 20px;
+    margin: 0 auto 22px;
   }
 }
 
@@ -91,10 +94,24 @@
 // Alternative sections
 .section--alt2 {
   background-color: color(gray, darkest);
+  border-top: 2px solid color(secondary, darkest);
   box-shadow: 0 2px 8px rgba(#000, 0.25) inset;
 }
 
-.section--narrow {
+// Section modifiers
+.section--0 {
+  padding: 88px 0 0;
+
+  @include breakpoint($small-screen) {
+    padding: 132px 0 0;
+  }
+
+  .section__content {
+    max-width: $small-screen;
+  }
+}
+
+.section--33 {
   padding: 22px 0;
 
   @include breakpoint($small-screen) {
@@ -106,12 +123,23 @@
   }
 }
 
-// Section modifiers
-.section--wide {
+.section--88 {
+   padding: 44px 0 0;
+
+  @include breakpoint($small-screen) {
+    padding: 88px 0 0;
+  }
+
+  .section__content {
+    max-width: $medium-screen;
+  }
+}
+
+.section--132 {
   padding: 88px 0;
 
   @include breakpoint($small-screen) {
-    padding: 132px 0 88px;
+    padding: 132px 0;
   }
 
   .section__content {

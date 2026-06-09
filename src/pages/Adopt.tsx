@@ -230,7 +230,7 @@ const Adopt = ({ data }: AdoptProps) => {
   return (
     <>
       {/* Page Header */}
-      <section className="section section--wide">
+      <section className="section section--0">
         <div className="section__content center">
           <h1 className="section__title">{PAGE_HEADER.title}</h1>
           <p className="section__label">{PAGE_HEADER.label}</p>
@@ -238,8 +238,8 @@ const Adopt = ({ data }: AdoptProps) => {
         </div>
       </section>
 
-      {/* Filter Bar */}
-      <section className="section section--narrow">
+      {/* Filter */}
+      <section className="section section--33">
         <div className="filters__bar center">
           <button
             className="full"
@@ -301,7 +301,7 @@ const Adopt = ({ data }: AdoptProps) => {
         </div>
       </section>
 
-      {/* Listings Grid */}
+      {/* Listings */}
       <section className="section section--alt2">
         <div className="section__content">
           {filtered.length > 0 ? (
@@ -335,7 +335,7 @@ const Adopt = ({ data }: AdoptProps) => {
         </div>
       </section>
 
-      {/* Adoption Process */}
+      {/* Adoption */}
       <section className="section section--alt">
         <div className="section__content center">
           <h2 className="section__title">{PROCESS_STEPS.title}</h2>
@@ -353,7 +353,7 @@ const Adopt = ({ data }: AdoptProps) => {
       </section>
 
       {/* FAQ */}
-      <section className="section section--narrow">
+      <section className="section section--33">
         <div className="section__content center">
           <h2 className="section__title">{FAQ.title}</h2>
           {FAQ.groups.map((group) => (
@@ -384,7 +384,7 @@ const Adopt = ({ data }: AdoptProps) => {
         </div>
       </section>
 
-      {/* CTA Footer Band */}
+      {/* CTA */}
       <section className="section">
         <div className="section__content center">
           <h2 className="section__title">{FOOTER_CTA.title}</h2>
