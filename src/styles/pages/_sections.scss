@@ -82,7 +82,7 @@
 
   .section__label {
     color: color(gray, lightest);
-    font-size: 12px;  
+    font-size: 14px;  
   }
 
   .section__body {
@@ -104,7 +104,7 @@
 
 // Section modifiers
 .section--wide {
-  padding: 44px 0 88px;
+  padding: 88px 0;
 
   @include breakpoint($small-screen) {
     padding: 132px 0 88px;

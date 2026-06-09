@@ -101,49 +101,51 @@ const Adopt = ({ data }: AdoptProps) => {
             {filtersOpen ? 'Hide filters' : `Filter${hasActiveFilters ? '' : ''}`}
           </button>
           {(filtersOpen) ? (
-            <div className={`filters__controls flex-content${filtersOpen ? ' filters__controls--open' : ''}`}>
-            <div className="flex__small--12">
-              <p className="section__label">Age</p>
-              <div className="flex--center">
-                {(['all', 'kitten', 'adult', 'senior'] as AgeFilter[]).map((opt) => (
-                  <button
-                    key={opt}
-                    className={`button__chip${ageFilter === opt ? ' button__chip--active' : ''}`}
-                    onClick={() => setAgeFilter(opt)}
-                  >
-                    {opt === 'all' ? 'Any age' : opt.charAt(0).toUpperCase() + opt.slice(1)}
-                  </button>
-                ))}
+            <div className={`filters__controls ${filtersOpen ? ' filters__controls--open' : ''}`}>
+              <div className="flex-content flex--column-mobile flex--center">
+                <div className="flex__small--12">
+                <p className="section__label">Age</p>
+                <div className="flex--center">
+                  {(['all', 'kitten', 'adult', 'senior'] as AgeFilter[]).map((opt) => (
+                    <button
+                      key={opt}
+                      className={`button__chip${ageFilter === opt ? ' button__chip--active' : ''}`}
+                      onClick={() => setAgeFilter(opt)}
+                    >
+                      {opt === 'all' ? 'Any age' : opt.charAt(0).toUpperCase() + opt.slice(1)}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="flex__small--12">
-              <p className="section__label">Sex</p>
-              <div className="flex--center">
-                {(['all', 'male', 'female'] as SexFilter[]).map((opt) => (
-                  <button
-                    key={opt}
-                    className={`button__chip${sexFilter === opt ? ' button__chip--active' : ''}`}
-                    onClick={() => setSexFilter(opt)}
-                  >
-                    {opt === 'all' ? 'Any' : opt.charAt(0).toUpperCase() + opt.slice(1)}
-                  </button>
-                ))}
+              <div className="flex__small--12">
+                <p className="section__label">Sex</p>
+                <div className="flex--center">
+                  {(['all', 'male', 'female'] as SexFilter[]).map((opt) => (
+                    <button
+                      key={opt}
+                      className={`button__chip${sexFilter === opt ? ' button__chip--active' : ''}`}
+                      onClick={() => setSexFilter(opt)}
+                    >
+                      {opt === 'all' ? 'Any' : opt.charAt(0).toUpperCase() + opt.slice(1)}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="flex__small--12">
-              <p className="section__label">Temperament</p>
-              <div className="flex--center">
-                {(['all', 'social', 'independent', 'bonded pair'] as TemperamentFilter[]).map((opt) => (
-                  <button
-                    key={opt}
-                    className={`button__chip${temperamentFilter === opt ? ' button__chip--active' : ''}`}
-                    onClick={() => setTemperamentFilter(opt)}
-                  >
-                    {opt === 'all' ? 'Any' : opt.charAt(0).toUpperCase() + opt.slice(1)}
-                  </button>
-                ))}
+              <div className="flex__small--12">
+                <p className="section__label">Temperament</p>
+                <div className="flex--center">
+                  {(['all', 'social', 'independent', 'bonded pair'] as TemperamentFilter[]).map((opt) => (
+                    <button
+                      key={opt}
+                      className={`button__chip${temperamentFilter === opt ? ' button__chip--active' : ''}`}
+                      onClick={() => setTemperamentFilter(opt)}
+                    >
+                      {opt === 'all' ? 'Any' : opt.charAt(0).toUpperCase() + opt.slice(1)}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -237,7 +239,7 @@ const Adopt = ({ data }: AdoptProps) => {
             <p className="section__body">
               Fostering and donating make every adoption possible.
             </p>
-          <div className="flex-content">
+          <div className="flex-content flex--column-mobile flex--center">
             <a href="/foster" className="button button--alt2">Become a Foster</a>
             <a href="/donate" className="button button">Give with Heart</a>
           </div>

@@ -48,8 +48,8 @@ const Home = ({ data }: { data: { featuredCats: CatListing[] } }) => {
             hardship, homelessness, or simply need a second chance. Rooted in ikigai and the art
             of kintsugi, we find meaning in the mending.
           </p>
-          <div className="section__ctas flex-content">
-            <a href="#adopt" className="button button--alt">Meet Our Cats</a>
+          <div className="flex-content flex--column-mobile flex--center">
+            <a href="/adopt" className="button button--alt">Meet Our Cats</a>
             <a href="#support" className="button button">Support Our Mission</a>
           </div>
         </div>
@@ -116,10 +116,10 @@ const Home = ({ data }: { data: { featuredCats: CatListing[] } }) => {
       <section className="section" id="support">
         <div className="section__content center">
           <h2 className="section__title">Every life has a reason. Help us find theirs.</h2>
-          <div className="flex-content">
+          <div className="flex-content flex--column-mobile flex--center">
             <a href="/adopt" className="button button--alt">Adopt a Cat</a>
-            <a href="#foster" className="button button--alt2">Become a Foster</a>
-            <a href="#donate" className="button">Give with Heart</a>
+            <a href="/foster" className="button button--alt2">Become a Foster</a>
+            <a href="/donate" className="button">Give with Heart</a>
           </div>
         </div>
       </section>

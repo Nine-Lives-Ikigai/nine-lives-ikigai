@@ -56,13 +56,18 @@
   border: 3px solid color(secondary, dark);
   border-radius: 16px;
   box-shadow: 2px 2px 4px 0px rgba(color(gray, darkest), 0.5);
-  min-height: 250px;
   text-align: left;
+
+  @include breakpoint($small-screen) { 
+    min-height: 250px;
+  }
 }
 
 // Service card modifiers
 .service-card--tall {
-  min-height: 300px;
+  @include breakpoint($small-screen) { 
+    min-height: 300px;
+  }
 }
 
 // Service card content

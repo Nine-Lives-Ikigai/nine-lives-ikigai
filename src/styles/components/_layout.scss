@@ -26,6 +26,14 @@
   flex-direction: column;
 }
 
+.flex--column-mobile {
+  flex-direction: column;
+
+  @include breakpoint($small-screen) { 
+    flex-direction: row;
+  }
+}
+
 .flex--row {
   flex-direction: row;
 }

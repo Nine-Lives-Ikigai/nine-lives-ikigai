@@ -24,8 +24,8 @@ iframe {
 }
 
 h1 {
-  margin: 0 auto 22px;
   font-size: 36px;
+  margin: 0 auto 22px;
   text-align: center;
 
   @include breakpoint($small-screen) { 
@@ -35,13 +35,13 @@ h1 {
 }
 
 h2 {
-  margin: 0 auto 11px;
   font-size: 28px;
+  margin: 0 auto 11px;
   text-align: center;
 
   @include breakpoint($small-screen) { 
-	margin: 44px auto 22px;
-	font-size: 33px;
+    margin: 44px auto 22px;
+    font-size: 33px;
   }
 }
 
