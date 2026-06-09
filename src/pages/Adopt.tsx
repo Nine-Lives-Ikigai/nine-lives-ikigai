@@ -302,7 +302,7 @@ const Adopt = ({ data }: AdoptProps) => {
       </section>
 
       {/* Listings Grid */}
-      <section className="section">
+      <section className="section section--alt2">
         <div className="section__content">
           {filtered.length > 0 ? (
             <div className="flex-content card-grid">

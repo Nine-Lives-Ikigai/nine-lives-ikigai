@@ -2,10 +2,10 @@
 
 // Base section
 .section {
-  padding: 44px 0;
+  padding: 22px 0;
 
   @include breakpoint($small-screen) {
-    padding: 88px 0;
+    padding: 66px 0;
   }
 }
 
@@ -13,10 +13,10 @@
 .section__content {
   margin: 0 auto;
   max-width: $medium-screen;
-  padding: 11px 22px 11px;
+  padding: 11px 22px;
 
   @include breakpoint($small-screen) {
-    padding: 22px 22px 44px;
+    padding: 22px;
   }
 }
 
@@ -26,7 +26,6 @@
 
 .section__label {
   color: color(secondary, mid);
-  font-size: 16px;
   font-weight: 700;
   letter-spacing: 1px;
   margin: 0 0 11px;
@@ -49,18 +48,18 @@
 .section__quote {
   display: inline-block;
   font-style: italic;
-  font-size: 20px;
   line-height: 1.6;
   margin: 0;
   max-width: 800px;
 
-  @include breakpoint($small-screen) {
-    font-size: 24px;
-  }
-
   p {
     color: color(secondary, mid);
+    font-size: 20px;
     margin: 0;
+
+    @include breakpoint($small-screen) {
+      font-size: 24px;
+    }
   }
 
   cite {
@@ -82,12 +81,17 @@
 
   .section__label {
     color: color(gray, lightest);
-    font-size: 14px;  
   }
 
   .section__body {
     color: color(gray, lightest);
   }
+}
+
+// Alternative sections
+.section--alt2 {
+  background-color: color(gray, darkest);
+  box-shadow: 0 2px 8px rgba(#000, 0.25) inset;
 }
 
 .section--narrow {

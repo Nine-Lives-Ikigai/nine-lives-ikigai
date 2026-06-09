@@ -47,6 +47,19 @@ h2 {
 
 p {
   margin: 0 0 22px;
+
+  @include breakpoint($small-screen) { 
+    margin: 0 0 11px;
+  }
+}
+
+p,
+span {
+  font-size: 14px;
+
+  @include breakpoint($small-screen) { 
+    font-size: 16px;
+  }
 }
 
 a {
