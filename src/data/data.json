@@ -1,4 +1,255 @@
 {
-   "featuredCats": [],
-   "cats": []
+  "featuredCats": [],
+  "cats": [],
+  "home": {
+    "hero": {
+      "title": "Nine Lives Ikigai",
+      "label": "Where every cat finds its purpose again.",
+      "body": "We believe every cat deserves a life of purpose and dignity; whether they've known hardship, homelessness, or simply need a second chance. Rooted in ikigai and the art of kintsugi, we find meaning in the mending.",
+      "cta": [
+        { "label": "Meet Our Cats", "href": "/adopt", "variant": "button--alt" },
+        { "label": "Get Involved", "href": "#support", "variant": "button" }
+      ]
+    },
+    "about": {
+      "title": "Our Belief",
+      "quote": {
+        "text": "Life can be started over many times. People live while mending.",
+        "cite": "— Hori Michihiro, 'Kintsugi Ojisan'"
+      },
+      "body": "We apply this to every cat that comes through our doors: the feral colony cat, the injured stray, the owner-surrendered companion. Their past does not diminish them. Our work is the gold in the cracks."
+    },
+    "services": {
+      "title": "What We Do",
+      "label": "Four paths to a better life",
+      "items": [
+        {
+          "number": "01",
+          "title": "Community Care",
+          "description": "Humane population management through community trap-neuter-return (TNR) programs; stabilizing colonies, reducing suffering, and coexisting with feral cats."
+        },
+        {
+          "number": "02",
+          "title": "Foster Care",
+          "description": "Temporary homes that give cats the safety, socialization, and healing they need before finding a permanent family."
+        },
+        {
+          "number": "03",
+          "title": "Adoption",
+          "description": "Thoughtful, lasting placements for stray, rescued, and surrendered cats; matching the right cat to the right home."
+        },
+        {
+          "number": "04",
+          "title": "Veterinary Aid",
+          "description": "Medical care, spay/neuter access, and emergency treatment for cats in need, regardless of their origins or circumstances."
+        }
+      ]
+    },
+    "adoptTeaser": {
+      "title": "Meet Our Cats",
+      "label": "Looking for a home right now",
+      "cta": { "label": "See All Available Cats", "href": "/adopt", "variant": "button--alt" }
+    },
+    "finalCta": {
+      "title": "Every life has a reason. Help us find theirs.",
+      "cta": [
+        { "label": "Adopt a Cat", "href": "/adopt", "variant": "button--alt" },
+        { "label": "Donate", "href": "/donate", "variant": "button" },
+        { "label": "Become a Foster", "href": "/foster", "variant": "button--alt2" }
+      ]
+    }
+  },
+  "adopt": {
+    "pageHeader": {
+      "title": "Find Your Cat",
+      "label": "Every cat here is ready for their next chapter.",
+      "body": "Each listing below is a cat in our care: fostered, loved, and waiting. Take your time. The right match is worth it.",
+      "empty": {
+        "filtered": "No cats match your current filters.",
+        "clearFilters": "Clear filters",
+        "default": "No cats are available for adoption. Please check back later."
+      }
+    },
+    "processSteps": {
+      "title": "How It Works",
+      "label": "Four steps to bringing your cat home",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Apply",
+          "description": "Complete our adoption application. Tell us about your home, lifestyle, and the kind of cat you're hoping to find."
+        },
+        {
+          "number": "02",
+          "title": "Meet Your Match",
+          "description": "We'll introduce you to cats whose temperament and needs fit your home. Visits are relaxed and unhurried. We let the cat set the pace."
+        },
+        {
+          "number": "03",
+          "title": "Quick Check-in",
+          "description": "A brief call or video chat to confirm the setup and answer any last questions before your cat comes home."
+        },
+        {
+          "number": "04",
+          "title": "Settle In",
+          "description": "Your cat comes home with a starter pack and guidance for the first few weeks. We're available whenever questions come up: before, during, and after the transition."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "groups": [
+        {
+          "category": "Adoption Fee",
+          "items": [
+            {
+              "question": "What is the adoption fee?",
+              "answer": "Fees vary by cat and cover spay/neuter, vaccinations, microchipping, and a veterinary health check. Specific fees are listed on each cat's profile."
+            },
+            {
+              "question": "Are fees different for kittens vs. adult vs. senior cats?",
+              "answer": "Yes. Kittens carry a higher fee; adult cats are mid-range; senior cats (8+) are reduced. Exact amounts are listed on each profile."
+            },
+            {
+              "question": "Are fees waived or discounted for special needs cats?",
+              "answer": "Special needs cats are adopted at a reduced fee. In some cases fees are waived entirely. Check individual profiles for details."
+            },
+            {
+              "question": "Do you offer senior-for-senior discounts?",
+              "answer": "Yes. Adopters 65 or older adopting a senior cat qualify for a waived adoption fee."
+            },
+            {
+              "question": "What payment methods do you accept?",
+              "answer": "We accept card, cash, and online payment at the time of adoption."
+            }
+          ]
+        },
+        {
+          "category": "Process & Timeline",
+          "items": [
+            {
+              "question": "How long does the process take?",
+              "answer": "Most adoptions are completed within one to two weeks from application to welcome home."
+            },
+            {
+              "question": "Can I reserve or hold a cat while I apply?",
+              "answer": "We can place a short hold on a cat once your application is under review. Contact us to arrange this."
+            },
+            {
+              "question": "Can I adopt same-day?",
+              "answer": "Same-day adoption is not available. The application and check-in steps ensure every placement is the right fit."
+            },
+            {
+              "question": "What happens if the cat I want is adopted before I am approved?",
+              "answer": "We'll work with you to find another match. Your application stays active and we'll be in touch as soon as a suitable cat is available."
+            },
+            {
+              "question": "How will I be contacted after I apply?",
+              "answer": "By email within 2-3 business days of submission."
+            }
+          ]
+        },
+        {
+          "category": "Requirements",
+          "items": [
+            {
+              "question": "Do I need to be a homeowner?",
+              "answer": "No. Renters are welcome provided they have documented landlord approval for cats."
+            },
+            {
+              "question": "What if my landlord approval isn't in writing?",
+              "answer": "Written landlord approval, a signed letter or email, is required before adoption is finalized. Verbal confirmation is not accepted."
+            },
+            {
+              "question": "Is there an age requirement for adopters?",
+              "answer": "Adopters must be 21 or older. Nine Lives Ikigai operates in California; all adoptions are subject to California law."
+            },
+            {
+              "question": "Do children in the home need to meet the cat first?",
+              "answer": "Children 15 and under must meet the cat before adoption is finalized. We'll arrange this during the meet step."
+            },
+            {
+              "question": "Do my existing pets need to be spayed or neutered?",
+              "answer": "Yes. Any cats currently in the household must be spayed or neutered prior to adoption."
+            },
+            {
+              "question": "Do you have a non-discrimination policy?",
+              "answer": "Yes. We do not discriminate on the basis of race, color, religion, sex, gender identity, sexual orientation, national origin, age, disability, or any other characteristic protected by law. This applies to all adoption services and programs."
+            }
+          ]
+        },
+        {
+          "category": "After Adoption",
+          "items": [
+            {
+              "question": "Do your cats come vaccinated, microchipped, and spayed/neutered?",
+              "answer": "Yes. All cats are spayed or neutered, up to date on age-appropriate vaccinations, and microchipped before coming home."
+            },
+            {
+              "question": "What support do you offer after adoption?",
+              "answer": "We remain available by phone and email for as long as you need us. Your starter pack includes care guidance for the first few weeks."
+            },
+            {
+              "question": "What does the starter pack include?",
+              "answer": "Food for the first few days, litter, a carrier liner, and your cat's veterinary history and records."
+            },
+            {
+              "question": "Can I meet a cat more than once before deciding?",
+              "answer": "Yes. We encourage it for cats that need more time to warm up."
+            },
+            {
+              "question": "Do you offer any veterinary assistance after adoption?",
+              "answer": "We run a veterinary assistance program for cats in need. If you're facing unexpected medical costs after adoption, contact us. We may be able to help."
+            }
+          ]
+        },
+        {
+          "category": "Fit & Compatibility",
+          "items": [
+            {
+              "question": "Do you have cats that are good with dogs?",
+              "answer": "Some of our cats are dog-tested and listed as dog-friendly on their profiles. We'll flag this during matching."
+            },
+            {
+              "question": "Do you require indoor-only adoption?",
+              "answer": "Yes. All cats are adopted to indoor-only homes."
+            },
+            {
+              "question": "What if the cat isn't getting along with my other pets?",
+              "answer": "Contact us. We'll provide guidance first. If the placement isn't working, we'll help arrange a return and work toward a better match."
+            }
+          ]
+        },
+        {
+          "category": "Returns",
+          "items": [
+            {
+              "question": "What if it's not the right fit?",
+              "answer": "Per your adoption agreement, we ask that you return the cat to us rather than rehome independently. Finding the right match matters more than any single placement."
+            },
+            {
+              "question": "Is there a trial period?",
+              "answer": "There is no formal trial period, but we stay closely in touch during the first two weeks and will help troubleshoot any issues that come up."
+            },
+            {
+              "question": "What if my circumstances change after adoption?",
+              "answer": "Contact us. Whether it's a move, allergies, or a change in household, we'll work with you on the best path forward for the cat."
+            }
+          ]
+        }
+      ]
+    },
+    "footerCta": {
+      "title": "Not ready to adopt?",
+      "body": "Fostering and donating make every adoption possible.",
+      "cta": [
+        { "label": "Donate", "href": "/donate", "variant": "button" },
+        { "label": "Become a Foster", "href": "/foster", "variant": "button--alt2" }
+      ]
+    }
+  },
+  "notFound": {
+    "title": "404 — Page Not Found",
+    "body": "The page you're looking for doesn't exist."
+  }
 }
