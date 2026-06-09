@@ -3,7 +3,7 @@ import { CatListing } from '../utils/cat';
 const HERO = {
   title: 'Nine Lives Ikigai',
   label: 'Where every cat finds its purpose again.',
-  body: "We believe every cat deserves a life of purpose and dignity — whether they've known hardship, homelessness, or simply need a second chance. Rooted in ikigai and the art of kintsugi, we find meaning in the mending.",
+  body: "We believe every cat deserves a life of purpose and dignity; whether they've known hardship, homelessness, or simply need a second chance. Rooted in ikigai and the art of kintsugi, we find meaning in the mending.",
   cta: [
     { label: 'Meet Our Cats', href: '/adopt', variant: 'button--alt' },
     { label: 'Get Involved', href: '#support', variant: 'button' },
@@ -25,8 +25,8 @@ const SERVICES = {
   items: [
     {
       number: '01',
-      title: 'Community Care (TNR)',
-      description: 'Humane population management through community trap-neuter-return programs; stabilizing colonies, reducing suffering, and coexisting with feral cats.',
+      title: 'Community Care',
+      description: 'Humane population management through community trap-neuter-return (TNR) programs; stabilizing colonies, reducing suffering, and coexisting with feral cats.',
     },
     {
       number: '02',

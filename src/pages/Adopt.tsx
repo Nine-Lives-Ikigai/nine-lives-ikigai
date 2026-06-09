@@ -34,7 +34,7 @@ const PROCESS_STEPS = {
       number: '02',
       title: 'Meet Your Match',
       description:
-        "We'll introduce you to cats whose temperament and needs fit your home. Visits are relaxed and unhurried — we let the cat set the pace.",
+        "We'll introduce you to cats whose temperament and needs fit your home. Visits are relaxed and unhurried. We let the cat set the pace.",
     },
     {
       number: '03',
@@ -46,7 +46,7 @@ const PROCESS_STEPS = {
       number: '04',
       title: 'Settle In',
       description:
-        "Your cat comes home with a starter pack and guidance for the first few weeks. We're available whenever questions come up — before, during, and after the transition.",
+        "Your cat comes home with a starter pack and guidance for the first few weeks. We're available whenever questions come up: before, during, and after the transition.",
     },
   ],
 };
@@ -113,7 +113,7 @@ const FAQ = {
         },
         {
           question: "What if my landlord approval isn't in writing?",
-          answer: 'Written landlord approval — a signed letter or email — is required before adoption is finalized. Verbal confirmation is not accepted.',
+          answer: 'Written landlord approval, a signed letter or email, is required before adoption is finalized. Verbal confirmation is not accepted.',
         },
         {
           question: 'Is there an age requirement for adopters?',
@@ -154,7 +154,7 @@ const FAQ = {
         },
         {
           question: 'Do you offer any veterinary assistance after adoption?',
-          answer: "We run a veterinary assistance program for cats in need. If you're facing unexpected medical costs after adoption, contact us — we may be able to help.",
+          answer: "We run a veterinary assistance program for cats in need. If you're facing unexpected medical costs after adoption, contact us. We may be able to help.",
         },
       ],
     },
