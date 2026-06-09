@@ -33,12 +33,10 @@ function App() {
           <Layout pagename="Page Not Found">
             <div className="flex-content flex--center flex--tall">
               <section className="section section__hero section__hero--page">
-                <div className="section__container">
-                  <div className="section__content">
-                    <div className="xl-card">
-                      <h1 className="xl-card__title">404 - Page Not Found</h1>
-                      <p>The page you're looking for doesn't exist.</p>
-                    </div>
+                <div className="section__content">
+                  <div className="xl-card">
+                    <h1 className="xl-card__title">404 - Page Not Found</h1>
+                    <p>The page you're looking for doesn't exist.</p>
                   </div>
                 </div>
               </section>
