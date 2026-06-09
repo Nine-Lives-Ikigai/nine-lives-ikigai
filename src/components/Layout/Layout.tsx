@@ -30,7 +30,7 @@ const Layout = ({ children, pagename = 'Home' }) => {
           
           {children}
 
-          {pagename !== 'Home' && <ScrollToTop pageRef={pageRef} />}
+          <ScrollToTop pageRef={pageRef} />
 
           <Footer />
         </div>
