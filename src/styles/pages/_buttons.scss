@@ -11,7 +11,7 @@ button,
     display: inline-block;
     font-size: 14px;
     line-height: 16px;
-    margin: 0 0 22px;
+    margin: 22px 0 0;
     min-width: 80px;
     padding: 11px 22px;
     text-decoration: none;
@@ -97,7 +97,7 @@ button,
     width: 44px;
     
     position: fixed;
-    bottom: 108px;
+    bottom: 11px;
     right: 11px;
     z-index: $button-return-top;
 
@@ -128,7 +128,7 @@ button,
     border-radius: 5px;
     cursor: pointer;
     font-size: 13.5px;
-    margin: 0 2px 11px;
+    margin: 11px 2px 0;
     padding: 4px 14px;
     text-decoration: none;
     transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
