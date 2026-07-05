@@ -71,7 +71,7 @@ const Home = ({ data }: HomeProps) => {
                   <h3 className="cat-card__name">{cat.name}</h3>
                   <p className="cat-card__meta">{cat.age} &middot; {cat.sex}</p>
                   <p className="cat-card__description">{cat.blurb}</p>
-                  <a href={`/adopt/${cat.id}`} className="button cat-card__cta">
+                  <a href="/adopt" className="button cat-card__cta">
                     Meet {cat.name}
                   </a>
                 </div>

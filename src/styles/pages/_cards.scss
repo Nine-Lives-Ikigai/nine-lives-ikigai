@@ -54,6 +54,7 @@
   border: 3px solid color(secondary, dark);
   border-radius: 16px;
   box-shadow: 2px 2px 4px 0px rgba(color(gray, darkest), 0.5);
+  padding-bottom: 11px;
   text-align: left;
 
   @include breakpoint($small-screen) { 
@@ -62,9 +63,16 @@
 }
 
 // Service card modifiers
+.service-card--short {
+  @include breakpoint($small-screen) { 
+    min-height: 180px;
+  }
+}
+
+// Service card modifiers
 .service-card--tall {
   @include breakpoint($small-screen) { 
-    min-height: 300px;
+    min-height: 350px;
   }
 }
 
@@ -74,13 +82,13 @@
   display: inline-block;
   font-size: 18px;
   font-weight: 700;
-  margin: 11px;
+  margin: 11px 11px 0;
 }
 
 .service-card__title {
   color: color(gray, lightest);
   font-size: 20px;
-  margin: 0 11px 11px;
+  margin: 11px 11px 0;
 
   @include breakpoint($small-screen) {
     font-size: 22px;
@@ -90,7 +98,12 @@
 .service-card__description {
   color: color(gray, lightest);
   line-height: 1.6;
-  margin: 0 11px 11px;
+  margin: 11px 11px 0;
+}
+
+.service-card__button {
+  display: block;
+  margin: 11px;
 }
 
 // Alternate service card

@@ -43,25 +43,43 @@ button,
 }
 
 // Button variants
-.button--alt {
-    background-color: color(primary, dark);
-    border: 2px solid color(secondary, dark);
-    color: color(secondary, mid);
 
+.button--primary,
+.button--secondary,
+.button--gray {
     &:hover {
-        background-color: color(primary, dark);
+        border-color: color(gray, lightest);
+        color: color(gray, lightest);
     }
 }
 
-.button--alt2 {
-    background-color: transparent;
-    border-color: color(gray, mid);
+.button--primary {
+    background-color: color(primary, dark);
+    border-color: color(secondary, light);
+    color: color(secondary, light);
+
+    &:hover {
+        background-color: color(primary, mid);
+    }
+}
+
+.button--secondary {
+    background-color: color(secondary, darkest);
+    border-color: color(secondary, light);
+    color: color(secondary, light);
+
+    &:hover {
+        background-color: color(secondary, dark);
+    }
+}
+
+.button--gray {
+    background-color: rgba(color(gray, darkest), 0.5);
+    border-color: color(gray, light);
     color: color(gray, lightest);
 
     &:hover {
-        background-color: color(gray, dark);
-        border-color: color(gray, lightest);
-        color: color(secondary, lightest);
+        background-color: color(gray, mid);
     }
 }
 
@@ -78,8 +96,9 @@ button,
     width: 44px;
     
     position: fixed;
-    bottom: 44px;
+    bottom: 108px;
     right: 11px;
+    z-index: $button-return-top;
 
     &:hover { 
         border-color: color(gray, lightest);
@@ -110,6 +129,7 @@ button,
     font-size: 13.5px;
     margin: 0 2px 11px;
     padding: 4px 14px;
+    text-decoration: none;
     transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 
     @include breakpoint($small-screen) { 
@@ -119,6 +139,7 @@ button,
     &:hover {
         border-color: color(gray, lightest);
         color: color(gray, lightest);
+        text-decoration: none;
     }
 
     &.button__chip--active {

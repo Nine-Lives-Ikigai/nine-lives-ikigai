@@ -1,14 +1,18 @@
 {
   "featuredCats": [],
   "cats": [],
+  "footer": {
+    "legalLine": "Nine Lives Ikigai, Inc. is a California nonprofit public benefit corporation. EIN: 42-2634127.",
+    "taxExemptStatusNote": "Nine Lives Ikigai, Inc. is recognized as tax-exempt under IRC Section 501(c)(3), effective April 21, 2026. Contributions are tax-deductible under IRC Section 170."
+  },
   "home": {
     "hero": {
       "title": "Nine Lives Ikigai",
       "label": "Where every cat finds its purpose again.",
       "body": "We believe every cat deserves a life of purpose and dignity; whether they've known hardship, homelessness, or simply need a second chance. Rooted in ikigai and the art of kintsugi, we find meaning in the mending.",
       "cta": [
-        { "label": "Meet Our Cats", "href": "/adopt", "variant": "button--alt" },
-        { "label": "Get Involved", "href": "#support", "variant": "button" }
+        { "label": "Meet Our Cats", "href": "/adopt", "variant": "button--primary" },
+        { "label": "Get Involved", "href": "#support", "variant": "button--secondary" }
       ]
     },
     "about": {
@@ -48,14 +52,99 @@
     "adoptTeaser": {
       "title": "Meet Our Cats",
       "label": "Looking for a home right now",
-      "cta": { "label": "See All Available Cats", "href": "/adopt", "variant": "button--alt" }
+      "cta": { "label": "See All Available Cats", "href": "/adopt", "variant": "button--secondary" }
     },
     "finalCta": {
       "title": "Every life has a reason. Help us find theirs.",
       "cta": [
-        { "label": "Adopt a Cat", "href": "/adopt", "variant": "button--alt" },
-        { "label": "Donate", "href": "/donate", "variant": "button" },
-        { "label": "Become a Foster", "href": "/foster", "variant": "button--alt2" }
+        { "label": "Adopt a Cat", "href": "/adopt", "variant": "button--primary" },
+        { "label": "Donate", "href": "/donate", "variant": "button--secondary" },
+        { "label": "Become a Foster", "href": "/foster", "variant": "button--gray" }
+      ]
+    }
+  },
+  "about": {
+    "pageHeader": {
+      "title": "Who We Are",
+      "label": "The gold in the cracks.",
+      "body": "Nine Lives Ikigai, Inc. is a California nonprofit public benefit corporation devoted to the humane treatment and welfare of cats in need: through trap-neuter-return, foster care, adoption, veterinary assistance, and public education."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "body": "We promote the health, welfare, and humane treatment of cats in need, including through trap-neuter-return (TNR) programs, foster care, adoption services, and veterinary assistance for stray, feral, rescued, and owner-surrendered cats, and we educate the public on responsible cat ownership and humane population management."
+    },
+    "board": {
+      "title": "Our Board",
+      "label": "Volunteer-led, community-rooted",
+      "members": [
+        { "name": "Patrick Petrushonis", "title": "President" },
+        { "name": "Hanna Liang", "title": "Treasurer" },
+        { "name": "Keven Liang", "title": "Secretary" },
+        { "name": "Sharon Chen", "title": "Director" },
+        { "name": "Alexander Kintner", "title": "Director" },
+        { "name": "Beatrice Kintner", "title": "Director" }
+      ]
+    },
+    "transparency": {
+      "title": "Transparency",
+      "body": "Nine Lives Ikigai is a newly formed organization. The IRS determined our 501(c)(3) tax-exempt status effective April 21, 2026. Financial reports and our first required annual information return will be posted here once filed.",
+      "cta": { "label": "Learn About Our Filings", "href": "/contact" }
+    },
+    "footerCta": {
+      "title": "Want to get involved?",
+      "body": "Foster, adopt, or volunteer; every role helps a cat find their way home.",
+      "cta": [
+        { "label": "Become a Foster", "href": "/foster", "variant": "button--gray" },
+        { "label": "Adopt a Cat", "href": "/adopt", "variant": "button--primary" }
+      ]
+    }
+  },
+  "foster": {
+    "pageHeader": {
+      "title": "Become a Foster",
+      "label": "A safe place between hardship and home.",
+      "body": "Fostering gives a cat the safety, socialization, and healing they need before they're ready for a permanent family. We provide the supplies and support; you provide the home."
+    },
+    "whatYouProvide": {
+      "title": "What Fostering Involves",
+      "items": [
+        {
+          "title": "Time and Space",
+          "description": "A quiet, secure space in your home for the duration of the foster period, typically a few weeks to a few months."
+        },
+        {
+          "title": "Daily Care",
+          "description": "Food, litter, socialization, and basic care. We cover all veterinary costs."
+        },
+        {
+          "title": "Updates",
+          "description": "Occasional photos or notes to help us track the cat's progress and match them with the right adopter."
+        }
+      ]
+    },
+    "whatWeProvide": {
+      "title": "What We Provide",
+      "items": [
+        {
+          "title": "Supplies",
+          "description": "Food, litter, a carrier, and any equipment specific to the cat's needs."
+        },
+        {
+          "title": "Veterinary Care",
+          "description": "All medical care, including emergency treatment, is covered by Nine Lives Ikigai."
+        },
+        {
+          "title": "Guidance",
+          "description": "Ongoing support from our team for behavioral questions, socialization tips, and anything else that comes up."
+        }
+      ]
+    },
+    "footerCta": {
+      "title": "Ready to foster?",
+      "body": "Tell us about your home and we'll follow up with next steps.",
+      "cta": [
+        { "label": "Contact Us", "href": "/contact", "variant": "button--primary" },
+        { "label": "Donate Instead", "href": "/donate", "variant": "button--secondary" }
       ]
     }
   },
@@ -104,7 +193,7 @@
           "items": [
             {
               "question": "What is the adoption fee?",
-              "answer": "Fees vary by cat and cover spay/neuter, vaccinations, microchipping, and a veterinary health check. Specific fees are listed on each cat's profile."
+              "answer": "Fees vary by cat and are set on a sliding scale below the cost of care. Each fee covers spay/neuter, vaccinations, microchipping, and a veterinary health check. Specific fees are listed on each cat's profile."
             },
             {
               "question": "Are fees different for kittens vs. adult vs. senior cats?",
@@ -162,7 +251,7 @@
             },
             {
               "question": "Is there an age requirement for adopters?",
-              "answer": "Adopters must be 21 or older. Nine Lives Ikigai operates in California; all adoptions are subject to California law."
+              "answer": "Adopters must be 18 or older. Nine Lives Ikigai operates in California; all adoptions are subject to California law."
             },
             {
               "question": "Do children in the home need to meet the cat first?",
@@ -174,7 +263,7 @@
             },
             {
               "question": "Do you have a non-discrimination policy?",
-              "answer": "Yes. We do not discriminate on the basis of race, color, religion, sex, gender identity, sexual orientation, national origin, age, disability, or any other characteristic protected by law. This applies to all adoption services and programs."
+              "answer": "Yes. Consistent with our Bylaws, we do not discriminate on the basis of race, color, religion, sex, gender identity or expression, sexual orientation, national origin, ancestry, age, disability, marital status, military or veteran status, or any other characteristic protected by applicable law. This applies to all adoption services and programs."
             }
           ]
         },
@@ -187,7 +276,7 @@
             },
             {
               "question": "What support do you offer after adoption?",
-              "answer": "We remain available by phone and email for as long as you need us. Your starter pack includes care guidance for the first few weeks."
+              "answer": "We remain available by email for as long as you need us — reach us at hello@ninelivesikigai.org. Your starter pack includes care guidance for the first few weeks."
             },
             {
               "question": "What does the starter pack include?",
@@ -243,8 +332,183 @@
       "title": "Not ready to adopt?",
       "body": "Fostering and donating make every adoption possible.",
       "cta": [
-        { "label": "Donate", "href": "/donate", "variant": "button" },
-        { "label": "Become a Foster", "href": "/foster", "variant": "button--alt2" }
+        { "label": "Donate", "href": "/donate", "variant": "button--secondary" },
+        { "label": "Become a Foster", "href": "/foster", "variant": "button--gray" }
+      ]
+    }
+  },
+  "donate": {
+    "pageHeader": {
+      "title": "Support Our Work",
+      "label": "Every gift helps a cat find their way home.",
+      "body": "Your donation funds spay/neuter surgeries, vaccinations, emergency veterinary care, and the day-to-day cost of fostering cats until they're ready for adoption. No gift is too small."
+    },
+    "amounts": {
+      "title": "Make a Gift",
+      "label": "Choose an amount to get started",
+      "options": [
+        { "label": "$25", "href": "https://buy.stripe.com/REPLACE_25" },
+        { "label": "$50", "href": "https://buy.stripe.com/REPLACE_50" },
+        { "label": "$100", "href": "https://buy.stripe.com/REPLACE_100" },
+        { "label": "$250", "href": "https://buy.stripe.com/REPLACE_250" }
+      ],
+      "customCta": {
+        "label": "Choose Your Own Amount",
+        "href": "https://buy.stripe.com/REPLACE_CUSTOM"
+      },
+      "note": "Donations are processed securely through Stripe. You'll receive an emailed receipt for your records after your donation is processed."
+    },
+    "disclosure": "Nine Lives Ikigai, Inc. is a California nonprofit public benefit corporation (EIN: 42-2634127), recognized as tax-exempt under IRC Section 501(c)(3) effective April 21, 2026. Contributions are tax-deductible under IRC Section 170 to the extent allowed by law; consult your tax advisor regarding the deductibility of your gift.",
+    "otherWays": {
+      "title": "Other Ways to Give",
+      "label": "Support that goes beyond a one-time gift",
+      "items": [
+        {
+          "title": "Monthly Giving",
+          "description": "Become a sustaining donor with a recurring monthly gift. Predictable support helps us plan ahead for medical costs and foster care.",
+          "cta": { "label": "Give Monthly", "href": "https://buy.stripe.com/REPLACE_MONTHLY" }
+        },
+        {
+          "title": "In-Kind Donations",
+          "description": "We welcome donations of food, litter, carriers, bedding, and similar supplies. Contact us to arrange a drop-off; larger or unusual in-kind gifts (estimated value over $1,000) are reviewed under our gift acceptance policy before we can confirm acceptance.",
+          "cta": { "label": "Contact Us", "href": "/contact" }
+        },
+        {
+          "title": "Amazon Wishlist",
+          "description": "Shop our wishlist and have supplies shipped directly to our foster network.",
+          "cta": { "label": "View Wishlist", "href": "https://www.amazon.com/REPLACE_WISHLIST" }
+        },
+        {
+          "title": "Corporate Matching",
+          "description": "Many employers match charitable donations. Check with your HR department to double the impact of your gift.",
+          "cta": { "label": "Search", "href": "https://www.REPLACE_MATCHING_GIFT_DATABASE.com" }
+        }
+      ]
+    },
+    "footerCta": {
+      "title": "Not ready to give right now?",
+      "body": "Fostering and adopting are just as valuable.",
+      "cta": [
+        { "label": "Adopt a Cat", "href": "/adopt", "variant": "button--primary" },
+        { "label": "Become a Foster", "href": "/foster", "variant": "button--gray" }
+      ]
+    }
+  },
+  "contact": {
+    "pageHeader": {
+      "title": "Get in Touch",
+      "label": "We'd love to hear from you.",
+      "body": "Whether you have a question about adoption, want to report a stray, or are interested in volunteering, send us a message and we'll get back to you within 2-3 business days."
+    },
+    "form": {
+      "submitLabel": "Send Message",
+      "successMessage": "Thank you for reaching out. We'll get back to you within 2-3 business days.",
+      "errorMessage": "Something went wrong sending your message. Please try again, or email us directly at hello@ninelivesikigai.org.",
+      "privacyNote": "By submitting this form, you agree to our",
+      "privacyLinkLabel": "Privacy Policy",
+      "fields": [
+        {
+          "name": "firstName",
+          "label": "First Name",
+          "type": "text",
+          "placeholder": "Jane",
+          "required": true,
+          "half": true
+        },
+        {
+          "name": "lastName",
+          "label": "Last Name",
+          "type": "text",
+          "placeholder": "Doe",
+          "required": true,
+          "half": true
+        },
+        {
+          "name": "email",
+          "label": "Email",
+          "type": "email",
+          "placeholder": "jane@example.com",
+          "required": true,
+          "half": true
+        },
+        {
+          "name": "phone",
+          "label": "Phone (optional)",
+          "type": "tel",
+          "placeholder": "(555) 555-5555",
+          "required": false,
+          "half": true
+        },
+        {
+          "name": "topic",
+          "label": "Topic",
+          "type": "select",
+          "placeholder": "Select a topic",
+          "required": true,
+          "half": false,
+          "options": [
+            "Adoption Question",
+            "Report a Stray",
+            "Volunteering",
+            "Fostering",
+            "Donation Question",
+            "Other"
+          ]
+        },
+        {
+          "name": "message",
+          "label": "Message",
+          "type": "textarea",
+          "placeholder": "How can we help?",
+          "required": true,
+          "half": false
+        }
+      ]
+    },
+    "info": {
+      "title": "Other Ways to Reach Us",
+      "items": [
+        {
+          "label": "Email",
+          "value": "hello@ninelivesikigai.org"
+        },
+        {
+          "label": "Phone",
+          "value": "REPLACE_WITH_ACTUAL_PHONE"
+        },
+        {
+          "label": "Location",
+          "value": "Based in California. We operate primarily through our foster network, by appointment only."
+        },
+        {
+          "label": "Hours",
+          "value": "Monday - Friday, 9am - 5pm. We aim to respond to all messages within 2-3 business days."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "I found a stray cat. What should I do?",
+          "answer": "Select 'Report a Stray' in the form above and include the location and any details about the cat's condition. For emergencies, contact local animal control directly."
+        },
+        {
+          "question": "Can I visit in person?",
+          "answer": "We operate through a foster network rather than a physical shelter. Meetings with cats are arranged by appointment during the adoption process."
+        },
+        {
+          "question": "How do I volunteer?",
+          "answer": "Select 'Volunteering' in the form above and tell us about your interests and availability. We'll follow up with current opportunities."
+        }
+      ]
+    },
+    "footerCta": {
+      "title": "Ready to make a difference?",
+      "body": "Adopt, foster, or donate to help cats find their way home.",
+      "cta": [
+        { "label": "Adopt a Cat", "href": "/adopt", "variant": "button--primary" },
+        { "label": "Donate", "href": "/donate", "variant": "button--secondary" }
       ]
     }
   },

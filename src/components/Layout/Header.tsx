@@ -75,6 +75,11 @@ const Header = ({ pageRef: _pageRef }) => {
             </a>
           </li>
           <li>
+            <Link className="button" to="/foster" onClick={() => setIsNavOpen(false)}>
+              Foster
+            </Link>
+          </li>
+          <li>
             <a 
               className="button" 
               href="#section-about"
@@ -83,6 +88,11 @@ const Header = ({ pageRef: _pageRef }) => {
             >
               About
             </a>
+          </li>
+          <li>
+            <Link className="button" to="/who-we-are" onClick={() => setIsNavOpen(false)}>
+              Who We Are
+            </Link>
           </li>
           <li>
             <a 
@@ -95,14 +105,9 @@ const Header = ({ pageRef: _pageRef }) => {
             </a>
           </li>
           <li>
-            <a 
-              className="button" 
-              href="#section-support"
-              data-scroll="true"
-              onClick={(e) => handleScrollClick(e, '#support')}
-            >
+            <Link className="button" to="/contact" onClick={() => setIsNavOpen(false)}>
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

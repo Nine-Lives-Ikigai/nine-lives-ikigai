@@ -1,14 +1,17 @@
 @use '../utilities' as *;
 
 .footer-container {
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   width: 100%;
-   min-height: 55px;
    background-color: color(primary, dark);
    border-top: 2px solid color(secondary, dark);
    box-shadow: 0px 2px 4px 0px rgba(color(gray, darkest), 0.8) inset;
+   
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   
+   min-height: 55px;
+   padding: 11px 0;
+   width: 100%;
    
    .footer-controls {
       margin: 0 auto;
@@ -30,7 +33,7 @@
 
       @include breakpoint($small-screen) { 
          margin: 0;
-         line-height: 55px; 
+         line-height: 32px; 
          text-align: center;
       }
    }  
