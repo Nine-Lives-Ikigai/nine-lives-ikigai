@@ -52,7 +52,7 @@
     "adoptTeaser": {
       "title": "Meet Our Cats",
       "label": "Looking for a home right now",
-      "cta": { "label": "See All Available Cats", "href": "/adopt", "variant": "button--secondary" }
+      "cta": { "label": "See All Available Cats", "href": "/adopt", "variant": "button--primary" }
     },
     "finalCta": {
       "title": "Every life has a reason. Help us find theirs.",

@@ -24,16 +24,14 @@ const Layout = ({ children, pagename = 'Home' }) => {
 
   return (
     <>
-      <div id="section-top">
-        <div className="main-content" style={mainContent}>
-          <Header pageRef={pageRef} />
-          
-          {children}
+      <div id="section-top" className="main-content" style={mainContent}>
+        <Header pageRef={pageRef} />
+        
+        {children}
 
-          <ScrollToTop pageRef={pageRef} />
+        <ScrollToTop pageRef={pageRef} />
 
-          <Footer />
-        </div>
+        <Footer />
       </div>
     </>
   );

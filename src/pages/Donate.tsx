@@ -42,7 +42,7 @@ const Donate = ({ data }: DonateProps) => {
               href={amounts.customCta.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="button button--alt"
+              className="button button--secondary"
               aria-label={`${amounts.customCta.label} — opens donation form in a new tab`}
             >
               {amounts.customCta.label}
