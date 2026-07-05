@@ -276,7 +276,7 @@
             },
             {
               "question": "What support do you offer after adoption?",
-              "answer": "We remain available by email for as long as you need us — reach us at hello@ninelivesikigai.org. Your starter pack includes care guidance for the first few weeks."
+              "answer": "We remain available by email for as long as you need us, reach us at support@ninelivesikigai.org. Your starter pack includes care guidance for the first few weeks."
             },
             {
               "question": "What does the starter pack include?",
@@ -403,7 +403,7 @@
     "form": {
       "submitLabel": "Send Message",
       "successMessage": "Thank you for reaching out. We'll get back to you within 2-3 business days.",
-      "errorMessage": "Something went wrong sending your message. Please try again, or email us directly at hello@ninelivesikigai.org.",
+      "errorMessage": "Something went wrong sending your message. Please try again, or email us directly at support@ninelivesikigai.org.",
       "privacyNote": "By submitting this form, you agree to our",
       "privacyLinkLabel": "Privacy Policy",
       "fields": [
@@ -470,11 +470,7 @@
       "items": [
         {
           "label": "Email",
-          "value": "hello@ninelivesikigai.org"
-        },
-        {
-          "label": "Phone",
-          "value": "REPLACE_WITH_ACTUAL_PHONE"
+          "value": "support@ninelivesikigai.org"
         },
         {
           "label": "Location",
@@ -482,7 +478,7 @@
         },
         {
           "label": "Hours",
-          "value": "Monday - Friday, 9am - 5pm. We aim to respond to all messages within 2-3 business days."
+          "value": "Monday - Friday, 9am - 5pm PT. We aim to respond to all messages within 2-3 business days."
         }
       ]
     },
@@ -513,7 +509,7 @@
     }
   },
   "notFound": {
-    "title": "404 — Page Not Found",
+    "title": "(404) Page Not Found",
     "body": "The page you're looking for doesn't exist."
   }
 }

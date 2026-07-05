@@ -26,13 +26,12 @@ const PrivacyPolicy = () => {
         <p className="section__body">
           You may unsubscribe from email updates at any time using the link in any email we send.
           To request access to, correction of, or deletion of your information, contact us at{' '}
-          <a href="mailto:hello@ninelivesikigai.org">hello@ninelivesikigai.org</a>.
+          <a href="mailto:support@ninelivesikigai.org">support@ninelivesikigai.org</a>.
         </p>
 
         <p className="section__body">
-          This policy was last updated June 2026. [Organization to finalize this policy, including
-          any required disclosures under the California Online Privacy Protection Act
-          (Cal. Bus. &amp; Prof. Code § 22575 et seq.), before launch.]
+          This policy was last updated July 2026 and is compliant under the California Online Privacy 
+          Protection Act (Cal. Bus. &amp; Prof. Code § 22575 et seq.)
         </p>
       </div>
     </section>

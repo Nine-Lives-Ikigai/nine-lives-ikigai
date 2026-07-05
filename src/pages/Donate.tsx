@@ -30,7 +30,7 @@ const Donate = ({ data }: DonateProps) => {
                 href={opt.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="button__chip"
+                className="button button__chip"
                 aria-label={`${opt.label} — opens donation form in a new tab`}
               >
                 {opt.label}
