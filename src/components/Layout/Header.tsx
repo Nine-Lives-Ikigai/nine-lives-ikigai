@@ -82,27 +82,27 @@ const Header = ({ pageRef: _pageRef }) => {
           <li>
             <a 
               className="button" 
-              href="#section-about"
-              data-scroll="true"
-              onClick={(e) => handleScrollClick(e, '#about')}
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <Link className="button" to="/who-we-are" onClick={() => setIsNavOpen(false)}>
-              Who We Are
-            </Link>
-          </li>
-          <li>
-            <a 
-              className="button" 
               href="#section-services"
               data-scroll="true"
               onClick={(e) => handleScrollClick(e, '#services')}
             >
               Services
             </a>
+          </li>
+          {/*<li>
+            <a 
+              className="button" 
+              href="#section-about"
+              data-scroll="true"
+              onClick={(e) => handleScrollClick(e, '#about')}
+            >
+              About
+            </a>
+          </li>*/}
+          <li>
+            <Link className="button" to="/who-we-are" onClick={() => setIsNavOpen(false)}>
+              Who We Are
+            </Link>
           </li>
           <li>
             <Link className="button" to="/contact" onClick={() => setIsNavOpen(false)}>
