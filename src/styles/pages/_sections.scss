@@ -28,7 +28,7 @@
   color: color(secondary, mid);
   font-weight: 700;
   letter-spacing: 1px;
-  margin: 0 0 11px;
+  margin: 11px 0 0;
   text-transform: uppercase;
 
   @include breakpoint($small-screen) {
@@ -39,7 +39,7 @@
 .section__body {
   color: color(gray, light);
   line-height: 1.6;
-  margin: 0 auto 11px;
+  margin: 11px auto;
   max-width: 600px;
 
   @include breakpoint($small-screen) {

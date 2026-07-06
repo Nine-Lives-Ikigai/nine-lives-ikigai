@@ -56,6 +56,7 @@
   box-shadow: 2px 2px 4px 0px rgba(color(gray, darkest), 0.5);
   margin: 22px 0 0;
   padding-bottom: 11px;
+  position: relative;
   text-align: left;
 
   @include breakpoint($small-screen) { 
@@ -105,6 +106,14 @@
 .service-card__button {
   display: block;
   margin: 11px;
+
+  @include breakpoint($small-screen)
+  {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 
 // Alternate service card
