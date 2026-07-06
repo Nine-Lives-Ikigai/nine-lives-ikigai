@@ -52,6 +52,8 @@ export type FooterData = RawData['footer'];
 
 export type NotFoundData = RawData['notFound'];
 
+export type PrivacyData = RawData['privacy'];
+
 // ── Exports ──────────────────────────────────────────────────────────────────
 
 export const homeData: HomeData = {
@@ -82,3 +84,5 @@ export const fosterData: FosterData = raw.foster;
 export const footerData: FooterData = raw.footer;
 
 export const notFoundData: NotFoundData = raw.notFound;
+
+export const privacyData: PrivacyData = raw.privacy;

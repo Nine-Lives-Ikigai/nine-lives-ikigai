@@ -3,20 +3,22 @@
 input,
 textarea,
 select {
-  background-color: color(primary, dark);
+  background-color: color(primary, darkest);
   border: solid 1px color(secondary, mid);
   border-radius: 5px;
-  color: color(secondary, mid);
+  color: color(gray, lightest);
   display: block;
+  font-size: 14px;
   margin: 11px 0 0;
 }
 
 input {
   height: 28px;
   padding: 2px 5.5px;
+  min-width: 33%;
 
   &::placeholder {
-    color: rgba(color(secondary, mid), 0.5);
+    color: rgba(color(gray, lightest), 0.9);
   }
 }
 
@@ -28,12 +30,19 @@ textarea {
 
 select {
   height: 36px;
-  padding: 5.5px;
+  padding: 5.5px 24px 5.5px 5.5px;
+  appearance: none;
+  cursor: pointer;
+  // Arrow fill is hardcoded to color(gray, lightest) (#f0f2f3)
+  // SVG data URIs can't consume the color() map lookup directly. 
+  // Update this hex if that value changes.
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23f0f2f3'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 10px 6px;
 
   option {
-    background-color: color(primary, dark);
-    border: solid 1px color(secondary, mid);
-    border-radius: 5px;
-    height: 22px;
+    background-color: color(primary, darkest);
+    color: color(gray, lightest);
   }
 }

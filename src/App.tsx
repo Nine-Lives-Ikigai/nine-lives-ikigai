@@ -20,6 +20,7 @@ import {
   aboutData,
   fosterData,
   notFoundData,
+  privacyData,
 } from './utils/data';
 import './styles/main.scss';
 
@@ -65,7 +66,7 @@ function App() {
 
         <Route path="/privacy-policy" element={
           <Layout pagename="Privacy Policy">
-            <PrivacyPolicy />
+            <PrivacyPolicy data={privacyData} />
           </Layout>
         } />
 

@@ -14,7 +14,7 @@ $color-map: (
         dark        : #ccac00,
         darkest     : #a38900
     ),
-    gray: (     
+    gray: (
         lightest    : #f0f2f3,
         light       : #a9b2bc,
         mid         : #708090,
@@ -24,21 +24,23 @@ $color-map: (
 );
 
 // Media query upper sizes
-$mobile-screen:  480px;
+$mobile-screen: 480px;
 $small-screen: 768px;
 $medium-screen: 1024px;
 $large-screen: 1366px;
-$xl-screen:  1440px;
+$xl-screen: 1440px;
 
 // Fonts
 $default-font: 'Oxygen', sans-serif;
-$header-font: 'Oxygen', sans-serif;
+$header-font: $default-font;
 
 // Vertical indices
-$banner-container: 1000;
+// $banner-canvas is local to $banner-container's stacking context — sits behind
+// sibling content within the banner, not the page
 $banner-canvas: -1;
+$banner-container: 1000;
 $banner-particle: 1002;
 $section-before: 1009;
 $header-container: 1010;
 
-$button-return-top: 1;
+$button-return-top: 1011;

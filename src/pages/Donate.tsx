@@ -68,14 +68,14 @@ const Donate = ({ data }: DonateProps) => {
           <p className="section__label">{otherWays.label}</p>
           <div className="flex-content card-grid">
             {otherWays.items.map((item) => {
-              const isExternal = item.cta?.href.startsWith('http');
+              const isExternal = item.cta?.href?.startsWith('http') ?? false;
               return (
                 <div className="service-card service-card--tall flex__small--12 flex__large--3" key={item.title}>
                   <h3 className="service-card__title">{item.title}</h3>
                   <p className="service-card__description">{item.description}</p>
                   {item.cta && (
                     <a
-                      href={item.cta.href}
+                      href={item.cta.href ?? undefined}
                       className="button service-card__button cat-card__cta"
                       target={isExternal ? '_blank' : undefined}
                       rel={isExternal ? 'noopener noreferrer' : undefined}
