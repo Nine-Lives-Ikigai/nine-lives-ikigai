@@ -12,7 +12,7 @@
       "body": "We believe every cat deserves a life of purpose and dignity; whether they've known hardship, homelessness, or simply need a second chance. Rooted in ikigai and the art of kintsugi, we find meaning in the mending.",
       "cta": [
         { "label": "Meet Our Cats", "href": "/adopt", "variant": "button--primary" },
-        { "label": "Get Involved", "href": "#support", "variant": "button--secondary" }
+        { "label": "Get Involved", "href": "/donate", "variant": "button--secondary" }
       ]
     },
     "about": {
@@ -94,8 +94,8 @@
       "title": "Want to get involved?",
       "body": "Foster, adopt, or volunteer; every role helps a cat find their way home.",
       "cta": [
-        { "label": "Become a Foster", "href": "/foster", "variant": "button--gray" },
-        { "label": "Adopt a Cat", "href": "/adopt", "variant": "button--primary" }
+        { "label": "Adopt a Cat", "href": "/adopt", "variant": "button--primary" },
+        { "label": "Become a Foster", "href": "/foster", "variant": "button--gray" }
       ]
     }
   },
