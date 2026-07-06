@@ -10,12 +10,17 @@ select {
   display: block;
   font-size: 14px;
   margin: 11px 0 0;
+
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 input {
   height: 28px;
+  max-width: 90%;
   padding: 2px 5.5px;
-  min-width: 33%;
+  width: 90%;
 
   &::placeholder {
     color: rgba(color(gray, lightest), 0.9);
@@ -23,14 +28,14 @@ input {
 }
 
 textarea {
-  min-height: 88px;
-  min-width: 88%;
+  max-height: 400px;
+  max-width: 90%;
+  min-height: 80px;
+  min-width: 40%;
   padding: 5.5px;
 }
 
 select {
-  height: 36px;
-  padding: 5.5px 24px 5.5px 5.5px;
   appearance: none;
   cursor: pointer;
   // Arrow fill is hardcoded to color(gray, lightest) (#f0f2f3)
@@ -41,8 +46,22 @@ select {
   background-position: right 8px center;
   background-size: 10px 6px;
 
+  height: 36px;
+  max-width: 90%;
+  padding: 5.5px;
+  width: 90%;
+
+  @include breakpoint($small-screen) {
+    width: 45%;
+  }
+
   option {
     background-color: color(primary, darkest);
     color: color(gray, lightest);
+
+    &:disabled {
+      background-color: color(gray, dark);
+      color: rgba(color(gray, light), 0.9);
+    }
   }
 }

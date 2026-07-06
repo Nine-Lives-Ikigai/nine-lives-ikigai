@@ -60,7 +60,7 @@ const Contact = ({ data }: ContactProps) => {
       {/* Contact Form + Info */}
       <section className="section section--alt">
         <div className="section__content">
-          <div className="flex-content flex--column-mobile">
+          <div className="flex-content">
             {/* Form */}
             <div className="flex__small--12 flex__large--7">
               {submitted ? (
@@ -74,7 +74,7 @@ const Contact = ({ data }: ContactProps) => {
                       {error}
                     </p>
                   )}
-                  <div className="flex-content flex--column-mobile">
+                  <div className="flex-content">
                     {form.fields.map((field) => (
                       <div
                         className={`flex__small--12 ${field.half ? 'flex__large--6' : ''}`}
@@ -125,8 +125,7 @@ const Contact = ({ data }: ContactProps) => {
                     ))}
                   </div>
                   {form.privacyNote && (
-                    <p className="section__body">
-                      {form.privacyNote}{' '}
+                    <p>{form.privacyNote}{' '}
                       <a href="/privacy-policy">{form.privacyLinkLabel ?? 'Privacy Policy'}</a>.
                     </p>
                   )}
@@ -143,7 +142,7 @@ const Contact = ({ data }: ContactProps) => {
               {info.items.map((item) => (
                 <div className="section__group" key={item.label}>
                   <h3 className="section__group-title">{item.label}</h3>
-                  <p className="section__body">{item.value}</p>
+                  <p>{item.value}</p>
                 </div>
               ))}
             </div>
