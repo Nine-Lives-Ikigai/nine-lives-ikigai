@@ -152,7 +152,7 @@ const Contact = ({ data }: ContactProps) => {
 
       {/* FAQ */}
       {faq && (
-        <section className="section section--33" itemScope itemType="https://schema.org/FAQPage">
+        <section className="section section--small" itemScope itemType="https://schema.org/FAQPage">
           <div className="section__content center">
             <h2 className="section__title">{faq.title}</h2>
             {faq.items.map((item) => (

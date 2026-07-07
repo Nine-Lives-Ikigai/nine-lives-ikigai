@@ -103,11 +103,11 @@
 }
 
 // Section modifiers
-.section--0 {
-  padding: 88px 0 0;
+.section--small {
+  //padding: 11px 0;
 
   @include breakpoint($small-screen) {
-    padding: 132px 0 0;
+    //padding: 22px 0;
   }
 
   .section__content {
@@ -115,23 +115,11 @@
   }
 }
 
-.section--33 {
-  padding: 22px 0;
+.section--medium {
+  //padding: 22px 0 0;
 
   @include breakpoint($small-screen) {
-    padding: 33px 0;
-  }
-
-  .section__content {
-    max-width: $small-screen;
-  }
-}
-
-.section--88 {
-   padding: 44px 0 0;
-
-  @include breakpoint($small-screen) {
-    padding: 88px 0 0;
+    //padding: 44px 0 0;
   }
 
   .section__content {
@@ -139,11 +127,11 @@
   }
 }
 
-.section--132 {
-  padding: 88px 0;
+.section--large {
+  //padding: 44px 0;
 
   @include breakpoint($small-screen) {
-    padding: 132px 0;
+    //padding: 88px 0;
   }
 
   .section__content {

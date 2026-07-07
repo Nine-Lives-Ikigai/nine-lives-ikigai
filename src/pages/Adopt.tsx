@@ -47,7 +47,7 @@ const Adopt = ({ data }: AdoptProps) => {
       </section>
 
       {/* Filter */}
-      <section className="section section--33">
+      <section className="section section--small">
         <div className="filters__bar center">
           <button
             className="full"
@@ -161,7 +161,7 @@ const Adopt = ({ data }: AdoptProps) => {
       </section>
 
       {/* FAQ */}
-      <section className="section section--33">
+      <section className="section section--small">
         <div className="section__content center">
           <h2 className="section__title">{faq.title}</h2>
           {faq.groups.map((group) => (

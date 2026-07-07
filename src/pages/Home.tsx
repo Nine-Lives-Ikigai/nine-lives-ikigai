@@ -11,7 +11,7 @@ const Home = ({ data }: HomeProps) => {
   return (
     <>
       {/* Hero Section */}
-      <section className="section section--132">
+      <section className="section section--large">
         <div className="section__content center">
           <h1 className="section__title">{hero.title}</h1>
           <p className="section__label">{hero.label}</p>

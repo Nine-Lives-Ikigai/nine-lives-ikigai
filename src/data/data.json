@@ -360,11 +360,6 @@
       "label": "Support that goes beyond a one-time gift",
       "items": [
         {
-          "title": "Corporate Matching",
-          "description": "Many employers match charitable donations. Check with your HR department to double the impact of your gift.",
-          "cta": { "label": "Search", "href": null }
-        },
-        {
           "title": "In-Kind Donations",
           "description": "We welcome donations of food, litter, carriers, bedding, and similar supplies. Contact us to arrange a drop-off; larger or unusual in-kind gifts (estimated value over $1,000) are reviewed under our gift acceptance policy before we can confirm acceptance.",
           "cta": { "label": "Contact Us", "href": "/contact" }

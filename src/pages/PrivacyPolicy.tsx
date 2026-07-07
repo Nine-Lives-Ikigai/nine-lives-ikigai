@@ -8,7 +8,7 @@ const PrivacyPolicy = ({ data }: PrivacyPolicyProps) => {
   const { pageHeader, sections, effectiveDate, complianceNote } = data;
 
   return (
-    <section className="section section--0">
+    <section className="section">
       <div className="section__content">
         <h1 className="section__title">{pageHeader.title}</h1>
         <p className="section__body">{pageHeader.body}</p>
