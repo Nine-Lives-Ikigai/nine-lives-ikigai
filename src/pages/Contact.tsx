@@ -6,7 +6,7 @@ interface ContactProps {
 }
 
 // TODO: replace with the actual form submission endpoint (e.g. Formspree, Netlify Forms, or a serverless function)
-const FORM_ENDPOINT_URL = 'https://REPLACE_WITH_FORM_ENDPOINT';
+const FORM_ENDPOINT_URL = 'ninelivesikigai.org/api/contact';
 
 const Contact = ({ data }: ContactProps) => {
   const { pageHeader, form, info, faq, footerCta } = data;
