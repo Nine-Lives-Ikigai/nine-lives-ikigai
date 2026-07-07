@@ -1,17 +1,13 @@
 @use '../utilities' as *;
 
-.card-grid {
-  margin: 22px 0 0;
-}
-
 // Cat card
 .cat-card {
   display: flex;
   flex-direction: column;
+  margin: 22px 0 0;
   overflow: hidden;
 }
 
-// Cat card content
 .cat-card__image {
   aspect-ratio: 4 / 3;
   object-fit: cover;
@@ -27,25 +23,21 @@
 
 .cat-card__name {
   font-size: 20px;
-  margin: 0 0 6px;
+  margin: 5.5px 0 0;
 }
 
 .cat-card__meta {
   color: color(secondary, dark);
   font-weight: 700;
   letter-spacing: 0.5px;
-  margin: 0 0 11px;
+  margin: 11px 0 0;
   text-transform: uppercase;
 }
 
 .cat-card__description {
   color: color(gray, mid);
   line-height: 1.6;
-  margin: 0 0 22px;
-}
-
-.cat-card__cta {
-  margin-top: auto;
+  margin: 22px 0 0;
 }
 
 // Service card

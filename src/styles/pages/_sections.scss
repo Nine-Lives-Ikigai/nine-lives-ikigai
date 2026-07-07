@@ -93,6 +93,10 @@
   a {
     color: color(gray, lightest);
   }
+
+  .cat-card__description {
+    color: color(gray, lightest);
+  }  
 }
 
 // Alternative sections
@@ -104,10 +108,10 @@
 
 // Section modifiers
 .section--small {
-  //padding: 11px 0;
+  padding: 11px 0;
 
   @include breakpoint($small-screen) {
-    //padding: 22px 0;
+    padding: 22px 0;
   }
 
   .section__content {
@@ -116,10 +120,10 @@
 }
 
 .section--medium {
-  //padding: 22px 0 0;
+  padding: 22px 0 11px;
 
   @include breakpoint($small-screen) {
-    //padding: 44px 0 0;
+    padding: 44px 0 22px;
   }
 
   .section__content {
@@ -128,10 +132,10 @@
 }
 
 .section--large {
-  //padding: 44px 0;
+  padding: 44px 0 11px;
 
   @include breakpoint($small-screen) {
-    //padding: 88px 0;
+    padding: 88px 0 22px;
   }
 
   .section__content {

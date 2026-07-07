@@ -6,7 +6,7 @@ interface HomeProps {
 }
 
 const Home = ({ data }: HomeProps) => {
-  const { hero, about, services, adoptTeaser, finalCta, featuredCats } = data;
+  const { hero, about, services, adoptTeaser, finalCta, featuredCats, cats } = data;
 
   return (
     <>
@@ -64,14 +64,14 @@ const Home = ({ data }: HomeProps) => {
           <h2 className="section__title">{adoptTeaser.title}</h2>
           <p className="section__label">{adoptTeaser.label}</p>
           <div className="flex-content services__grid">
-            {featuredCats.map((cat: CatListing) => (
+            {cats.map((cat: CatListing) => (
               <div className="cat-card flex__small--12 flex__large--4" key={cat.id}>
                 <img src={cat.image} alt={cat.name} className="cat-card__image" />
                 <div className="cat-card__body">
                   <h3 className="cat-card__name">{cat.name}</h3>
                   <p className="cat-card__meta">{cat.age} &middot; {cat.sex}</p>
                   <p className="cat-card__description">{cat.blurb}</p>
-                  <a href="/adopt" className="button cat-card__cta">
+                  <a href="/adopt" className="button">
                     Meet {cat.name}
                   </a>
                 </div>

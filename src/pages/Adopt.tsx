@@ -38,7 +38,7 @@ const Adopt = ({ data }: AdoptProps) => {
   return (
     <>
       {/* Page Header */}
-      <section className="section section--0">
+      <section className="section section--large">
         <div className="section__content center">
           <h1 className="section__title">{pageHeader.title}</h1>
           <p className="section__label">{pageHeader.label}</p>
@@ -114,7 +114,7 @@ const Adopt = ({ data }: AdoptProps) => {
         <div className="section__content">
           {filtered.length > 0 ? (
             <div className="flex-content card-grid">
-              {filtered.map((cat: CatListing) => (
+              {filtered.map((cat: CatListing) => (cat.name === "" ? "" : (
                 <div className="cat-card flex__small--12 flex__large--4" key={cat.id}>
                   <img src={cat.image} alt={cat.name} className="cat-card__image" />
                   <div className="cat-card__body">
@@ -126,7 +126,7 @@ const Adopt = ({ data }: AdoptProps) => {
                     </a>
                   </div>
                 </div>
-              ))}
+              )))}
             </div>
           ) : hasActiveFilters ? (
             <div className="center">

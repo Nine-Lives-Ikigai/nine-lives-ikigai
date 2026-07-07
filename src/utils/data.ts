@@ -25,6 +25,7 @@ export type FosterWhatWeProvideItem = RawData['foster']['whatWeProvide']['items'
 
 export type HomeData = {
   featuredCats: CatListing[];
+  cats: CatListing[];
   hero: RawData['home']['hero'];
   about: RawData['home']['about'];
   services: RawData['home']['services'];
@@ -58,6 +59,7 @@ export type PrivacyData = RawData['privacy'];
 
 export const homeData: HomeData = {
   featuredCats: raw.featuredCats as CatListing[],
+  cats: raw.cats as CatListing[],
   hero: raw.home.hero,
   about: raw.home.about,
   services: raw.home.services,
