@@ -193,15 +193,15 @@
           "items": [
             {
               "question": "What is the adoption fee?",
-              "answer": "Fees vary by cat and are set on a sliding scale below the cost of care. Each fee covers spay/neuter, vaccinations, microchipping, and a veterinary health check. Specific fees are listed on each cat's profile."
+              "answer": "Kittens (<12 months): $50, Adult (12+ months): $35, Senior (8+ years): $20"
             },
             {
               "question": "Are fees different for kittens vs. adult vs. senior cats?",
-              "answer": "Yes. Kittens carry a higher fee; adult cats are mid-range; senior cats (8+) are reduced. Exact amounts are listed on each profile."
+              "answer": "Yes. Kittens carry a higher fee; adult cats are mid-range; senior cats (8+ years) are reduced."
             },
             {
               "question": "Are fees waived or discounted for special needs cats?",
-              "answer": "Special needs cats are adopted at a reduced fee. In some cases fees are waived entirely. Check individual profiles for details."
+              "answer": "Special needs cats may be adopted at a reduced fee. In some cases fees are waived entirely. Check individual profiles for details."
             },
             {
               "question": "Do you offer senior-for-senior discounts?",
@@ -347,15 +347,11 @@
       "title": "Make a Gift",
       "label": "Choose an amount to get started",
       "options": [
-        { "label": "$25", "href": "https://buy.stripe.com/REPLACE_25" },
-        { "label": "$50", "href": "https://buy.stripe.com/REPLACE_50" },
-        { "label": "$100", "href": "https://buy.stripe.com/REPLACE_100" },
-        { "label": "$250", "href": "https://buy.stripe.com/REPLACE_250" }
+        { "label": "$8", "href": "https://donate.stripe.com/dRm4gA4OI1YgaXX0V6bsc00" },
+        { "label": "$20", "href": "https://donate.stripe.com/8x2eVe94Y32kd6547ibsc02" },
+        { "label": "$88", "href": "https://donate.stripe.com/8x2fZi5SMeL24zz6fqbsc01" },
+        { "label": "$200", "href": "https://donate.stripe.com/aFa00k80UcCU0jjdHSbsc03" }
       ],
-      "customCta": {
-        "label": "Choose Your Own Amount",
-        "href": "https://buy.stripe.com/REPLACE_CUSTOM"
-      },
       "note": "Donations are processed securely through Stripe. You'll receive an emailed receipt for your records after your donation is processed."
     },
     "disclosure": "Nine Lives Ikigai, Inc. is a California nonprofit public benefit corporation (EIN: 42-2634127), recognized as tax-exempt under IRC Section 501(c)(3) effective April 21, 2026. Contributions are tax-deductible under IRC Section 170 to the extent allowed by law; consult your tax advisor regarding the deductibility of your gift.",
@@ -364,9 +360,9 @@
       "label": "Support that goes beyond a one-time gift",
       "items": [
         {
-          "title": "Monthly Giving",
-          "description": "Become a sustaining donor with a recurring monthly gift. Predictable support helps us plan ahead for medical costs and foster care.",
-          "cta": { "label": "Give Monthly", "href": "https://buy.stripe.com/REPLACE_MONTHLY" }
+          "title": "Corporate Matching",
+          "description": "Many employers match charitable donations. Check with your HR department to double the impact of your gift.",
+          "cta": { "label": "Search", "href": null }
         },
         {
           "title": "In-Kind Donations",
@@ -377,11 +373,6 @@
           "title": "Amazon Wishlist",
           "description": "Shop our wishlist and have supplies shipped directly to our foster network.",
           "cta": { "label": "View Wishlist", "href": "https://a.co/02ro5klg" }
-        },
-        {
-          "title": "Corporate Matching",
-          "description": "Many employers match charitable donations. Check with your HR department to double the impact of your gift.",
-          "cta": { "label": "Search", "href": null }
         }
       ]
     },

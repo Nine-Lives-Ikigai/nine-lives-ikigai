@@ -30,24 +30,13 @@ const Donate = ({ data }: DonateProps) => {
                 href={opt.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="button button__chip"
+                className="button button--secondary"
                 aria-label={`${opt.label} — opens donation form in a new tab`}
               >
                 {opt.label}
               </a>
             ))}
           </div>
-          {amounts.customCta && (
-            <a
-              href={amounts.customCta.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button button--secondary"
-              aria-label={`${amounts.customCta.label} — opens donation form in a new tab`}
-            >
-              {amounts.customCta.label}
-            </a>
-          )}
           {amounts.note && <p className="section__body">{amounts.note}</p>}
         </div>
       </section>
