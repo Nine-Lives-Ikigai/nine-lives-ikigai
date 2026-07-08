@@ -19,7 +19,7 @@ const About = ({ data }: AboutProps) => {
       </section>
 
       {/* Mission */}
-      <section className="section section--alt">
+      <section className="section section--primary">
         <div className="section__content center">
           <h2 className="section__title">{mission.title}</h2>
           <p className="section__body">{mission.body}</p>
@@ -43,7 +43,7 @@ const About = ({ data }: AboutProps) => {
       </section>
 
       {/* Transparency */}
-      <section className="section section--alt">
+      <section className="section section--primary">
         <div className="section__content center">
           <h2 className="section__title">{transparency.title}</h2>
           <p className="section__body">{transparency.body}</p>

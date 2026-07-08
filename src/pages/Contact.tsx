@@ -58,7 +58,7 @@ const Contact = ({ data }: ContactProps) => {
       </section>
 
       {/* Contact Form + Info */}
-      <section className="section section--alt">
+      <section className="section section--primary">
         <div className="section__content">
           <div className="flex-content">
             {/* Form */}

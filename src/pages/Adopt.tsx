@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react';
 import { CatListing } from '../utils/cat';
 import CatCard from '../components/CatCard';
+import CtaButton from '../components/CtaButton';
+import FilterGroup from '../components/FilterGroup';
+import { ANY, type FilterValue } from '../utils/filters';
 import type { AdoptData } from '../utils/data';
-
-const ALL = 'all' as const;
-type FilterValue = typeof ALL | string;
 
 interface AdoptProps {
   data: AdoptData;
@@ -13,39 +13,55 @@ interface AdoptProps {
 const Adopt = ({ data }: AdoptProps) => {
   const { pageHeader, processSteps, faq, footerCta, cats, catFilters } = data;
 
-  // catFilters has no "sexes" list, so this is derived from the actual
-  // cat records rather than hardcoded.
+  // sexOptions has no canonical source — catFilters has no "sexes" list —
+  // so it's derived straight from the cat records.
   const sexOptions = useMemo(
     () => Array.from(new Set(cats.map((cat) => cat.sex))),
     [cats]
   );
 
-  const [ageFilter, setAgeFilter] = useState<FilterValue>(ALL);
-  const [sexFilter, setSexFilter] = useState<FilterValue>(ALL);
-  const [temperamentFilter, setTemperamentFilter] = useState<FilterValue>(ALL);
+  // ageOptions and temperamentOptions do have a canonical list in
+  // catFilters, but showing every possible value regardless of whether any
+  // cat currently has it means most chips lead nowhere (catFilters.temperaments
+  // defines 24 possible values; the current cats only use 2). Filtering the
+  // canonical list down to values actually present keeps catFilters'
+  // intended ordering while dropping the dead options.
+  const ageOptions = useMemo(
+    () => catFilters.ages.filter((age) => cats.some((cat) => cat.age === age)),
+    [cats, catFilters.ages]
+  );
+
+  const temperamentOptions = useMemo(
+    () => catFilters.temperaments.filter((t) => cats.some((cat) => cat.temperament === t)),
+    [cats, catFilters.temperaments]
+  );
+
+  const [ageFilter, setAgeFilter] = useState<FilterValue>(ANY);
+  const [sexFilter, setSexFilter] = useState<FilterValue>(ANY);
+  const [temperamentFilter, setTemperamentFilter] = useState<FilterValue>(ANY);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<string | null>(null);
 
   const filtered = cats.filter((cat: CatListing) => {
-    if (ageFilter !== ALL && cat.age !== ageFilter) return false;
-    if (sexFilter !== ALL && cat.sex !== sexFilter) return false;
-    if (temperamentFilter !== ALL && cat.temperament !== temperamentFilter) return false;
+    if (ageFilter !== ANY && cat.age !== ageFilter) return false;
+    if (sexFilter !== ANY && cat.sex !== sexFilter) return false;
+    if (temperamentFilter !== ANY && cat.temperament !== temperamentFilter) return false;
     return true;
   });
 
   const resetFilters = () => {
-    setAgeFilter(ALL);
-    setSexFilter(ALL);
-    setTemperamentFilter(ALL);
+    setAgeFilter(ANY);
+    setSexFilter(ANY);
+    setTemperamentFilter(ANY);
   };
 
   const hasActiveFilters =
-    ageFilter !== ALL || sexFilter !== ALL || temperamentFilter !== ALL;
+    ageFilter !== ANY || sexFilter !== ANY || temperamentFilter !== ANY;
 
   return (
     <>
       {/* Page Header */}
-      <section className="section section--large">
+      <section className="section section--hero">
         <div className="section__content center">
           <h1 className="section__title">{pageHeader.title}</h1>
           <p className="section__label">{pageHeader.label}</p>
@@ -54,7 +70,7 @@ const Adopt = ({ data }: AdoptProps) => {
       </section>
 
       {/* Filter */}
-      <section className="section section--small">
+      <section className="section section--dark">
         <div className="filters__bar center">
           <button
             className="full"
@@ -66,50 +82,27 @@ const Adopt = ({ data }: AdoptProps) => {
           {filtersOpen && (
             <div className="filters__controls filters__controls--open">
               <div className="flex-content flex--column-mobile flex--center">
-                <div className="flex__small--12">
-                  <p className="section__label">Age</p>
-                  <div className="flex--center">
-                    {[ALL, ...catFilters.ages].map((opt) => (
-                      <button
-                        key={opt}
-                        className={`button__chip${ageFilter === opt ? ' button__chip--active' : ''}`}
-                        onClick={() => setAgeFilter(opt)}
-                      >
-                        {opt === ALL ? 'Any age' : opt}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex__small--12">
-                  <p className="section__label">Sex</p>
-                  <div className="flex--center">
-                    {[ALL, ...sexOptions].map((opt) => (
-                      <button
-                        key={opt}
-                        className={`button__chip${sexFilter === opt ? ' button__chip--active' : ''}`}
-                        onClick={() => setSexFilter(opt)}
-                      >
-                        {opt === ALL ? 'Any' : opt}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex__small--12">
-                  <p className="section__label">Temperament</p>
-                  <div className="flex--center">
-                    {[ALL, ...catFilters.temperaments].map((opt) => (
-                      <button
-                        key={opt}
-                        className={`button__chip${temperamentFilter === opt ? ' button__chip--active' : ''}`}
-                        onClick={() => setTemperamentFilter(opt)}
-                      >
-                        {opt === ALL ? 'Any' : opt}
-                      </button>
-                    ))}
-                  </div>
-                </div>
+                <FilterGroup
+                  label="Age"
+                  anyLabel="Any age"
+                  options={ageOptions}
+                  value={ageFilter}
+                  onChange={setAgeFilter}
+                />
+                <FilterGroup
+                  label="Sex"
+                  anyLabel="Any"
+                  options={sexOptions}
+                  value={sexFilter}
+                  onChange={setSexFilter}
+                />
+                <FilterGroup
+                  label="Temperament"
+                  anyLabel="Any"
+                  options={temperamentOptions}
+                  value={temperamentFilter}
+                  onChange={setTemperamentFilter}
+                />
               </div>
             </div>
           )}
@@ -117,7 +110,7 @@ const Adopt = ({ data }: AdoptProps) => {
       </section>
 
       {/* Listings */}
-      <section className="section section--alt2">
+      <section className="section">
         <div className="section__content">
           {filtered.length > 0 ? (
             <div className="flex-content card-grid">
@@ -141,7 +134,7 @@ const Adopt = ({ data }: AdoptProps) => {
       </section>
 
       {/* Process Steps */}
-      <section className="section section--alt">
+      <section className="section section--primary">
         <div className="section__content center">
           <h2 className="section__title">{processSteps.title}</h2>
           <p className="section__label">{processSteps.label}</p>
@@ -158,7 +151,7 @@ const Adopt = ({ data }: AdoptProps) => {
       </section>
 
       {/* FAQ */}
-      <section className="section section--small">
+      <section className="section">
         <div className="section__content center">
           <h2 className="section__title">{faq.title}</h2>
           {faq.groups.map((group) => (
@@ -196,13 +189,7 @@ const Adopt = ({ data }: AdoptProps) => {
           <p className="section__body">{footerCta.body}</p>
           <div className="flex-content flex--column-mobile flex--center">
             {footerCta.cta.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className={['button', item.variant].filter(Boolean).join(' ')}
-              >
-                {item.label}
-              </a>
+              <CtaButton key={item.href} item={item} />
             ))}
           </div>
         </div>

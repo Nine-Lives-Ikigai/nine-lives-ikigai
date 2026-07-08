@@ -19,7 +19,7 @@ const Foster = ({ data }: FosterProps) => {
       </section>
 
       {/* What Fostering Involves */}
-      <section className="section section--alt">
+      <section className="section section--primary">
         <div className="section__content center">
           <h2 className="section__title">{whatYouProvide.title}</h2>
           <div className="flex-content card-grid">
@@ -49,7 +49,7 @@ const Foster = ({ data }: FosterProps) => {
       </section>
 
       {/* Footer CTA */}
-      <section className="section section--alt">
+      <section className="section">
         <div className="section__content center">
           <h2 className="section__title">{footerCta.title}</h2>
           <p className="section__body">{footerCta.body}</p>

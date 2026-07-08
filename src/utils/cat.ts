@@ -2,9 +2,16 @@
 export interface CatListing {
   id: string;
   name: string;
-  age: string;
-  sex: 'male' | 'female';
-  temperament: 'social' | 'independent' | 'bonded pair';
-  blurb: string;
+  nickname: string;
+  secret: string;
   image: string;
+  sex: 'male' | 'female';
+  age: 'kitten' | 'adult' | 'senior';
+  dob: string;
+  blurb: string;
+  temperament: string;
+  neutered: true;
+  breed: string;
+  color: string;
+  coat: string
 }

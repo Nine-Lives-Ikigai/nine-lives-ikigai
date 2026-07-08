@@ -19,7 +19,7 @@ const Donate = ({ data }: DonateProps) => {
       </section>
 
       {/* Donation Amounts */}
-      <section className="section section--alt">
+      <section className="section section--primary">
         <div className="section__content center">
           <h2 className="section__title">{amounts.title}</h2>
           <p className="section__label">{amounts.label}</p>
@@ -81,7 +81,7 @@ const Donate = ({ data }: DonateProps) => {
       </section>
 
       {/* Footer CTA */}
-      <section className="section section--alt">
+      <section className="section section--primary">
         <div className="section__content center">
           <h2 className="section__title">{footerCta.title}</h2>
           <p className="section__body">{footerCta.body}</p>

@@ -14,6 +14,13 @@
   width: 100%;
 }
 
+.cat-card__image--contain {
+  aspect-ratio: initial;
+  object-fit: contain;
+  width: 100%;
+  max-height: 600px;
+}
+
 .cat-card__body {
   display: flex;
   flex-direction: column;
@@ -32,12 +39,18 @@
   letter-spacing: 0.5px;
   margin: 11px 0 0;
   text-transform: uppercase;
+
+  span {
+    color: color(gray, lightest);
+    font-weight: 400;
+    text-transform: capitalize;
+  }
 }
 
 .cat-card__description {
   color: color(gray, mid);
   line-height: 1.6;
-  margin: 22px 0 0;
+  margin: 11px 0 0;
 }
 
 // Service card

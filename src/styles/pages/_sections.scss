@@ -9,6 +9,7 @@
   }
 }
 
+// Hero sections
 .section--hero {
   padding: 44px 0;
 
@@ -17,12 +18,43 @@
   }
 }
 
-.section--hero-alt {
+.section--hero-small {
   padding: 44px 0 22px;
 
   @include breakpoint($small-screen) {
     padding: 88px 0 44px;
   }
+}
+
+// Alternative sections
+.section--primary {
+  background-color: color(primary, dark);
+
+  .section__title {
+    color: color(secondary, lightest);
+  }
+
+  .section__label {
+    color: color(gray, lightest);
+  }
+
+  .section__body {
+    color: color(gray, lightest);
+  }
+
+  a {
+    color: color(gray, lightest);
+  }
+
+  .cat-card__description {
+    color: color(gray, lightest);
+  }  
+}
+
+.section--dark {
+  background-color: color(gray, darkest);
+  border-top: 2px solid color(secondary, darkest);
+  box-shadow: 0 2px 8px rgba(#000, 0.25) inset;
 }
 
 // Section content
@@ -88,36 +120,4 @@
     margin: 22px 0 0;
     text-align: right;
   }
-}
-
-// Alternative sections
-.section--alt {
-  background-color: color(primary, dark);
-
-  .section__title {
-    color: color(secondary, lightest);
-  }
-
-  .section__label {
-    color: color(gray, lightest);
-  }
-
-  .section__body {
-    color: color(gray, lightest);
-  }
-
-  a {
-    color: color(gray, lightest);
-  }
-
-  .cat-card__description {
-    color: color(gray, lightest);
-  }  
-}
-
-// Alternative sections
-.section--alt2 {
-  background-color: color(gray, darkest);
-  border-top: 2px solid color(secondary, darkest);
-  box-shadow: 0 2px 8px rgba(#000, 0.25) inset;
 }

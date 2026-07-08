@@ -4,6 +4,7 @@ import Layout from './components/Layout/Layout';
 // Pages
 import Home from './pages/Home';
 import Adopt from './pages/Adopt';
+import CatDetail from './pages/CatDetail';
 import Donate from './pages/Donate';
 import Contact from './pages/Contact';
 import About from './pages/About';
@@ -15,6 +16,7 @@ import NotFound from './pages/NotFound';
 import {
   homeData,
   adoptData,
+  catDetailData,
   donateData,
   contactData,
   aboutData,
@@ -37,6 +39,12 @@ function App() {
         <Route path="/adopt" element={
           <Layout pagename="Adopt">
             <Adopt data={adoptData} />
+          </Layout>
+        } />
+
+        <Route path="/adopt/:id" element={
+          <Layout pagename="Cat Details">
+            <CatDetail data={catDetailData} />
           </Layout>
         } />
 

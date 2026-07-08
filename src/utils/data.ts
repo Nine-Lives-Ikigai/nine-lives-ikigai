@@ -43,6 +43,10 @@ export type AdoptData = {
   footerCta: RawData['adopt']['footerCta'];
 };
 
+export type CatDetailData = {
+  cats: CatListing[];
+};
+
 export type DonateData = RawData['donate'];
 
 export type ContactData = RawData['contact'];
@@ -61,7 +65,9 @@ export type PrivacyData = RawData['privacy'];
 
 const allCats = raw.cats as CatListing[];
 
-// Filter out template object in allCats to guard against an empty cat downstream
+// The seed data includes a blank placeholder record (id "0000") used to pad
+// early development. Filter it out once, here, so no page has to guard
+// against an empty cat downstream.
 const realCats = allCats.filter((cat) => cat.name !== '');
 
 const findCatById = (id: string): CatListing | undefined =>
@@ -89,6 +95,12 @@ export const adoptData: AdoptData = {
   processSteps: raw.adopt.processSteps,
   faq: raw.adopt.faq,
   footerCta: raw.adopt.footerCta,
+};
+
+// Reuses realCats rather than re-deriving anything — the individual cat
+// page just needs the full list to find one record by :id at render time.
+export const catDetailData: CatDetailData = {
+  cats: realCats,
 };
 
 export const donateData: DonateData = raw.donate;
