@@ -1,9 +1,10 @@
 import { useMemo, useState } from 'react';
 import { CatListing } from '../utils/cat';
+import CatCard from '../components/CatCard';
 import type { AdoptData } from '../utils/data';
 
-const ANY = 'any' as const;
-type FilterValue = typeof ANY | string;
+const ALL = 'all' as const;
+type FilterValue = typeof ALL | string;
 
 interface AdoptProps {
   data: AdoptData;
@@ -19,32 +20,32 @@ const Adopt = ({ data }: AdoptProps) => {
     [cats]
   );
 
-  const [ageFilter, setAgeFilter] = useState<FilterValue>(ANY);
-  const [sexFilter, setSexFilter] = useState<FilterValue>(ANY);
-  const [temperamentFilter, setTemperamentFilter] = useState<FilterValue>(ANY);
+  const [ageFilter, setAgeFilter] = useState<FilterValue>(ALL);
+  const [sexFilter, setSexFilter] = useState<FilterValue>(ALL);
+  const [temperamentFilter, setTemperamentFilter] = useState<FilterValue>(ALL);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<string | null>(null);
 
   const filtered = cats.filter((cat: CatListing) => {
-    if (ageFilter !== ANY && cat.age !== ageFilter) return false;
-    if (sexFilter !== ANY && cat.sex !== sexFilter) return false;
-    if (temperamentFilter !== ANY && cat.temperament !== temperamentFilter) return false;
+    if (ageFilter !== ALL && cat.age !== ageFilter) return false;
+    if (sexFilter !== ALL && cat.sex !== sexFilter) return false;
+    if (temperamentFilter !== ALL && cat.temperament !== temperamentFilter) return false;
     return true;
   });
 
   const resetFilters = () => {
-    setAgeFilter(ANY);
-    setSexFilter(ANY);
-    setTemperamentFilter(ANY);
+    setAgeFilter(ALL);
+    setSexFilter(ALL);
+    setTemperamentFilter(ALL);
   };
 
   const hasActiveFilters =
-    ageFilter !== ANY || sexFilter !== ANY || temperamentFilter !== ANY;
+    ageFilter !== ALL || sexFilter !== ALL || temperamentFilter !== ALL;
 
   return (
     <>
       {/* Page Header */}
-      <section className="section section--hero-alt">
+      <section className="section section--large">
         <div className="section__content center">
           <h1 className="section__title">{pageHeader.title}</h1>
           <p className="section__label">{pageHeader.label}</p>
@@ -53,7 +54,7 @@ const Adopt = ({ data }: AdoptProps) => {
       </section>
 
       {/* Filter */}
-      <section className="section">
+      <section className="section section--small">
         <div className="filters__bar center">
           <button
             className="full"
@@ -68,13 +69,13 @@ const Adopt = ({ data }: AdoptProps) => {
                 <div className="flex__small--12">
                   <p className="section__label">Age</p>
                   <div className="flex--center">
-                    {[ANY, ...catFilters.ages].map((opt) => (
+                    {[ALL, ...catFilters.ages].map((opt) => (
                       <button
                         key={opt}
                         className={`button__chip${ageFilter === opt ? ' button__chip--active' : ''}`}
                         onClick={() => setAgeFilter(opt)}
                       >
-                        {opt === ANY ? 'Any age' : opt}
+                        {opt === ALL ? 'Any age' : opt}
                       </button>
                     ))}
                   </div>
@@ -83,13 +84,13 @@ const Adopt = ({ data }: AdoptProps) => {
                 <div className="flex__small--12">
                   <p className="section__label">Sex</p>
                   <div className="flex--center">
-                    {[ANY, ...sexOptions].map((opt) => (
+                    {[ALL, ...sexOptions].map((opt) => (
                       <button
                         key={opt}
                         className={`button__chip${sexFilter === opt ? ' button__chip--active' : ''}`}
                         onClick={() => setSexFilter(opt)}
                       >
-                        {opt === ANY ? 'Any' : opt}
+                        {opt === ALL ? 'Any' : opt}
                       </button>
                     ))}
                   </div>
@@ -98,13 +99,13 @@ const Adopt = ({ data }: AdoptProps) => {
                 <div className="flex__small--12">
                   <p className="section__label">Temperament</p>
                   <div className="flex--center">
-                    {[ANY, ...catFilters.temperaments].map((opt) => (
+                    {[ALL, ...catFilters.temperaments].map((opt) => (
                       <button
                         key={opt}
                         className={`button__chip${temperamentFilter === opt ? ' button__chip--active' : ''}`}
                         onClick={() => setTemperamentFilter(opt)}
                       >
-                        {opt === ANY ? 'Any' : opt}
+                        {opt === ALL ? 'Any' : opt}
                       </button>
                     ))}
                   </div>
@@ -121,17 +122,7 @@ const Adopt = ({ data }: AdoptProps) => {
           {filtered.length > 0 ? (
             <div className="flex-content card-grid">
               {filtered.map((cat: CatListing) => (
-                <div className="cat-card flex__small--12 flex__large--4" key={cat.id}>
-                  <img src={cat.image} alt={cat.name} className="cat-card__image" />
-                  <div className="cat-card__body">
-                    <h3 className="cat-card__name">{cat.name}</h3>
-                    <p className="cat-card__meta">{cat.age} &middot; {cat.sex} &middot; {cat.temperament}</p>
-                    <p className="cat-card__description">{cat.blurb}</p>
-                    <a href={`/adopt/${cat.id}`} className="button cat-card__cta">
-                      Meet {cat.name}
-                    </a>
-                  </div>
-                </div>
+                <CatCard key={cat.id} cat={cat} showTemperament />
               ))}
             </div>
           ) : hasActiveFilters ? (
@@ -167,7 +158,7 @@ const Adopt = ({ data }: AdoptProps) => {
       </section>
 
       {/* FAQ */}
-      <section className="section">
+      <section className="section section--small">
         <div className="section__content center">
           <h2 className="section__title">{faq.title}</h2>
           {faq.groups.map((group) => (

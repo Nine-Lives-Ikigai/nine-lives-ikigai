@@ -1,4 +1,4 @@
-import { CatListing } from '../utils/cat';
+import CatCard from '../components/CatCard';
 import type { HomeData } from '../utils/data';
 
 interface HomeProps {
@@ -11,7 +11,7 @@ const Home = ({ data }: HomeProps) => {
   return (
     <>
       {/* Hero Section */}
-      <section className="section section--hero">
+      <section className="section section--large">
         <div className="section__content center">
           <h1 className="section__title">{hero.title}</h1>
           <p className="section__label">{hero.label}</p>
@@ -64,18 +64,8 @@ const Home = ({ data }: HomeProps) => {
           <h2 className="section__title">{adoptTeaser.title}</h2>
           <p className="section__label">{adoptTeaser.label}</p>
           <div className="flex-content services__grid">
-            {featuredCats.map((cat: CatListing) => (
-              <div className="cat-card flex__small--12 flex__large--4" key={cat.id}>
-                <img src={cat.image} alt={cat.name} className="cat-card__image" />
-                <div className="cat-card__body">
-                  <h3 className="cat-card__name">{cat.name}</h3>
-                  <p className="cat-card__meta">{cat.age} &middot; {cat.sex}</p>
-                  <p className="cat-card__description">{cat.blurb}</p>
-                  <a href={`/adopt/${cat.id}`} className="button">
-                    Meet {cat.name}
-                  </a>
-                </div>
-              </div>
+            {featuredCats.map((cat) => (
+              <CatCard key={cat.id} cat={cat} />
             ))}
           </div>
           <a href={adoptTeaser.cta.href} className={`button ${adoptTeaser.cta.variant}`}>
