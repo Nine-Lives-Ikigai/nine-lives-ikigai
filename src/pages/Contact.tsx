@@ -49,7 +49,7 @@ const Contact = ({ data }: ContactProps) => {
   return (
     <>
       {/* Page Header */}
-      <section className="section">
+      <section className="section section--hero">
         <div className="section__content center">
           <h1 className="section__title">{pageHeader.title}</h1>
           <p className="section__label">{pageHeader.label}</p>

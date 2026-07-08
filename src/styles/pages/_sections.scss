@@ -9,6 +9,22 @@
   }
 }
 
+.section--hero {
+  padding: 44px 0;
+
+  @include breakpoint($small-screen) {
+    padding: 88px 0;
+  }
+}
+
+.section--hero-alt {
+  padding: 44px 0 22px;
+
+  @include breakpoint($small-screen) {
+    padding: 88px 0 44px;
+  }
+}
+
 // Section content
 .section__content {
   margin: 0 auto;
