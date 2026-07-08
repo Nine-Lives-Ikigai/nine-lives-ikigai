@@ -49,7 +49,7 @@ const Contact = ({ data }: ContactProps) => {
   return (
     <>
       {/* Page Header */}
-      <section className="section section--0">
+      <section className="section">
         <div className="section__content center">
           <h1 className="section__title">{pageHeader.title}</h1>
           <p className="section__label">{pageHeader.label}</p>
@@ -152,7 +152,7 @@ const Contact = ({ data }: ContactProps) => {
 
       {/* FAQ */}
       {faq && (
-        <section className="section section--small" itemScope itemType="https://schema.org/FAQPage">
+        <section className="section" itemScope itemType="https://schema.org/FAQPage">
           <div className="section__content center">
             <h2 className="section__title">{faq.title}</h2>
             {faq.items.map((item) => (

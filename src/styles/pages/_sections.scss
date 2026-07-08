@@ -2,10 +2,10 @@
 
 // Base section
 .section {
-  padding: 22px 0;
+  padding: 11px 0 22px;
 
   @include breakpoint($small-screen) {
-    padding: 66px 0;
+    padding: 22px 0 44px;
   }
 }
 
@@ -104,41 +104,4 @@
   background-color: color(gray, darkest);
   border-top: 2px solid color(secondary, darkest);
   box-shadow: 0 2px 8px rgba(#000, 0.25) inset;
-}
-
-// Section modifiers
-.section--small {
-  padding: 11px 0;
-
-  @include breakpoint($small-screen) {
-    padding: 22px 0;
-  }
-
-  .section__content {
-    max-width: $small-screen;
-  }
-}
-
-.section--medium {
-  padding: 22px 0 11px;
-
-  @include breakpoint($small-screen) {
-    padding: 44px 0 22px;
-  }
-
-  .section__content {
-    max-width: $medium-screen;
-  }
-}
-
-.section--large {
-  padding: 44px 0 11px;
-
-  @include breakpoint($small-screen) {
-    padding: 88px 0 22px;
-  }
-
-  .section__content {
-    max-width: $large-screen;
-  }
 }

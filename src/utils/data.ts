@@ -23,9 +23,10 @@ export type BoardMember = RawData['about']['board']['members'][number];
 export type FosterWhatYouProvideItem = RawData['foster']['whatYouProvide']['items'][number];
 export type FosterWhatWeProvideItem = RawData['foster']['whatWeProvide']['items'][number];
 
+export type CatFilters = RawData['catFilters'];
+
 export type HomeData = {
   featuredCats: CatListing[];
-  cats: CatListing[];
   hero: RawData['home']['hero'];
   about: RawData['home']['about'];
   services: RawData['home']['services'];
@@ -35,6 +36,7 @@ export type HomeData = {
 
 export type AdoptData = {
   cats: CatListing[];
+  catFilters: CatFilters;
   pageHeader: RawData['adopt']['pageHeader'];
   processSteps: RawData['adopt']['processSteps'];
   faq: RawData['adopt']['faq'];
@@ -55,11 +57,24 @@ export type NotFoundData = RawData['notFound'];
 
 export type PrivacyData = RawData['privacy'];
 
+// ── Helpers ──────────────────────────────────────────────────────────────────
+
+const allCats = raw.cats as CatListing[];
+
+// Filter out template object in allCats to guard against an empty cat downstream
+const realCats = allCats.filter((cat) => cat.name !== '');
+
+const findCatById = (id: string): CatListing | undefined =>
+  realCats.find((cat) => cat.id === id);
+
+const featuredCats: CatListing[] = raw.featuredCats
+  .map(({ id }) => findCatById(id))
+  .filter((cat): cat is CatListing => Boolean(cat));
+
 // ── Exports ──────────────────────────────────────────────────────────────────
 
 export const homeData: HomeData = {
-  featuredCats: raw.featuredCats as CatListing[],
-  cats: raw.cats as CatListing[],
+  featuredCats,
   hero: raw.home.hero,
   about: raw.home.about,
   services: raw.home.services,
@@ -68,7 +83,8 @@ export const homeData: HomeData = {
 };
 
 export const adoptData: AdoptData = {
-  cats: raw.cats as CatListing[],
+  cats: realCats,
+  catFilters: raw.catFilters,
   pageHeader: raw.adopt.pageHeader,
   processSteps: raw.adopt.processSteps,
   faq: raw.adopt.faq,

@@ -10,7 +10,7 @@ const Donate = ({ data }: DonateProps) => {
   return (
     <>
       {/* Page Header */}
-      <section className="section section--0">
+      <section className="section">
         <div className="section__content center">
           <h1 className="section__title">{pageHeader.title}</h1>
           <p className="section__label">{pageHeader.label}</p>
@@ -43,7 +43,7 @@ const Donate = ({ data }: DonateProps) => {
 
       {/* Tax-deductibility disclosure */}
       {disclosure && (
-        <section className="section section--small">
+        <section className="section">
           <div className="section__content center">
             <p className="section__body">{disclosure}</p>
           </div>

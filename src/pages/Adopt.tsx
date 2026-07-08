@@ -1,44 +1,50 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { CatListing } from '../utils/cat';
 import type { AdoptData } from '../utils/data';
 
-type AgeFilter = 'all' | 'kitten' | 'adult' | 'senior';
-type SexFilter = 'all' | 'male' | 'female';
-type TemperamentFilter = 'all' | 'social' | 'independent' | 'bonded pair';
+const ANY = 'any' as const;
+type FilterValue = typeof ANY | string;
 
 interface AdoptProps {
   data: AdoptData;
 }
 
 const Adopt = ({ data }: AdoptProps) => {
-  const { pageHeader, processSteps, faq, footerCta, cats } = data;
+  const { pageHeader, processSteps, faq, footerCta, cats, catFilters } = data;
 
-  const [ageFilter, setAgeFilter] = useState<AgeFilter>('all');
-  const [sexFilter, setSexFilter] = useState<SexFilter>('all');
-  const [temperamentFilter, setTemperamentFilter] = useState<TemperamentFilter>('all');
+  // catFilters has no "sexes" list, so this is derived from the actual
+  // cat records rather than hardcoded.
+  const sexOptions = useMemo(
+    () => Array.from(new Set(cats.map((cat) => cat.sex))),
+    [cats]
+  );
+
+  const [ageFilter, setAgeFilter] = useState<FilterValue>(ANY);
+  const [sexFilter, setSexFilter] = useState<FilterValue>(ANY);
+  const [temperamentFilter, setTemperamentFilter] = useState<FilterValue>(ANY);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<string | null>(null);
 
-  const filtered = (cats ?? []).filter((cat: CatListing) => {
-    if (ageFilter !== 'all' && cat.age !== ageFilter) return false;
-    if (sexFilter !== 'all' && cat.sex !== sexFilter) return false;
-    if (temperamentFilter !== 'all' && cat.temperament !== temperamentFilter) return false;
+  const filtered = cats.filter((cat: CatListing) => {
+    if (ageFilter !== ANY && cat.age !== ageFilter) return false;
+    if (sexFilter !== ANY && cat.sex !== sexFilter) return false;
+    if (temperamentFilter !== ANY && cat.temperament !== temperamentFilter) return false;
     return true;
   });
 
   const resetFilters = () => {
-    setAgeFilter('all');
-    setSexFilter('all');
-    setTemperamentFilter('all');
+    setAgeFilter(ANY);
+    setSexFilter(ANY);
+    setTemperamentFilter(ANY);
   };
 
   const hasActiveFilters =
-    ageFilter !== 'all' || sexFilter !== 'all' || temperamentFilter !== 'all';
+    ageFilter !== ANY || sexFilter !== ANY || temperamentFilter !== ANY;
 
   return (
     <>
       {/* Page Header */}
-      <section className="section section--large">
+      <section className="section">
         <div className="section__content center">
           <h1 className="section__title">{pageHeader.title}</h1>
           <p className="section__label">{pageHeader.label}</p>
@@ -47,7 +53,7 @@ const Adopt = ({ data }: AdoptProps) => {
       </section>
 
       {/* Filter */}
-      <section className="section section--small">
+      <section className="section">
         <div className="filters__bar center">
           <button
             className="full"
@@ -62,13 +68,13 @@ const Adopt = ({ data }: AdoptProps) => {
                 <div className="flex__small--12">
                   <p className="section__label">Age</p>
                   <div className="flex--center">
-                    {(['all', 'kitten', 'adult', 'senior'] as AgeFilter[]).map((opt) => (
+                    {[ANY, ...catFilters.ages].map((opt) => (
                       <button
                         key={opt}
                         className={`button__chip${ageFilter === opt ? ' button__chip--active' : ''}`}
                         onClick={() => setAgeFilter(opt)}
                       >
-                        {opt === 'all' ? 'Any age' : opt.charAt(0).toUpperCase() + opt.slice(1)}
+                        {opt === ANY ? 'Any age' : opt}
                       </button>
                     ))}
                   </div>
@@ -77,13 +83,13 @@ const Adopt = ({ data }: AdoptProps) => {
                 <div className="flex__small--12">
                   <p className="section__label">Sex</p>
                   <div className="flex--center">
-                    {(['all', 'male', 'female'] as SexFilter[]).map((opt) => (
+                    {[ANY, ...sexOptions].map((opt) => (
                       <button
                         key={opt}
                         className={`button__chip${sexFilter === opt ? ' button__chip--active' : ''}`}
                         onClick={() => setSexFilter(opt)}
                       >
-                        {opt === 'all' ? 'Any' : opt.charAt(0).toUpperCase() + opt.slice(1)}
+                        {opt === ANY ? 'Any' : opt}
                       </button>
                     ))}
                   </div>
@@ -92,13 +98,13 @@ const Adopt = ({ data }: AdoptProps) => {
                 <div className="flex__small--12">
                   <p className="section__label">Temperament</p>
                   <div className="flex--center">
-                    {(['all', 'social', 'independent', 'bonded pair'] as TemperamentFilter[]).map((opt) => (
+                    {[ANY, ...catFilters.temperaments].map((opt) => (
                       <button
                         key={opt}
                         className={`button__chip${temperamentFilter === opt ? ' button__chip--active' : ''}`}
                         onClick={() => setTemperamentFilter(opt)}
                       >
-                        {opt === 'all' ? 'Any' : opt.charAt(0).toUpperCase() + opt.slice(1)}
+                        {opt === ANY ? 'Any' : opt}
                       </button>
                     ))}
                   </div>
@@ -114,7 +120,7 @@ const Adopt = ({ data }: AdoptProps) => {
         <div className="section__content">
           {filtered.length > 0 ? (
             <div className="flex-content card-grid">
-              {filtered.map((cat: CatListing) => (cat.name === "" ? "" : (
+              {filtered.map((cat: CatListing) => (
                 <div className="cat-card flex__small--12 flex__large--4" key={cat.id}>
                   <img src={cat.image} alt={cat.name} className="cat-card__image" />
                   <div className="cat-card__body">
@@ -126,7 +132,7 @@ const Adopt = ({ data }: AdoptProps) => {
                     </a>
                   </div>
                 </div>
-              )))}
+              ))}
             </div>
           ) : hasActiveFilters ? (
             <div className="center">
@@ -161,7 +167,7 @@ const Adopt = ({ data }: AdoptProps) => {
       </section>
 
       {/* FAQ */}
-      <section className="section section--small">
+      <section className="section">
         <div className="section__content center">
           <h2 className="section__title">{faq.title}</h2>
           {faq.groups.map((group) => (
