@@ -7,7 +7,7 @@ interface CatCardProps {
 
 const CatCard = ({ cat, showTemperament = false }: CatCardProps) => (
   <div className="cat-card flex__small--12 flex__large--4">
-    <img src={cat.image} alt={cat.name} title={cat.secret} className="cat-card__image" />
+    <img src={cat.image} alt={cat.name} className="cat-card__image" />
     <div className="cat-card__body">
       <h3 className="cat-card__name">{cat.name}</h3>
       <p className="cat-card__meta">

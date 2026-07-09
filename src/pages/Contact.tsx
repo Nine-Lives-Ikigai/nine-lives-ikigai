@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useState, type SubmitEvent } from 'react';
+import CtaButton from '../components/CtaButton';
 import type { ContactData } from '../utils/data';
 
 interface ContactProps {
   data: ContactData;
 }
 
-// TODO: replace with the actual form submission endpoint (e.g. Formspree, Netlify Forms, or a serverless function)
-const FORM_ENDPOINT_URL = 'ninelivesikigai.org/api/contact';
+// TODO: replace once the backend endpoint is confirmed and deployed
+const FORM_ENDPOINT_URL = '/api/contact';
 
 const Contact = ({ data }: ContactProps) => {
   const { pageHeader, form, info, faq, footerCta } = data;
@@ -21,7 +22,7 @@ const Contact = ({ data }: ContactProps) => {
     setValues((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
     setSubmitting(true);
@@ -195,13 +196,7 @@ const Contact = ({ data }: ContactProps) => {
           <p className="section__body">{footerCta.body}</p>
           <div className="flex-content flex--column-mobile flex--center">
             {footerCta.cta.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className={['button', item.variant].filter(Boolean).join(' ')}
-              >
-                {item.label}
-              </a>
+              <CtaButton key={item.href} item={item} />
             ))}
           </div>
         </div>
