@@ -33,7 +33,7 @@ const About = ({ data }: AboutProps) => {
           <p className="section__label">{board.label}</p>
           <div className="flex-content card-grid">
             {board.members.map((member) => (
-              <div className="service-card flex__small--12 flex__large--4" key={member.name}>
+              <div className="service-card service-card--short flex__small--12 flex__large--4" key={member.name}>
                 <h3 className="service-card__title">{member.name}</h3>
                 <p className="service-card__description">{member.title}</p>
               </div>

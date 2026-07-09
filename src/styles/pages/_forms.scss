@@ -33,6 +33,10 @@ textarea {
   min-height: 80px;
   min-width: 40%;
   padding: 5.5px;
+
+  @include breakpoint($small-screen) {
+    max-width: 530px;
+  }
 }
 
 select {

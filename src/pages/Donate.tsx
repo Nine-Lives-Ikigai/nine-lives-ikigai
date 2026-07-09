@@ -51,7 +51,7 @@ const Donate = ({ data }: DonateProps) => {
       )}
 
       {/* Other Ways to Give */}
-      <section className="section">
+      <section className="section section--primary">
         <div className="section__content center">
           <h2 className="section__title">{otherWays.title}</h2>
           <p className="section__label">{otherWays.label}</p>
@@ -81,7 +81,7 @@ const Donate = ({ data }: DonateProps) => {
       </section>
 
       {/* Footer CTA */}
-      <section className="section section--primary">
+      <section className="section">
         <div className="section__content center">
           <h2 className="section__title">{footerCta.title}</h2>
           <p className="section__body">{footerCta.body}</p>

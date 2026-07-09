@@ -1,5 +1,6 @@
 import { useState, type SubmitEvent } from 'react';
 import CtaButton from '../components/CtaButton';
+import AccordionItem from '../components/AccordionItem';
 import type { ContactData } from '../utils/data';
 
 interface ContactProps {
@@ -98,7 +99,6 @@ const Contact = ({ data }: ContactProps) => {
                             id={field.name}
                             name={field.name}
                             required={field.required}
-                            aria-label={field.label}
                             value={values[field.name] ?? ''}
                             onChange={(e) => handleChange(field.name, e.target.value)}
                           >
@@ -127,7 +127,7 @@ const Contact = ({ data }: ContactProps) => {
                   </div>
                   {form.privacyNote && (
                     <p>{form.privacyNote}{' '}
-                      <a href="/privacy-policy">{form.privacyLinkLabel ?? 'Privacy Policy'}</a>.
+                      <a href={form.privacyLinkHref}>{form.privacyLinkLabel ?? 'Privacy Policy'}</a>.
                     </p>
                   )}
                   <button type="submit" className="full" disabled={submitting}>
@@ -143,7 +143,7 @@ const Contact = ({ data }: ContactProps) => {
               {info.items.map((item) => (
                 <div className="section__group" key={item.label}>
                   <h3 className="section__group-title">{item.label}</h3>
-                  <p>{item.value}</p>
+                  <p>{item.href ? <a href={item.href}>{item.value}</a> : item.value}</p>
                 </div>
               ))}
             </div>
@@ -157,33 +157,14 @@ const Contact = ({ data }: ContactProps) => {
           <div className="section__content center">
             <h2 className="section__title">{faq.title}</h2>
             {faq.items.map((item) => (
-              <div
-                className={`section__item${openFaq === item.question ? ' section__item--open' : ''}`}
+              <AccordionItem
                 key={item.question}
-                itemScope
-                itemProp="mainEntity"
-                itemType="https://schema.org/Question"
-              >
-                <button
-                  className="accordion-button"
-                  onClick={() => setOpenFaq(openFaq === item.question ? null : item.question)}
-                  aria-expanded={openFaq === item.question}
-                >
-                  <span itemProp="name">{item.question}</span>
-                  <span className="accordion-button__icon" aria-hidden="true">
-                    {openFaq === item.question ? '−' : '+'}
-                  </span>
-                </button>
-                <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                  <p
-                    className="accordion-button__content"
-                    itemProp="text"
-                    hidden={openFaq !== item.question}
-                  >
-                    {item.answer}
-                  </p>
-                </div>
-              </div>
+                question={item.question}
+                answer={item.answer}
+                isOpen={openFaq === item.question}
+                onToggle={() => setOpenFaq(openFaq === item.question ? null : item.question)}
+                microdata
+              />
             ))}
           </div>
         </section>

@@ -3,6 +3,7 @@ import { CatListing } from '../utils/cat';
 import CatCard from '../components/CatCard';
 import CtaButton from '../components/CtaButton';
 import FilterGroup from '../components/FilterGroup';
+import AccordionItem from '../components/AccordionItem';
 import { ANY, type FilterValue } from '../utils/filters';
 import type { AdoptData } from '../utils/data';
 
@@ -158,24 +159,13 @@ const Adopt = ({ data }: AdoptProps) => {
             <div className="section__group" key={group.category}>
               <h3 className="section__group-title">{group.category}</h3>
               {group.items.map((item) => (
-                <div
-                  className={`section__item${openFaq === item.question ? ' section__item--open' : ''}`}
+                <AccordionItem
                   key={item.question}
-                >
-                  <button
-                    className="accordion-button"
-                    onClick={() => setOpenFaq(openFaq === item.question ? null : item.question)}
-                    aria-expanded={openFaq === item.question}
-                  >
-                    <span>{item.question}</span>
-                    <span className="accordion-button__icon" aria-hidden="true">
-                      {openFaq === item.question ? '−' : '+'}
-                    </span>
-                  </button>
-                  {openFaq === item.question && (
-                    <p className="accordion-button__content">{item.answer}</p>
-                  )}
-                </div>
+                  question={item.question}
+                  answer={item.answer}
+                  isOpen={openFaq === item.question}
+                  onToggle={() => setOpenFaq(openFaq === item.question ? null : item.question)}
+                />
               ))}
             </div>
           ))}

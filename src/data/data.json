@@ -605,18 +605,9 @@
     "info": {
       "title": "Other Ways to Reach Us",
       "items": [
-        {
-          "label": "Email",
-          "value": "support@ninelivesikigai.org"
-        },
-        {
-          "label": "Location",
-          "value": "Based in California. We operate primarily through our foster network, by appointment only."
-        },
-        {
-          "label": "Hours",
-          "value": "Monday - Friday, 9am - 5pm PT. We aim to respond to all messages within 2-3 business days."
-        }
+        { "label": "Email", "value": "support@ninelivesikigai.org", "href": "mailto:support@ninelivesikigai.org" },
+        { "label": "Location", "value": "Based in California. We operate primarily through our foster network, by appointment only.", "href": null },
+        { "label": "Hours", "value": "Monday - Friday, 9am - 5pm PT. We aim to respond to all messages within 2-3 business days.", "href": null }
       ]
     },
     "faq": {
