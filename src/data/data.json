@@ -156,8 +156,8 @@
       "title": "Ready to meet?",
       "body": "Apply for free and we'll be in touch soon!",
       "cta": [
-        { "label": "Start Adoption Application", "href": "https://forms.gle/N6cPXqftU2gp9vAq8", "target": "_blank", "variant": "" },
-        { "label": "Back to All Cats", "href": "/adopt", "target": "", "variant": "button--secondary" }
+        { "label": "Start Adoption Application", "href": "https://forms.gle/N6cPXqftU2gp9vAq8", "target": "_blank", "variant": "button--primary" },
+        { "label": "Back to All Cats", "href": "/adopt", "target": "", "variant": "button--gray" }
       ]
     }
   },
