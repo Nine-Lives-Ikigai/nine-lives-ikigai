@@ -8,7 +8,7 @@ interface HomeProps {
 }
 
 const Home = ({ data }: HomeProps) => {
-  const { hero, about, services, adoptTeaser, finalCta, featuredCats } = data;
+  const { hero, about, services, adoptTeaser, footerCta, featuredCats } = data;
 
   useHashNavigation();
 
@@ -77,9 +77,9 @@ const Home = ({ data }: HomeProps) => {
       {/* Final CTA Section */}
       <section className="section" id="support">
         <div className="section__content center">
-          <h2 className="section__title">{finalCta.title}</h2>
+          <h2 className="section__title">{footerCta.title}</h2>
           <div className="flex-content flex--column-mobile flex--center">
-            {finalCta.cta.map((item) => (
+            {footerCta.cta.map((item) => (
               <CtaButton key={item.href} item={item} />
             ))}
           </div>

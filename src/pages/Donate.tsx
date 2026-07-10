@@ -1,3 +1,4 @@
+import CtaButton from '../components/CtaButton';
 import type { DonateData } from '../utils/data';
 
 interface DonateProps {
@@ -84,16 +85,9 @@ const Donate = ({ data }: DonateProps) => {
       <section className="section">
         <div className="section__content center">
           <h2 className="section__title">{footerCta.title}</h2>
-          <p className="section__body">{footerCta.body}</p>
           <div className="flex-content flex--column-mobile flex--center">
             {footerCta.cta.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className={['button', item.variant].filter(Boolean).join(' ')}
-              >
-                {item.label}
-              </a>
+              <CtaButton key={item.href} item={item} />
             ))}
           </div>
         </div>

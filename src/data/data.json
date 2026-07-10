@@ -151,6 +151,16 @@
       "Snuggly"
     ]
   },
+  "catDetail": {
+    "footerCta": {
+      "title": "Ready to meet?",
+      "body": "Apply for free and we'll be in touch soon!",
+      "cta": [
+        { "label": "Start Adoption Application", "href": "https://forms.gle/N6cPXqftU2gp9vAq8", "target": "_blank", "variant": "" },
+        { "label": "Back to All Cats", "href": "/adopt", "target": "", "variant": "button--secondary" }
+      ]
+    }
+  },
   "footer": {
     "legalLine": "Nine Lives Ikigai, Inc. is a California nonprofit public benefit corporation. EIN: 42-2634127.",
     "taxExemptStatusNote": "Nine Lives Ikigai, Inc. is recognized as tax-exempt under IRC Section 501(c)(3), effective April 21, 2026. Contributions are tax-deductible under IRC Section 170."
@@ -161,8 +171,8 @@
       "label": "Where every cat finds its purpose again.",
       "body": "We believe every cat deserves a life of purpose and dignity; whether they've known hardship, homelessness, or simply need a second chance. Rooted in ikigai and the art of kintsugi, we find meaning in the mending.",
       "cta": [
-        { "label": "Meet Our Cats", "href": "/adopt", "variant": "button--primary" },
-        { "label": "Get Involved", "href": "/donate", "variant": "button--secondary" }
+        { "label": "Meet Our Cats", "href": "/adopt", "target": "", "variant": "button--primary" },
+        { "label": "Get Involved", "href": "/donate", "target": "", "variant": "button--secondary" }
       ]
     },
     "about": {
@@ -202,14 +212,14 @@
     "adoptTeaser": {
       "title": "Meet Our Cats",
       "label": "Looking for a home right now",
-      "cta": { "label": "See All Available Cats", "href": "/adopt", "variant": "button--primary" }
+      "cta": { "label": "See All Available Cats", "href": "/adopt", "target": "", "variant": "button--primary" }
     },
-    "finalCta": {
+    "footerCta": {
       "title": "Every life has a reason. Help us find theirs.",
       "cta": [
-        { "label": "Adopt a Cat", "href": "/adopt", "variant": "button--primary" },
-        { "label": "Donate", "href": "/donate", "variant": "button--secondary" },
-        { "label": "Become a Foster", "href": "/foster", "variant": "button--gray" }
+        { "label": "Adopt a Cat", "href": "/adopt", "target": "", "variant": "button--primary" },
+        { "label": "Donate", "href": "/donate", "target": "", "variant": "button--secondary" },
+        { "label": "Become a Foster", "href": "/foster", "target": "", "variant": "button--gray" }
       ]
     }
   },
@@ -244,8 +254,8 @@
       "title": "Want to get involved?",
       "body": "Foster, adopt, or volunteer; every role helps a cat find their way home.",
       "cta": [
-        { "label": "Adopt a Cat", "href": "/adopt", "variant": "button--primary" },
-        { "label": "Become a Foster", "href": "/foster", "variant": "button--gray" }
+        { "label": "Adopt a Cat", "href": "/adopt", "target": "", "variant": "button--primary" },
+        { "label": "Become a Foster", "href": "/foster", "target": "", "variant": "button--gray" }
       ]
     }
   },
@@ -293,8 +303,8 @@
       "title": "Ready to foster?",
       "body": "Tell us about your home and we'll follow up with next steps.",
       "cta": [
-        { "label": "Contact Us", "href": "/contact", "variant": "button--primary" },
-        { "label": "Donate Instead", "href": "/donate", "variant": "button--secondary" }
+        { "label": "Contact Us", "href": "/contact", "target": "", "variant": "button--primary" },
+        { "label": "Donate Instead", "href": "/donate", "target": "", "variant": "button--secondary" }
       ]
     }
   },
@@ -482,8 +492,8 @@
       "title": "Not ready to adopt?",
       "body": "Fostering and donating make every adoption possible.",
       "cta": [
-        { "label": "Donate", "href": "/donate", "variant": "button--secondary" },
-        { "label": "Become a Foster", "href": "/foster", "variant": "button--gray" }
+        { "label": "Donate", "href": "/donate", "target": "", "variant": "button--secondary" },
+        { "label": "Become a Foster", "href": "/foster", "target": "", "variant": "button--gray" }
       ]
     }
   },
@@ -512,12 +522,12 @@
         {
           "title": "In-Kind Donations",
           "description": "We welcome donations of food, litter, carriers, bedding, and similar supplies. Contact us to arrange a drop-off; larger or unusual in-kind gifts (estimated value over $1,000) are reviewed under our gift acceptance policy before we can confirm acceptance.",
-          "cta": { "label": "Contact Us", "href": "/contact" }
+          "cta": { "label": "Contact Us", "href": "/contact", "target": "" }
         },
         {
           "title": "Amazon Wishlist",
           "description": "Shop our wishlist and have supplies shipped directly to our foster network.",
-          "cta": { "label": "View Wishlist", "href": "https://a.co/02ro5klg" }
+          "cta": { "label": "View Wishlist", "href": "https://a.co/02ro5klg", "target": "_blank" }
         }
       ]
     },
@@ -525,8 +535,8 @@
       "title": "Not ready to give right now?",
       "body": "Fostering and adopting are just as valuable.",
       "cta": [
-        { "label": "Adopt a Cat", "href": "/adopt", "variant": "button--primary" },
-        { "label": "Become a Foster", "href": "/foster", "variant": "button--gray" }
+        { "label": "Adopt a Cat", "href": "/adopt", "target": "", "variant": "button--primary" },
+        { "label": "Become a Foster", "href": "/foster", "target": "", "variant": "button--gray" }
       ]
     }
   },
@@ -631,8 +641,8 @@
       "title": "Ready to make a difference?",
       "body": "Adopt, foster, or donate to help cats find their way home.",
       "cta": [
-        { "label": "Adopt a Cat", "href": "/adopt", "variant": "button--primary" },
-        { "label": "Donate", "href": "/donate", "variant": "button--secondary" }
+        { "label": "Adopt a Cat", "href": "/adopt", "target": "", "variant": "button--primary" },
+        { "label": "Donate", "href": "/donate", "target": "", "variant": "button--secondary" }
       ]
     }
   },

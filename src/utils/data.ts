@@ -31,7 +31,7 @@ export type HomeData = {
   about: RawData['home']['about'];
   services: RawData['home']['services'];
   adoptTeaser: RawData['home']['adoptTeaser'];
-  finalCta: RawData['home']['finalCta'];
+  footerCta: RawData['home']['footerCta'];
 };
 
 export type AdoptData = {
@@ -45,6 +45,7 @@ export type AdoptData = {
 
 export type CatDetailData = {
   cats: CatListing[];
+  footerCta: RawData['catDetail']['footerCta'];
 };
 
 export type DonateData = RawData['donate'];
@@ -85,7 +86,7 @@ export const homeData: HomeData = {
   about: raw.home.about,
   services: raw.home.services,
   adoptTeaser: raw.home.adoptTeaser,
-  finalCta: raw.home.finalCta,
+  footerCta: raw.home.footerCta,
 };
 
 export const adoptData: AdoptData = {
@@ -101,6 +102,7 @@ export const adoptData: AdoptData = {
 // page just needs the full list to find one record by :id at render time.
 export const catDetailData: CatDetailData = {
   cats: realCats,
+  footerCta: raw.catDetail.footerCta,
 };
 
 export const donateData: DonateData = raw.donate;
