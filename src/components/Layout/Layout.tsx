@@ -25,7 +25,7 @@ const Layout = ({ children, pagename = 'Home' }) => {
   return (
     <>
       <div id="section-top" className="main-content" style={mainContent}>
-        <Header pageRef={pageRef} />
+        <Header />
         
         {children}
 

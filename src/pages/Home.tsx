@@ -1,5 +1,6 @@
 import CatCard from '../components/CatCard';
 import CtaButton from '../components/CtaButton';
+import { useHashNavigation } from '../utils/scroll';
 import type { HomeData } from '../utils/data';
 
 interface HomeProps {
@@ -8,6 +9,8 @@ interface HomeProps {
 
 const Home = ({ data }: HomeProps) => {
   const { hero, about, services, adoptTeaser, finalCta, featuredCats } = data;
+
+  useHashNavigation();
 
   return (
     <>

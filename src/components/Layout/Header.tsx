@@ -1,37 +1,39 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { smoothScrollTo, useSlimHeader } from '../../utils/scroll';
+import { useState, type MouseEvent, type ChangeEvent } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { smoothScrollTo, scrollToTop, useSlimHeader, HEADER_OFFSET } from '../../utils/scroll';
 
-const Header = ({ pageRef: _pageRef }) => {
+const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === '/';
   const isSlim = useSlimHeader(100); // Add slim class when scrolled past 100px
 
-  const handleScrollClick = (e, target) => {
+  const handleScrollClick = (e: MouseEvent<HTMLAnchorElement>, target: string) => {
     e.preventDefault();
-    
+
     if (isHomePage) {
       // If we're on home page, scroll to section with header offset
-      smoothScrollTo(target, 77);
+      smoothScrollTo(target, HEADER_OFFSET);
     } else {
-      // If we're on another page, navigate to home with hash
-      window.location.href = `/${target}`;
+      // If we're on another page, navigate to home with hash — useHashNavigation
+      // (in Home.tsx) picks up the hash on mount and scrolls with the right offset
+      navigate(`/${target}`);
     }
-    
+
     // Close mobile nav after click
     setIsNavOpen(false);
   };
 
-  const handleNavToggle = (e) => {
+  const handleNavToggle = (e: ChangeEvent<HTMLInputElement>) => {
     setIsNavOpen(e.target.checked);
   };
 
-  const handleLogoClick = (e) => {
-    if (isHomePage) {
-      e.preventDefault();
-      smoothScrollTo('#section-top', 77);
-    }
+  const closeNav = () => setIsNavOpen(false);
+
+  const handleLogoClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    scrollToTop();
     setIsNavOpen(false);
   };
 
@@ -51,7 +53,7 @@ const Header = ({ pageRef: _pageRef }) => {
             <Link 
               className="button" 
               to="/"
-              onClick={() => setIsNavOpen(false)}
+              onClick={closeNav}
             >
               Nine Lives Ikigai
             </Link>
@@ -62,6 +64,7 @@ const Header = ({ pageRef: _pageRef }) => {
           <input 
             type="checkbox" 
             name="nav-toggle" 
+            aria-label={isNavOpen ? 'Close navigation menu' : 'Open navigation menu'}
             checked={isNavOpen}
             onChange={handleNavToggle}
           />
@@ -70,42 +73,32 @@ const Header = ({ pageRef: _pageRef }) => {
         
         <ul className={isNavOpen ? 'show-nav' : ''}>
           <li>
-            <a className="button button--alt" href="/adopt">
+            <Link className="button button--alt" to="/adopt" onClick={closeNav}>
               Adopt
-            </a>
+            </Link>
           </li>
           <li>
-            <Link className="button" to="/foster" onClick={() => setIsNavOpen(false)}>
+            <Link className="button" to="/foster" onClick={closeNav}>
               Foster
             </Link>
           </li>
           <li>
             <a 
               className="button" 
-              href="#section-services"
+              href="#services"
               data-scroll="true"
               onClick={(e) => handleScrollClick(e, '#services')}
             >
               Services
             </a>
           </li>
-          {/*<li>
-            <a 
-              className="button" 
-              href="#section-about"
-              data-scroll="true"
-              onClick={(e) => handleScrollClick(e, '#about')}
-            >
-              About
-            </a>
-          </li>*/}
           <li>
-            <Link className="button" to="/who-we-are" onClick={() => setIsNavOpen(false)}>
+            <Link className="button" to="/who-we-are" onClick={closeNav}>
               Who We Are
             </Link>
           </li>
           <li>
-            <Link className="button" to="/contact" onClick={() => setIsNavOpen(false)}>
+            <Link className="button" to="/contact" onClick={closeNav}>
               Contact
             </Link>
           </li>
