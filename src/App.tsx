@@ -48,21 +48,15 @@ function App() {
           </Layout>
         } />
 
-        <Route path="/donate" element={
-          <Layout pagename="Donate">
-            <Donate data={donateData} />
-          </Layout>
-        } />
-
         <Route path="/contact" element={
           <Layout pagename="Contact">
             <Contact data={contactData} />
           </Layout>
         } />
 
-        <Route path="/who-we-are" element={
-          <Layout pagename="Who We Are">
-            <About data={aboutData} />
+        <Route path="/donate" element={
+          <Layout pagename="Donate">
+            <Donate data={donateData} />
           </Layout>
         } />
 
@@ -75,6 +69,12 @@ function App() {
         <Route path="/privacy-policy" element={
           <Layout pagename="Privacy Policy">
             <PrivacyPolicy data={privacyData} />
+          </Layout>
+        } />
+
+        <Route path="/who-we-are" element={
+          <Layout pagename="Who We Are">
+            <About data={aboutData} />
           </Layout>
         } />
 

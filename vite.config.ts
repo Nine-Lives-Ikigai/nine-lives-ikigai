@@ -1,13 +1,20 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import { copyFileSync, mkdirSync } from 'fs';
 import { resolve } from 'path';
 
-const routes = ['adopt'];
+const routes = ['adopt', 'contact', 'donate', 'foster', 'privacy-policy', 'who-we-are'];
 
 export default defineConfig({
   plugins: [
     react(),
+    ViteImageOptimizer({
+      jpg: { quality: 78 },
+      jpeg: { quality: 78 },
+      png: { quality: 78 },
+      webp: { lossless: true },
+    }),
     {
       name: 'gh-pages-spa-routes',
       closeBundle() {
@@ -23,7 +30,8 @@ export default defineConfig({
     port: 4000,
     proxy: {
       '/api': {
-        target: 'http://localhost:4000',
+        // Wrangler's local dev server default port is 8787
+        target: 'http://localhost:8787',
         changeOrigin: true,
       }
     }
