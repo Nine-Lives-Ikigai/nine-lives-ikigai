@@ -88,15 +88,15 @@ const CatGallery = ({ name, hero, images, secret }: CatGalleryProps) => {
       </div>
 
       {hasMultiple && (
-        <div className="cat-gallery__thumbs">
+        <div className="cat-gallery__thumbnails">
           {gallery.map((src, index) => (
             <button
               key={src}
               type="button"
               className={
                 index === activeIndex
-                  ? 'cat-gallery__thumb cat-gallery__thumb--active'
-                  : 'cat-gallery__thumb'
+                  ? 'thumbnail-button thumbnail-button--active'
+                  : 'thumbnail-button'
               }
               onClick={() => goTo(index)}
               aria-label={`Show photo ${index + 1}`}

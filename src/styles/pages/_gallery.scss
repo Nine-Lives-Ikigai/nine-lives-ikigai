@@ -8,25 +8,67 @@
 }
 
 .cat-gallery__main {
-  position: relative;
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
   overflow: hidden;
-  background-color: rgba(color(gray, darkest), 0.3);
-  box-shadow: 2px 2px 4px 0px rgba(color(gray, darkest), 0.5);
+  position: relative;
 }
 
-// Same treatment as .cat-card__image--contain: the whole photo, uncropped,
-// rather than the cropped .cat-card__image used in list/grid contexts.
 .cat-gallery__image {
   aspect-ratio: initial;
   cursor: zoom-in;
   display: block;
-  max-height: 600px;
+  height: 500px;
   object-fit: contain;
-  width: 100%;
+  width: 500px;
 }
+
+// Thumbnails
+
+.cat-gallery__thumbnails {
+  display: flex;
+  gap: 5.5px;
+  overflow-x: auto;
+  padding: 0 0 5.5px;
+}
+
+.thumbnail-button {
+  border: 2px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  padding: 0;
+  
+  background-color: transparent;
+  transition: border-color 0.15s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &:hover {
+    border-color: color(gray, lightest);
+  }
+
+  &:focus-visible {
+    outline: 2px solid color(gray, lightest);
+    outline-offset: 2px;
+  }
+}
+
+.thumbnail-button--active {
+  border-color: color(secondary, mid);
+}
+
+// Buttons
 
 .gallery-button {
   align-items: center;
@@ -50,9 +92,7 @@
     color: color(gray, lightest);
   }
 
-  // Not present elsewhere in the codebase — added because this component,
-  // unlike the existing buttons/chips, is meant to be driven by arrow keys.
-  // Drop this if you'd rather hold the line on strict parity.
+  // Meant to be driven by arrow keys (unlike other buttons/chips)
   &:focus-visible {
     outline: 2px solid color(gray, lightest);
     outline-offset: 2px;
@@ -73,67 +113,8 @@
   right: 11px;
 }
 
-.cat-gallery__thumbs {
-  display: flex;
-  gap: 5.5px;
-  overflow-x: auto;
-  padding: 0 0 5.5px;
-}
+// Lightbox Buttons
 
-.cat-gallery__thumb {
-  flex: 0 0 auto;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border: 2px solid transparent;
-  border-radius: 5px;
-  overflow: hidden;
-  cursor: pointer;
-  background-color: transparent;
-  transition: border-color 0.15s ease;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  &:hover {
-    border-color: color(gray, lightest);
-  }
-
-  &:focus-visible {
-    outline: 2px solid color(gray, lightest);
-    outline-offset: 2px;
-  }
-}
-
-// secondary tones already mean "active/selected" elsewhere
-// (.button__chip--active, .accordion-button[aria-expanded="true"])
-.cat-gallery__thumb--active {
-  border-color: color(secondary, mid);
-}
-
-.cat-gallery__lightbox {
-  align-items: center;
-  background: rgba(color(gray, darkest), 0.95);
-  display: flex;
-  inset: 0;
-  justify-content: center;
-  position: fixed;
-  z-index: $lightbox-overlay;
-}
-
-.cat-gallery__lightbox-image {
-  cursor: default;
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-}
-
-// Larger arrows/wider offset inside the lightbox — context override,
-// same pattern as .service-card--alt overriding its own children.
 .cat-gallery__lightbox .gallery-button {
   font-size: 28px;
   line-height: 28px;
@@ -154,16 +135,36 @@
   z-index: $lightbox-overlay-close;
 }
 
+// Lightbox
+
+.cat-gallery__lightbox {
+  align-items: center;
+  background: rgba(color(gray, darkest), 0.95);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  position: fixed;
+  z-index: $lightbox-overlay;
+}
+
+.cat-gallery__lightbox-image {
+  cursor: default;
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
 .cat-gallery__lightbox-counter {
+  color: color(gray, lightest);
+  margin: 0;
+
   position: absolute;
   bottom: 22px;
   left: 50%;
   transform: translateX(-50%);
-  margin: 0;
-  color: color(gray, lightest);
 }
 
-// Not present elsewhere in the codebase — same call as :focus-visible above.
+// Same call as :focus-visible above
 @media (prefers-reduced-motion: reduce) {
   .gallery-button,
   .cat-gallery__thumb,
