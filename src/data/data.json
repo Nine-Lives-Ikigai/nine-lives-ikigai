@@ -9,7 +9,10 @@
       "name": "",
       "nickname": "",
       "secret": "",
-      "image": "",
+      "hero": "/cats/cat-01.jpg",
+      "images": [
+        { "image": "/cats/cat-01.jpg" }
+      ],
       "sex": "Male",
       "age": "Adult",
       "dob": "YYYY/MM/DD",
@@ -25,7 +28,13 @@
       "name": "Galileo",
       "nickname": "Gali",
       "secret": "Star Platinum (aka SP)",
-      "image": "/cats/gali-01.jpg",
+      "hero": "/cats/gali-01.jpg",
+      "images": [
+        { "image": "/cats/gali-01.jpg" },
+        { "image": "/cats/gali-02.jpg" },
+        { "image": "/cats/gali-03.jpg" },
+        { "image": "/cats/gali-04.jpg" }
+      ],
       "sex": "Male",
       "age": "Adult",
       "dob": "2025/03/17",
@@ -41,7 +50,13 @@
       "name": "Copernicus",
       "nickname": "Cooper",
       "secret": "Za Warudo",
-      "image": "/cats/cooper-01.jpg",
+      "hero": "/cats/cooper-01.jpg",
+      "images": [
+        { "image": "/cats/cooper-01.jpg" },
+        { "image": "/cats/cooper-02.jpg" },
+        { "image": "/cats/cooper-03.jpg" },
+        { "image": "/cats/cooper-04.jpg" }
+      ],
       "sex": "Male",
       "age": "Adult",
       "dob": "2025/03/17",
@@ -156,7 +171,8 @@
       "title": "Ready to meet?",
       "body": "Apply for free and we'll be in touch soon!",
       "cta": [
-        { "label": "Start Adoption Application", "href": "https://forms.gle/N6cPXqftU2gp9vAq8", "target": "_blank", "variant": "button--primary" },
+        { "label": "Apply to Adopt", "href": "https://forms.gle/N6cPXqftU2gp9vAq8", "target": "_blank", "variant": "button--primary" },
+        { "label": "Inquire on All Cats", "href": "https://forms.gle/QGomRim55Ro9fvSx8", "target": "_blank", "variant": "" },
         { "label": "Back to All Cats", "href": "/adopt", "target": "", "variant": "button--gray" }
       ]
     }

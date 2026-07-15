@@ -1,4 +1,5 @@
 import CtaButton from '../components/CtaButton';
+import CatGallery from '../components/CatGallery';
 import { Navigate, useParams } from 'react-router-dom';
 import type { CatDetailData } from '../utils/data';
 
@@ -28,11 +29,11 @@ const CatDetail = ({ data }: CatDetailProps) => {
           <p className="cat-card__description">{cat.blurb}</p>
         </div>
 
-        {/* Cat Image and Info */}
+        {/* Cat Gallery and Info */}
         <div className="section__content center">
           <div className="flex-content flex--center">
             <div className="flex__small--12 flex__large--6">
-              <img src={cat.image} alt={cat.name} title={cat.secret} className="cat-card__image--contain" />
+              <CatGallery name={cat.name} hero={cat.hero} images={cat.images} secret={cat.secret} />
             </div>
             <div className="flex__small--12 flex__large--6">
               <div className="cat-detail__meta">

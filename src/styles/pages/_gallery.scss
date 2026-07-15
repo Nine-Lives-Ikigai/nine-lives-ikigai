@@ -1,0 +1,173 @@
+@use '../utilities' as *;
+
+.cat-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  width: 100%;
+}
+
+.cat-gallery__main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: rgba(color(gray, darkest), 0.3);
+  box-shadow: 2px 2px 4px 0px rgba(color(gray, darkest), 0.5);
+}
+
+// Same treatment as .cat-card__image--contain: the whole photo, uncropped,
+// rather than the cropped .cat-card__image used in list/grid contexts.
+.cat-gallery__image {
+  aspect-ratio: initial;
+  cursor: zoom-in;
+  display: block;
+  max-height: 600px;
+  object-fit: contain;
+  width: 100%;
+}
+
+.gallery-button {
+  align-items: center;
+  background-color: rgba(color(gray, darkest), 0.5);
+  border-radius: 50%;
+  color: color(secondary, light);
+  font-size: 22px;
+  height: 44px;
+  justify-content: center;
+  line-height: 22px;
+  margin: 0;
+  padding: 0;
+  min-height: auto;
+  min-width: auto;
+  transition: all 0.3s ease-out;
+  width: 44px;
+
+  &:hover {
+    border-color: color(gray, lightest);
+    box-shadow: none;
+    color: color(gray, lightest);
+  }
+
+  // Not present elsewhere in the codebase — added because this component,
+  // unlike the existing buttons/chips, is meant to be driven by arrow keys.
+  // Drop this if you'd rather hold the line on strict parity.
+  &:focus-visible {
+    outline: 2px solid color(gray, lightest);
+    outline-offset: 2px;
+  }
+}
+
+.gallery-button--prev,
+.gallery-button--next {
+  position: absolute;
+  top: calc(50% - 22px);
+}
+
+.gallery-button--prev {
+  left: 11px;
+}
+
+.gallery-button--next {
+  right: 11px;
+}
+
+.cat-gallery__thumbs {
+  display: flex;
+  gap: 5.5px;
+  overflow-x: auto;
+  padding: 0 0 5.5px;
+}
+
+.cat-gallery__thumb {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: transparent;
+  transition: border-color 0.15s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &:hover {
+    border-color: color(gray, lightest);
+  }
+
+  &:focus-visible {
+    outline: 2px solid color(gray, lightest);
+    outline-offset: 2px;
+  }
+}
+
+// secondary tones already mean "active/selected" elsewhere
+// (.button__chip--active, .accordion-button[aria-expanded="true"])
+.cat-gallery__thumb--active {
+  border-color: color(secondary, mid);
+}
+
+.cat-gallery__lightbox {
+  align-items: center;
+  background: rgba(color(gray, darkest), 0.95);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  position: fixed;
+  z-index: $lightbox-overlay;
+}
+
+.cat-gallery__lightbox-image {
+  cursor: default;
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+// Larger arrows/wider offset inside the lightbox — context override,
+// same pattern as .service-card--alt overriding its own children.
+.cat-gallery__lightbox .gallery-button {
+  font-size: 28px;
+  line-height: 28px;
+}
+
+.cat-gallery__lightbox .gallery-button--prev {
+  left: 22px;
+}
+
+.cat-gallery__lightbox .gallery-button--next {
+  right: 22px;
+}
+
+.gallery-button--lightbox-close {
+  position: absolute;
+  right: 22px;
+  top: 22px;
+  z-index: $lightbox-overlay-close;
+}
+
+.cat-gallery__lightbox-counter {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  color: color(gray, lightest);
+}
+
+// Not present elsewhere in the codebase — same call as :focus-visible above.
+@media (prefers-reduced-motion: reduce) {
+  .gallery-button,
+  .cat-gallery__thumb,
+  .cat-gallery__lightbox-close {
+    transition: none;
+  }
+}
