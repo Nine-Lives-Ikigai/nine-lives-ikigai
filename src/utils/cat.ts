@@ -18,6 +18,7 @@ export interface CatListing {
   age: 'Kitten' | 'Adult' | 'Senior';
   dob: string;
   blurb: string;
+  bonded: string;
   temperament: string;
   neutered: true;
   breed: string;

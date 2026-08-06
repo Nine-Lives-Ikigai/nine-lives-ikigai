@@ -10,6 +10,7 @@ interface CatDetailProps {
 const CatDetail = ({ data }: CatDetailProps) => {
   const { id } = useParams<{ id: string }>();
   const cat = data.cats.find((c) => c.id === id);
+  const bondedCat = data.cats.find((b) => b.id === (cat ? cat.bonded : ""));
   const footerCta = data.footerCta;
 
   // Bad or stale :id (e.g. a shared link to a cat that's since been
@@ -55,6 +56,9 @@ const CatDetail = ({ data }: CatDetailProps) => {
                 <p className="cat-card__meta">
                   Temperament &middot; <span>{cat.temperament}</span>
                 </p>
+                {bondedCat && <><p className="cat-card__meta">
+                  Bonded with &middot; <a href={`/adopt/${bondedCat.id}`}><span>{bondedCat.name}</span></a>
+                </p></>}
               </div>
             </div>
           </div>
