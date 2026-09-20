@@ -116,7 +116,7 @@ const Adopt = ({ data }: AdoptProps) => {
           {filtered.length > 0 ? (
             <div className="flex-content card-grid">
               {filtered.map((cat: CatListing) => (
-                <CatCard key={cat.id} cat={cat} isBonded />
+                <CatCard key={cat.id} cat={cat} isBonded={cat.bonded.length > 0} />
               ))}
             </div>
           ) : hasActiveFilters ? (
