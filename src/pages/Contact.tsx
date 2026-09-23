@@ -1,4 +1,4 @@
-import { useState, type SubmitEvent } from 'react';
+import { useState, type FormEvent } from 'react';
 import CtaButton from '../components/CtaButton';
 import AccordionItem from '../components/AccordionItem';
 import type { ContactData } from '../utils/data';
@@ -7,13 +7,19 @@ interface ContactProps {
   data: ContactData;
 }
 
-// TODO: replace once the backend endpoint is confirmed and deployed
-const FORM_ENDPOINT_URL = '/api/contact';
+// Cloudflare Worker acting as a serverless proxy to Resend, bound to
+// this hostname via a Cloudflare Worker Route (not a workers.dev URL).
+// This is a public URL by design, the browser calls it directly, so
+// hardcoding it here isn't a secret exposure the way an API key would be.
+const FORM_ENDPOINT_URL = 'https://api.ninelivesikigai.org/contact';
 
 const Contact = ({ data }: ContactProps) => {
   const { pageHeader, form, info, faq, footerCta } = data;
 
   const [values, setValues] = useState<Record<string, string>>({});
+  // Real users never see or fill this (see the hidden input below); a
+  // non-empty value here is a strong bot signal, checked server-side.
+  const [honeypot, setHoneypot] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -23,7 +29,7 @@ const Contact = ({ data }: ContactProps) => {
     setValues((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
     setSubmitting(true);
@@ -31,8 +37,11 @@ const Contact = ({ data }: ContactProps) => {
     try {
       const response = await fetch(FORM_ENDPOINT_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Contact-Form-Token': import.meta.env.VITE_CONTACT_FORM_TOKEN,
+        },
+        body: JSON.stringify({ ...values, honeypot }),
       });
 
       if (!response.ok) {
@@ -77,6 +86,20 @@ const Contact = ({ data }: ContactProps) => {
                     </p>
                   )}
                   <div className="flex-content">
+                    {/* Honeypot: off-screen via CSS positioning rather
+                        than type="hidden", since most bots specifically
+                        skip hidden inputs but few skip ones merely
+                        positioned off-screen. */}
+                    <input
+                      type="text"
+                      name="company"
+                      autoComplete="off"
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      style={{ position: 'absolute', left: '-9999px' }}
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                    />
                     {form.fields.map((field) => (
                       <div
                         className={`flex__small--12 ${field.half ? 'flex__large--6' : ''}`}
