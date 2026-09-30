@@ -11,7 +11,6 @@ export type ProcessStep = RawData['adopt']['processSteps']['steps'][number];
 export type FaqGroup = RawData['adopt']['faq']['groups'][number];
 export type FaqItem = FaqGroup['items'][number];
 
-export type DonateOption = RawData['donate']['amounts']['options'][number];
 export type OtherWayItem = RawData['donate']['otherWays']['items'][number];
 
 export type ContactField = RawData['contact']['form']['fields'][number];
