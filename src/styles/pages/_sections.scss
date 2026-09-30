@@ -121,3 +121,11 @@
     text-align: right;
   }
 }
+
+.section__embed-frame {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  border: 0;
+}

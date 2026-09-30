@@ -522,6 +522,15 @@
       "label": "Every gift helps a cat find their way home.",
       "body": "Your donation funds spay/neuter surgeries, vaccinations, emergency veterinary care, and the day-to-day cost of fostering cats until they're ready for adoption. No gift is too small."
     },
+    "embed": {
+      "title": "Donate to Nine Lives Ikigai",
+      "src": "https://checkout.shelterluv.com/donate/NLI",
+      "height": 648,
+      "fallbackLabel": "Trouble loading the form? Open it in a new tab.",
+      "note": "Your donation is recorded in our donor records, which are managed in Shelterluv. For details, see our",
+      "privacyLinkLabel": "Privacy Policy",
+      "privacyLinkHref": "/privacy-policy"
+    },
     "amounts": {
       "title": "Make a Gift",
       "label": "Choose an amount to get started",
@@ -530,8 +539,7 @@
         { "label": "$20", "href": "https://donate.stripe.com/8x2eVe94Y32kd6547ibsc02" },
         { "label": "$88", "href": "https://donate.stripe.com/8x2fZi5SMeL24zz6fqbsc01" },
         { "label": "$200", "href": "https://donate.stripe.com/aFa00k80UcCU0jjdHSbsc03" }
-      ],
-      "note": "Donations are processed securely through Stripe. You'll receive an emailed receipt for your records after your donation is processed."
+      ]
     },
     "disclosure": "Nine Lives Ikigai, Inc. is a California nonprofit public benefit corporation (EIN: 42-2634127), recognized as tax-exempt under IRC Section 501(c)(3) effective April 21, 2026. Contributions are tax-deductible under IRC Section 170 to the extent allowed by law; consult your tax advisor regarding the deductibility of your gift.",
     "otherWays": {
@@ -673,11 +681,11 @@
     "sections": [
       {
         "title": "Information We Collect",
-        "body": "When you submit our contact form, apply to adopt or foster, or sign up for email updates, we collect the information you provide directly, which may include your name, email address, phone number, and the contents of your message."
+        "body": "When you submit our contact form, apply to adopt or foster, make a donation, or sign up for email updates, we collect the information you provide directly, which may include your name, email address, phone number, and the contents of your message."
       },
       {
         "title": "Third Parties We Share Information With",
-        "body": "We share limited information with service providers who help us operate the site and our programs. Donations are processed by Stripe, which receives your payment information directly. If you sign up for email updates, our email service provider receives your email address to deliver those messages. These providers are authorized to use your information only to provide services to us and are not permitted to sell it."
+        "body": "We share limited information with service providers who help us operate the site and our programs. We use Shelterluv to manage our animal, adopter, foster, and donor records. When you donate, the contact information you enter is stored in our Shelterluv account, and the donation is added to your existing record if we already have one for you (matched by email address and phone number), or to a new record created from the information you entered. If you sign up for email updates, our email service provider receives your email address to deliver those messages. Our email service provider is authorized to use your information only to provide services to us and is not permitted to sell it."
       },
       {
         "title": "How We Use Information",
@@ -700,7 +708,7 @@
         "body": "If we make a material change to this policy, we will post the revised policy on this page and update the effective date below."
       }
     ],
-    "effectiveDate": "July 1, 2026",
+    "effectiveDate": "September 29, 2026",
     "complianceNote": "This policy meets the disclosure requirements of the California Online Privacy Protection Act (Cal. Bus. & Prof. Code § 22575 et seq.)."
   },
   "notFound": {

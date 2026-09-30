@@ -6,7 +6,7 @@ interface DonateProps {
 }
 
 const Donate = ({ data }: DonateProps) => {
-  const { pageHeader, amounts, disclosure, otherWays, footerCta } = data;
+  const { pageHeader, embed, disclosure, otherWays, footerCta } = data;
 
   return (
     <>
@@ -19,26 +19,34 @@ const Donate = ({ data }: DonateProps) => {
         </div>
       </section>
 
-      {/* Donation Amounts */}
+      {/* Donation Form (Shelterluv checkout) */}
       <section className="section section--primary">
         <div className="section__content center">
-          <h2 className="section__title">{amounts.title}</h2>
-          <p className="section__label">{amounts.label}</p>
-          <div className="flex-content flex--column-mobile flex--center">
-            {amounts.options.map((opt) => (
-              <a
-                key={opt.href}
-                href={opt.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button button--secondary"
-                aria-label={`${opt.label} — opens donation form in a new tab`}
-              >
-                {opt.label}
-              </a>
-            ))}
-          </div>
-          {amounts.note && <p className="section__body">{amounts.note}</p>}
+          <iframe
+            src={embed.src}
+            title={embed.title}
+            className="section__embed-frame"
+            style={{ height: embed.height }}
+            loading="lazy"
+            allowFullScreen
+          />
+          {/* Fallback: a blocked or failed iframe renders as an empty box with no visible error. */}
+          <p className="section__body">
+            <a
+              href={embed.src}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${embed.fallbackLabel} — opens in a new tab`}
+            >
+              {embed.fallbackLabel}
+            </a>
+          </p>
+          {embed.note && (
+            <p className="section__body">
+              {embed.note}{' '}
+              <a href={embed.privacyLinkHref}>{embed.privacyLinkLabel ?? 'Privacy Policy'}</a>.
+            </p>
+          )}
         </div>
       </section>
 
