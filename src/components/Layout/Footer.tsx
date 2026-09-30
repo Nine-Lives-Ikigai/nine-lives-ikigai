@@ -1,7 +1,7 @@
 import { footerData } from '../../utils/data';
 
 const Footer = () => {
-  const { legalLine, taxExemptStatusNote } = footerData;
+  const { legalLine, taxExemptStatusNote, copyright, rights } = footerData;
 
   return (
     <div className="footer-container">
@@ -15,11 +15,11 @@ const Footer = () => {
         )}
          <br/>
         <span className="footer-signature">
-          Copyright © Nine Lives Ikigai, Inc.
+          {copyright}
           <br className="mobile-only" />
           <span className="hide-on-mobile__inline">&nbsp;</span>
-          All rights reserved.
-        </span>        
+          {rights}
+        </span>
       </div>
     </div>
   );

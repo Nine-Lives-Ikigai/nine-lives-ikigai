@@ -180,9 +180,26 @@
       ]
     }
   },
+  "header": {
+    "brand": "Nine Lives Ikigai",
+    "navToggle": {
+      "openLabel": "Open navigation menu",
+      "closeLabel": "Close navigation menu"
+    },
+    "links": [
+      { "label": "Adopt", "href": "/adopt", "variant": "button--alt" },
+      { "label": "Foster", "href": "/foster", "variant": "" },
+      { "label": "Donate", "href": "/donate", "variant": "" },
+      { "label": "Services", "href": "#services", "variant": "" },
+      { "label": "Who We Are", "href": "/who-we-are", "variant": "" },
+      { "label": "Contact", "href": "/contact", "variant": "" }
+    ]
+  },
   "footer": {
     "legalLine": "Nine Lives Ikigai, Inc. is a California nonprofit public benefit corporation. EIN: 42-2634127.",
-    "taxExemptStatusNote": "Nine Lives Ikigai, Inc. is recognized as tax-exempt under IRC Section 501(c)(3), effective April 21, 2026. Contributions are tax-deductible under IRC Section 170."
+    "taxExemptStatusNote": "Nine Lives Ikigai, Inc. is recognized as tax-exempt under IRC Section 501(c)(3), effective April 21, 2026. Contributions are tax-deductible under IRC Section 170.",
+    "copyright": "Copyright © Nine Lives Ikigai, Inc.",
+    "rights": "All rights reserved."
   },
   "home": {
     "hero": {
@@ -675,7 +692,7 @@
       },
       {
         "title": "Third Parties We Share Information With",
-        "body": "We share limited information with service providers who help us operate the site and our programs. We use Shelterluv to manage our animal, adopter, foster, and donor records. When you donate, the contact information you enter is stored in our Shelterluv account, and the donation is added to your existing record if we already have one for you (matched by email address and phone number), or to a new record created from the information you entered. If you sign up for email updates, our email service provider receives your email address to deliver those messages. Our email service provider is authorized to use your information only to provide services to us and is not permitted to sell it."
+        "body": "We share limited information with service providers who help us operate the site and our programs. We use Shelterluv to manage our animal, adopter, foster, and donor records. When you submit an adoption, foster, or other application through Shelterluv, the information you enter is stored in our Shelterluv account with your record. When you donate, the contact information you enter is stored in our Shelterluv account, and the donation is added to your existing record if we already have one for you (matched by email address and phone number), or to a new record created from the information you entered. If you sign up for email updates, our email service provider receives your email address to deliver those messages. Our email service provider is authorized to use your information only to provide services to us and is not permitted to sell it."
       },
       {
         "title": "How We Use Information",
@@ -698,7 +715,7 @@
         "body": "If we make a material change to this policy, we will post the revised policy on this page and update the effective date below."
       }
     ],
-    "effectiveDate": "September 29, 2026",
+    "effectiveDate": "September 30, 2026",
     "complianceNote": "This policy meets the disclosure requirements of the California Online Privacy Protection Act (Cal. Bus. & Prof. Code § 22575 et seq.)."
   },
   "notFound": {

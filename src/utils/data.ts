@@ -24,6 +24,9 @@ export type FosterWhatWeProvideItem = RawData['foster']['whatWeProvide']['items'
 
 export type CatFilters = RawData['catFilters'];
 
+export type HeaderData = RawData['header'];
+export type NavLink = HeaderData['links'][number];
+
 export type HomeData = {
   featuredCats: CatListing[];
   hero: RawData['home']['hero'];
@@ -111,6 +114,8 @@ export const contactData: ContactData = raw.contact;
 export const aboutData: AboutData = raw.about;
 
 export const fosterData: FosterData = raw.foster;
+
+export const headerData: HeaderData = raw.header;
 
 export const footerData: FooterData = raw.footer;
 

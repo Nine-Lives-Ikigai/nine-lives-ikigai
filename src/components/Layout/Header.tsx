@@ -1,8 +1,10 @@
 import { useState, type MouseEvent, type ChangeEvent } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { headerData } from '../../utils/data';
 import { smoothScrollTo, scrollToTop, useSlimHeader, HEADER_OFFSET } from '../../utils/scroll';
 
 const Header = () => {
+  const { brand, navToggle, links } = headerData;
   const [isNavOpen, setIsNavOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -42,71 +44,59 @@ const Header = () => {
       <div className="header-controls">
         <div className="header-logo">
           {isHomePage ? (
-            <a 
-              className="button" 
+            <a
+              className="button"
               href="#section-top"
               onClick={handleLogoClick}
             >
-              Nine Lives Ikigai
+              {brand}
             </a>
           ) : (
-            <Link 
-              className="button" 
+            <Link
+              className="button"
               to="/"
               onClick={closeNav}
             >
-              Nine Lives Ikigai
+              {brand}
             </Link>
           )}
         </div>
-        
+
         <div className="header-controls__nav-toggle">
-          <input 
-            type="checkbox" 
-            name="nav-toggle" 
-            aria-label={isNavOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          <input
+            type="checkbox"
+            name="nav-toggle"
+            aria-label={isNavOpen ? navToggle.closeLabel : navToggle.openLabel}
             checked={isNavOpen}
             onChange={handleNavToggle}
           />
           <span className="nav-icon"></span>
         </div>
-        
+
         <ul className={isNavOpen ? 'show-nav' : ''}>
-          <li>
-            <Link className="button button--alt" to="/adopt" onClick={closeNav}>
-              Adopt
-            </Link>
-          </li>
-          <li>
-            <Link className="button" to="/foster" onClick={closeNav}>
-              Foster
-            </Link>
-          </li>
-          <li>
-            <Link className="button" to="/donate" onClick={closeNav}>
-              Donate
-            </Link>
-          </li>
-          <li>
-            <a 
-              className="button" 
-              href="#services"
-              data-scroll="true"
-              onClick={(e) => handleScrollClick(e, '#services')}
-            >
-              Services
-            </a>
-          </li>
-          <li>
-            <Link className="button" to="/who-we-are" onClick={closeNav}>
-              Who We Are
-            </Link>
-          </li>
-          <li>
-            <Link className="button" to="/contact" onClick={closeNav}>
-              Contact
-            </Link>
-          </li>
+          {links.map((link) => {
+            // Hash hrefs are home-page sections; everything else is a route.
+            const isScrollLink = link.href.startsWith('#');
+            const className = link.variant ? `button ${link.variant}` : 'button';
+            return (
+              <li key={link.href}>
+                {isScrollLink ? (
+                  <a
+                    className={className}
+                    href={link.href}
+                    data-scroll="true"
+                    onClick={(e) => handleScrollClick(e, link.href)}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link className={className} to={link.href} onClick={closeNav}>
+                    {link.label}
+                  </Link>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>
