@@ -47,6 +47,14 @@
   background-color: transparent;
   transition: border-color 0.15s ease;
 
+  &:first-child {
+    margin-left: auto;
+  }
+
+  &:last-child {
+    margin-right: auto;
+  }
+
   img {
     width: 100%;
     height: 100%;
