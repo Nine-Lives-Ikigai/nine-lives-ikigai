@@ -83,6 +83,11 @@ const Header = () => {
             </Link>
           </li>
           <li>
+            <Link className="button" to="/donate" onClick={closeNav}>
+              Donate
+            </Link>
+          </li>
+          <li>
             <a 
               className="button" 
               href="#services"
