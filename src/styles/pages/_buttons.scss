@@ -84,10 +84,13 @@ button,
 }
 
 .button__return-top {
+    align-items: center;
     background-color: color(primary, dark);
     border-radius: 50%;
     box-shadow: -2px 2px 4px 0px rgba(color(gray, darkest), 0.8);
+    display: flex;
     height: 44px;
+    justify-content: center;
     margin: 0;
     min-height: auto;
     min-width: auto;
@@ -95,30 +98,28 @@ button,
     transform: rotate(-90deg);
     transition: all 0.3s ease-in-out;
     width: 44px;
-    
+
     position: fixed;
     bottom: 11px;
     right: 11px;
     z-index: $button-return-top;
 
-    &:hover { 
+    &:hover {
         border-color: color(gray, lightest);
         background-color: color(primary, mid);
         transform: rotate(-90deg) translateX(2px);
     }
 
-    span {
-        font-size: 33px;
-        height: 44px;
-        line-height: 33px;
-        width: 44px;
-    }
-
-    img {        
-        height: auto;
-        padding: 0 0 5.5px;
-        width: calc(100% - 22px);
-        vertical-align: middle;
+    // Chevron points right; the button's -90deg rotation turns it upward.
+    span::after {
+        border-right: 3px solid currentColor;
+        border-top: 3px solid currentColor;
+        content: "";
+        display: block;
+        height: 12px;
+        margin-left: -4px; // optical centering: the chevron's visible mass sits right of its box center
+        transform: rotate(45deg);
+        width: 12px;
     }
 }
 

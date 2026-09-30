@@ -20,7 +20,7 @@ const ScrollToTop = ({ pageRef }) => {
       href="#section-top"
       onClick={handleClick}
     >
-      <span>→</span>
+      <span></span>
     </a>
   );
 };
