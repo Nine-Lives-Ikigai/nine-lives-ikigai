@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useHashNavigation } from '../../utils/scroll';
+import { useHashNavigation, useScrollToTopOnNavigate } from '../../utils/scroll';
 import { useLayoutStyles } from '../../utils/layout';
 import ScrollToTop from './ScrollToTop';
 import Header from './Header';
@@ -14,7 +14,10 @@ const Layout = ({ children, pagename = 'Home' }) => {
   const isHomePage = location.pathname === '/';
   const pageRef = isHomePage ? '' : '/';
 
-  // Handle hash navigation on page load
+  // Reset to the top on every route change
+  useScrollToTopOnNavigate();
+
+  // Scroll to the URL hash (with header offset) on route or hash change
   useHashNavigation(77);
 
   useEffect(() => {

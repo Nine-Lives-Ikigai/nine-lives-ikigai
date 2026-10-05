@@ -1,5 +1,6 @@
 // src/utils/scroll.ts - Enhanced scroll utilities
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export const HEADER_OFFSET = 77;
 
@@ -47,10 +48,27 @@ export const useScrollVisibility = (threshold: number = 100): boolean => {
 // descriptive name for this call site — not a separate implementation.
 export const useSlimHeader = useScrollVisibility;
 
-// Hook for handling hash navigation on page load
+// Resets to the top whenever the route's pathname changes. Keyed on
+// pathname rather than the full location, so hash-only changes don't
+// trigger it. A layout effect, so the reset happens before paint and
+// the new page never shows at the old scroll offset.
+export const useScrollToTopOnNavigate = (): void => {
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+};
+
+// Scrolls to the URL hash, with the header offset, whenever the route
+// or hash changes - including on first load. Keyed on the router
+// location rather than on mount, since Layout stays mounted across
+// route changes and a mount-only effect would never fire again after
+// the first page load.
 export const useHashNavigation = (offset: number = HEADER_OFFSET): void => {
+  const { pathname, hash } = useLocation();
+
   useEffect(() => {
-    const hash = window.location.hash;
     if (!hash) return;
 
     // Small delay to ensure page is loaded
@@ -59,5 +77,5 @@ export const useHashNavigation = (offset: number = HEADER_OFFSET): void => {
     }, 100);
 
     return () => clearTimeout(timeoutId);
-  }, [offset]);
+  }, [pathname, hash, offset]);
 };
