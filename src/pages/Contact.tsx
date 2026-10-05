@@ -1,5 +1,6 @@
-import { useState, type FormEvent } from 'react';
-import CtaButton from '../components/CtaButton';
+import { useState, type SubmitEvent } from 'react';
+import CtaGroup from '../components/CtaGroup';
+import PageSection from '../components/PageSection';
 import AccordionItem from '../components/AccordionItem';
 import type { ContactData } from '../utils/data';
 
@@ -29,7 +30,7 @@ const Contact = ({ data }: ContactProps) => {
     setValues((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
     setSubmitting(true);
@@ -60,151 +61,139 @@ const Contact = ({ data }: ContactProps) => {
   return (
     <>
       {/* Page Header */}
-      <section className="section section--hero">
-        <div className="section__content center">
-          <h1 className="section__title">{pageHeader.title}</h1>
-          <p className="section__label">{pageHeader.label}</p>
-          <p className="section__body">{pageHeader.body}</p>
-        </div>
-      </section>
+      <PageSection variant="hero">
+        <h1 className="section__title">{pageHeader.title}</h1>
+        <p className="section__label">{pageHeader.label}</p>
+        <p className="section__body">{pageHeader.body}</p>
+      </PageSection>
 
       {/* Contact Form + Info */}
-      <section className="section section--primary">
-        <div className="section__content">
-          <div className="flex-content">
-            {/* Form */}
-            <div className="flex__small--12 flex__large--7">
-              {submitted ? (
-                <div className="center">
-                  <p className="section__body">{form.successMessage}</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit}>
-                  {error && (
-                    <p className="section__body" role="alert">
-                      {error}
-                    </p>
-                  )}
-                  <div className="flex-content">
-                    {/* Honeypot: off-screen via CSS positioning rather
-                        than type="hidden", since most bots specifically
-                        skip hidden inputs but few skip ones merely
-                        positioned off-screen. */}
-                    <input
-                      type="text"
-                      name="company"
-                      autoComplete="off"
-                      tabIndex={-1}
-                      aria-hidden="true"
-                      style={{ position: 'absolute', left: '-9999px' }}
-                      value={honeypot}
-                      onChange={(e) => setHoneypot(e.target.value)}
-                    />
-                    {form.fields.map((field) => (
-                      <div
-                        className={`flex__small--12 ${field.half ? 'flex__large--6' : ''}`}
-                        key={field.name}
-                      >
-                        <label className="section__label" htmlFor={field.name}>
-                          {field.label}
-                        </label>
-                        {field.type === 'textarea' ? (
-                          <textarea
-                            id={field.name}
-                            name={field.name}
-                            required={field.required}
-                            rows={5}
-                            value={values[field.name] ?? ''}
-                            onChange={(e) => handleChange(field.name, e.target.value)}
-                          />
-                        ) : field.type === 'select' ? (
-                          <select
-                            id={field.name}
-                            name={field.name}
-                            required={field.required}
-                            value={values[field.name] ?? ''}
-                            onChange={(e) => handleChange(field.name, e.target.value)}
-                          >
-                            <option value="" disabled>
-                              {field.placeholder}
+      <PageSection variant="primary" center={false}>
+        <div className="flex-content">
+          {/* Form */}
+          <div className="flex__small--12 flex__large--7">
+            {submitted ? (
+              <div className="center">
+                <p className="section__body">{form.successMessage}</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                {error && (
+                  <p className="section__body" role="alert">
+                    {error}
+                  </p>
+                )}
+                <div className="flex-content">
+                  {/* Honeypot: off-screen via CSS positioning rather
+                      than type="hidden", since most bots specifically
+                      skip hidden inputs but few skip ones merely
+                      positioned off-screen. */}
+                  <input
+                    type="text"
+                    name="company"
+                    autoComplete="off"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    style={{ position: 'absolute', left: '-9999px' }}
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                  />
+                  {form.fields.map((field) => (
+                    <div
+                      className={`flex__small--12 ${field.half ? 'flex__large--6' : ''}`}
+                      key={field.name}
+                    >
+                      <label className="section__label" htmlFor={field.name}>
+                        {field.label}
+                      </label>
+                      {field.type === 'textarea' ? (
+                        <textarea
+                          id={field.name}
+                          name={field.name}
+                          required={field.required}
+                          rows={5}
+                          value={values[field.name] ?? ''}
+                          onChange={(e) => handleChange(field.name, e.target.value)}
+                        />
+                      ) : field.type === 'select' ? (
+                        <select
+                          id={field.name}
+                          name={field.name}
+                          required={field.required}
+                          value={values[field.name] ?? ''}
+                          onChange={(e) => handleChange(field.name, e.target.value)}
+                        >
+                          <option value="" disabled>
+                            {field.placeholder}
+                          </option>
+                          {field.options?.map((opt) => (
+                            <option value={opt} key={opt}>
+                              {opt}
                             </option>
-                            {field.options?.map((opt) => (
-                              <option value={opt} key={opt}>
-                                {opt}
-                              </option>
-                            ))}
-                          </select>
-                        ) : (
-                          <input
-                            type={field.type}
-                            id={field.name}
-                            name={field.name}
-                            required={field.required}
-                            placeholder={field.placeholder}
-                            value={values[field.name] ?? ''}
-                            onChange={(e) => handleChange(field.name, e.target.value)}
-                          />
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                  {form.privacyNote && (
-                    <p>{form.privacyNote}{' '}
-                      <a href={form.privacyLinkHref}>{form.privacyLinkLabel ?? 'Privacy Policy'}</a>.
-                    </p>
-                  )}
-                  <button type="submit" className="full" disabled={submitting}>
-                    {submitting ? 'Sending…' : form.submitLabel}
-                  </button>
-                </form>
-              )}
-            </div>
-
-            {/* Info */}
-            <div className="flex__small--12 flex__large--5">
-              <h2 className="section__title">{info.title}</h2>
-              {info.items.map((item) => (
-                <div className="section__group" key={item.label}>
-                  <h3 className="section__group-title">{item.label}</h3>
-                  <p>{item.href ? <a href={item.href}>{item.value}</a> : item.value}</p>
+                          ))}
+                        </select>
+                      ) : (
+                        <input
+                          type={field.type}
+                          id={field.name}
+                          name={field.name}
+                          required={field.required}
+                          placeholder={field.placeholder}
+                          value={values[field.name] ?? ''}
+                          onChange={(e) => handleChange(field.name, e.target.value)}
+                        />
+                      )}
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+                {form.privacyNote && (
+                  <p>{form.privacyNote}{' '}
+                    <a href={form.privacyLinkHref}>{form.privacyLinkLabel ?? 'Privacy Policy'}</a>.
+                  </p>
+                )}
+                <button type="submit" className="full" disabled={submitting}>
+                  {submitting ? 'Sending…' : form.submitLabel}
+                </button>
+              </form>
+            )}
+          </div>
+
+          {/* Info */}
+          <div className="flex__small--12 flex__large--5">
+            <h2 className="section__title">{info.title}</h2>
+            {info.items.map((item) => (
+              <div className="section__group" key={item.label}>
+                <h3 className="section__group-title">{item.label}</h3>
+                <p>{item.href ? <a href={item.href}>{item.value}</a> : item.value}</p>
+              </div>
+            ))}
           </div>
         </div>
-      </section>
+      </PageSection>
 
       {/* FAQ */}
       {faq && (
-        <section className="section" itemScope itemType="https://schema.org/FAQPage">
-          <div className="section__content center">
-            <h2 className="section__title">{faq.title}</h2>
-            {faq.items.map((item) => (
-              <AccordionItem
-                key={item.question}
-                question={item.question}
-                answer={item.answer}
-                isOpen={openFaq === item.question}
-                onToggle={() => setOpenFaq(openFaq === item.question ? null : item.question)}
-                microdata
-              />
-            ))}
-          </div>
-        </section>
+        <PageSection itemScope itemType="https://schema.org/FAQPage">
+          <h2 className="section__title">{faq.title}</h2>
+          {faq.items.map((item) => (
+            <AccordionItem
+              key={item.question}
+              question={item.question}
+              answer={item.answer}
+              isOpen={openFaq === item.question}
+              onToggle={() => setOpenFaq(openFaq === item.question ? null : item.question)}
+              microdata
+            />
+          ))}
+        </PageSection>
       )}
 
       {/* Footer CTA */}
-      <section className="section">
-        <div className="section__content center">
-          <h2 className="section__title">{footerCta.title}</h2>
-          <p className="section__body">{footerCta.body}</p>
-          <div className="flex-content flex--column-mobile flex--center">
-            {footerCta.cta.map((item) => (
-              <CtaButton key={item.href} item={item} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageSection>
+        <h2 className="section__title">{footerCta.title}</h2>
+        <p className="section__body">{footerCta.body}</p>
+        <CtaGroup items={footerCta.cta} />
+      </PageSection>
     </>
   );
 };

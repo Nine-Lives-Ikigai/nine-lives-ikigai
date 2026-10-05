@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react';
 import { CatListing } from '../utils/cat';
 import CatCard from '../components/CatCard';
-import CtaButton from '../components/CtaButton';
+import CtaGroup from '../components/CtaGroup';
+import PageSection from '../components/PageSection';
 import FilterGroup from '../components/FilterGroup';
 import AccordionItem from '../components/AccordionItem';
 import { ANY, type FilterValue } from '../utils/filters';
@@ -62,13 +63,11 @@ const Adopt = ({ data }: AdoptProps) => {
   return (
     <>
       {/* Page Header */}
-      <section className="section section--hero">
-        <div className="section__content center">
-          <h1 className="section__title">{pageHeader.title}</h1>
-          <p className="section__label">{pageHeader.label}</p>
-          <p className="section__body">{pageHeader.body}</p>
-        </div>
-      </section>
+      <PageSection variant="hero">
+        <h1 className="section__title">{pageHeader.title}</h1>
+        <p className="section__label">{pageHeader.label}</p>
+        <p className="section__body">{pageHeader.body}</p>
+      </PageSection>
 
       {/* Filter */}
       <section className="section section--dark">
@@ -111,79 +110,67 @@ const Adopt = ({ data }: AdoptProps) => {
       </section>
 
       {/* Listings */}
-      <section className="section">
-        <div className="section__content">
-          {filtered.length > 0 ? (
-            <div className="flex-content card-grid">
-              {filtered.map((cat: CatListing) => (
-                <CatCard key={cat.id} cat={cat} isBonded={cat.bonded.length > 0} />
-              ))}
-            </div>
-          ) : hasActiveFilters ? (
-            <div className="center">
-              <p className="section__body">{pageHeader.empty.filtered}</p>
-              <button className="full" onClick={resetFilters}>
-                {pageHeader.empty.clearFilters}
-              </button>
-            </div>
-          ) : (
-            <div className="center">
-              <p className="section__body">{pageHeader.empty.default}</p>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Process Steps */}
-      <section className="section section--primary">
-        <div className="section__content center">
-          <h2 className="section__title">{processSteps.title}</h2>
-          <p className="section__label">{processSteps.label}</p>
+      <PageSection center={false}>
+        {filtered.length > 0 ? (
           <div className="flex-content card-grid">
-            {processSteps.steps.map((step) => (
-              <div className="service-card flex__small--12 flex__large--3" key={step.number}>
-                <span className="service-card__number">{step.number}</span>
-                <h3 className="service-card__title">{step.title}</h3>
-                <p className="service-card__description">{step.description}</p>
-              </div>
+            {filtered.map((cat: CatListing) => (
+              <CatCard key={cat.id} cat={cat} isBonded={cat.bonded.length > 0} />
             ))}
           </div>
-        </div>
-      </section>
+        ) : hasActiveFilters ? (
+          <div className="center">
+            <p className="section__body">{pageHeader.empty.filtered}</p>
+            <button className="full" onClick={resetFilters}>
+              {pageHeader.empty.clearFilters}
+            </button>
+          </div>
+        ) : (
+          <div className="center">
+            <p className="section__body">{pageHeader.empty.default}</p>
+          </div>
+        )}
+      </PageSection>
 
-      {/* FAQ */}
-      <section className="section">
-        <div className="section__content center">
-          <h2 className="section__title">{faq.title}</h2>
-          {faq.groups.map((group) => (
-            <div className="section__group" key={group.category}>
-              <h3 className="section__group-title">{group.category}</h3>
-              {group.items.map((item) => (
-                <AccordionItem
-                  key={item.question}
-                  question={item.question}
-                  answer={item.answer}
-                  isOpen={openFaq === item.question}
-                  onToggle={() => setOpenFaq(openFaq === item.question ? null : item.question)}
-                />
-              ))}
+      {/* Process Steps */}
+      <PageSection variant="primary">
+        <h2 className="section__title">{processSteps.title}</h2>
+        <p className="section__label">{processSteps.label}</p>
+        <div className="flex-content card-grid">
+          {processSteps.steps.map((step) => (
+            <div className="service-card flex__small--12 flex__large--3" key={step.number}>
+              <span className="service-card__number">{step.number}</span>
+              <h3 className="service-card__title">{step.title}</h3>
+              <p className="service-card__description">{step.description}</p>
             </div>
           ))}
         </div>
-      </section>
+      </PageSection>
 
-      {/* Footer CTA */}
-      <section className="section">
-        <div className="section__content center">
-          <h2 className="section__title">{footerCta.title}</h2>
-          <p className="section__body">{footerCta.body}</p>
-          <div className="flex-content flex--column-mobile flex--center">
-            {footerCta.cta.map((item) => (
-              <CtaButton key={item.href} item={item} />
+      {/* FAQ */}
+      <PageSection>
+        <h2 className="section__title">{faq.title}</h2>
+        {faq.groups.map((group) => (
+          <div className="section__group" key={group.category}>
+            <h3 className="section__group-title">{group.category}</h3>
+            {group.items.map((item) => (
+              <AccordionItem
+                key={item.question}
+                question={item.question}
+                answer={item.answer}
+                isOpen={openFaq === item.question}
+                onToggle={() => setOpenFaq(openFaq === item.question ? null : item.question)}
+              />
             ))}
           </div>
-        </div>
-      </section>
+        ))}
+      </PageSection>
+
+      {/* Footer CTA */}
+      <PageSection>
+        <h2 className="section__title">{footerCta.title}</h2>
+        <p className="section__body">{footerCta.body}</p>
+        <CtaGroup items={footerCta.cta} />
+      </PageSection>
     </>
   );
 };

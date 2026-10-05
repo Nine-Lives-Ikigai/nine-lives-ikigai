@@ -1,7 +1,7 @@
 import { useState, type MouseEvent, type ChangeEvent } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { headerData } from '../../utils/data';
-import { smoothScrollTo, scrollToTop, useSlimHeader, HEADER_OFFSET } from '../../utils/scroll';
+import { smoothScrollTo, scrollToTop, useSlimHeader } from '../../utils/scroll';
 
 const Header = () => {
   const { brand, navToggle, links } = headerData;
@@ -11,32 +11,33 @@ const Header = () => {
   const isHomePage = location.pathname === '/';
   const isSlim = useSlimHeader(100); // Add slim class when scrolled past 100px
 
+  const closeNav = () => setIsNavOpen(false);
+
   const handleScrollClick = (e: MouseEvent<HTMLAnchorElement>, target: string) => {
     e.preventDefault();
 
     if (isHomePage) {
       // If we're on home page, scroll to section with header offset
-      smoothScrollTo(target, HEADER_OFFSET);
+      smoothScrollTo(target);
     } else {
-      // If we're on another page, navigate to home with hash — useHashNavigation
-      // (in Home.tsx) picks up the hash on mount and scrolls with the right offset
+      // If we're on another page, navigate to home with the hash.
+      // useHashNavigation (in Layout.tsx) scrolls to it with the right
+      // offset on every route or hash change.
       navigate(`/${target}`);
     }
 
     // Close mobile nav after click
-    setIsNavOpen(false);
+    closeNav();
   };
 
   const handleNavToggle = (e: ChangeEvent<HTMLInputElement>) => {
     setIsNavOpen(e.target.checked);
   };
 
-  const closeNav = () => setIsNavOpen(false);
-
   const handleLogoClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     scrollToTop();
-    setIsNavOpen(false);
+    closeNav();
   };
 
   return (
@@ -83,7 +84,7 @@ const Header = () => {
                 {isScrollLink ? (
                   <a
                     className={className}
-                    href={link.href}
+                    href={isHomePage ? link.href : `/${link.href}`}
                     data-scroll="true"
                     onClick={(e) => handleScrollClick(e, link.href)}
                   >
