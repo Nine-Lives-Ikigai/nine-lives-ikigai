@@ -42,7 +42,11 @@
   flex-direction: row;
 }
 
+// border-box makes flex-basis the item's outer width, which is what
+// grid-basis() computes. Under content-box the item's padding and border add
+// to the basis, so a full row overflows and wraps.
 %flex-item {
+  box-sizing: border-box;
   flex: 1 1 100%;
   max-width: 100%;
   padding: 0 $space-xs;
