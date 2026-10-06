@@ -1,10 +1,13 @@
 @use '../utilities' as *;
 
+// Cards: cat listing card, service card with its size modifiers, and the
+// extra large card.
+
 // Cat card
 .cat-card {
   display: flex;
   flex-direction: column;
-  margin: 22px 0 0;
+  margin: $space-md 0 0;
   overflow: hidden;
 }
 
@@ -16,28 +19,28 @@
 
 .cat-card__image--contain {
   aspect-ratio: initial;
+  max-height: 600px;
   object-fit: contain;
   width: 100%;
-  max-height: 600px;
 }
 
 .cat-card__body {
   display: flex;
-  flex-direction: column;
   flex: 1;
-  padding: 22px 0 0;
+  flex-direction: column;
+  padding: $space-md 0 0;
 }
 
 .cat-card__name {
   font-size: 20px;
-  margin: 5.5px 0 0;
+  margin: $space-xs 0 0;
 }
 
 .cat-card__meta {
   color: color(secondary, mid);
   font-weight: 700;
-  letter-spacing: 0.5px;
-  margin: 11px 0 0;
+  letter-spacing: 1px;
+  margin: $space-sm 0 0;
   text-transform: uppercase;
 
   span {
@@ -48,76 +51,37 @@
 }
 
 .cat-card__description {
-  color: color(gray, mid);
+  color: color(gray, light);
   line-height: 1.6;
-  margin: 11px 0 0;
+  margin: $space-sm 0 0;
 }
 
 // Service card
 .service-card {
+  position: relative;
   background-color: color(primary, mid);
   border: 3px solid color(secondary, dark);
   border-radius: 16px;
-  box-shadow: 2px 2px 4px 0px rgba(color(gray, darkest), 0.5);
-  margin: 22px 0 0;
-  padding-bottom: 11px;
-  position: relative;
+  box-shadow: 2px 2px 4px 0 $gray-darkest-50;
+  margin: $space-md 0 0;
+  padding-bottom: $space-sm;
   text-align: left;
 
-  @include breakpoint($small-screen) { 
+  @include breakpoint($small-screen) {
     min-height: 250px;
   }
 }
 
 // Service card modifiers
 .service-card--short {
-  @include breakpoint($small-screen) { 
+  @include breakpoint($small-screen) {
     min-height: 180px;
   }
 }
 
-// Service card modifiers
 .service-card--tall {
-  @include breakpoint($small-screen) { 
-    min-height: 350px;
-  }
-}
-
-// Service card content
-.service-card__number {
-  color: color(secondary, mid);
-  display: inline-block;
-  font-size: 18px;
-  font-weight: 700;
-  margin: 11px 11px 0;
-}
-
-.service-card__title {
-  color: color(gray, lightest);
-  font-size: 20px;
-  margin: 11px 11px 0;
-
   @include breakpoint($small-screen) {
-    font-size: 22px;
-  }
-}
-
-.service-card__description {
-  color: color(gray, lightest);
-  line-height: 1.6;
-  margin: 11px 11px 0;
-}
-
-.service-card__button {
-  display: block;
-  margin: 11px;
-
-  @include breakpoint($small-screen)
-  {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    min-height: 350px;
   }
 }
 
@@ -135,15 +99,52 @@
   }
 }
 
-// Extra large card (Under Construction & 404)
+// Service card content
+.service-card__number {
+  color: color(secondary, mid);
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 700;
+  margin: $space-sm $space-sm 0;
+}
+
+.service-card__title {
+  color: color(gray, lightest);
+  font-size: 20px;
+  margin: $space-sm $space-sm 0;
+
+  @include breakpoint($small-screen) {
+    font-size: 22px;
+  }
+}
+
+.service-card__description {
+  color: color(gray, lightest);
+  line-height: 1.6;
+  margin: $space-sm $space-sm 0;
+}
+
+.service-card__button {
+  display: block;
+  margin: $space-sm;
+
+  @include breakpoint($small-screen) {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+// Extra large card (Under Construction and 404)
 .xl-card {
   background-color: color(primary, dark);
   border: 6px solid color(secondary, dark);
   border-radius: 30px;
-  box-shadow: 2px 2px 4px 0px rgba(color(gray, darkest), 0.5);
+  box-shadow: 2px 2px 4px 0 $gray-darkest-50;
   color: color(secondary, lightest);
   display: block;
-  padding: 22px;
+  padding: $space-md;
   text-align: center;
 }
 

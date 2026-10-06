@@ -1,0 +1,148 @@
+@use '../utilities' as *;
+
+// Cat photo gallery: the main image with prev and next buttons, a thumbnail
+// strip, and a full-screen lightbox. The active thumbnail state is a class set
+// by React state.
+.cat-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  width: 100%;
+}
+
+.cat-gallery__main {
+  position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cat-gallery__image {
+  aspect-ratio: initial;
+  cursor: zoom-in;
+  display: block;
+  height: 500px;
+  max-width: 100%;
+  object-fit: contain;
+  width: 500px;
+}
+
+// Thumbnails
+.cat-gallery__thumbnails {
+  display: flex;
+  gap: $space-xs;
+  overflow-x: auto;
+  padding: 0 0 $space-xs;
+}
+
+.thumbnail-button {
+  @include icon-button;
+
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  flex: 0 0 auto;
+  overflow: hidden;
+  transition: $transition;
+
+  &:first-child {
+    margin-left: auto;
+  }
+
+  &:last-child {
+    margin-right: auto;
+  }
+
+  img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  @include hover-highlight;
+}
+
+.thumbnail-button--active {
+  border-color: color(secondary, mid);
+}
+
+// Buttons
+.gallery-button {
+  @include icon-button;
+
+  background-color: $gray-darkest-50;
+  border-radius: 50%;
+  color: color(secondary, light);
+  font-size: 22px;
+  line-height: 22px;
+  transition: $transition;
+
+  @include hover-highlight {
+    box-shadow: none;
+  }
+}
+
+.gallery-button--prev,
+.gallery-button--next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.gallery-button--prev {
+  left: $space-sm;
+}
+
+.gallery-button--next {
+  right: $space-sm;
+}
+
+.gallery-button--lightbox-close {
+  position: absolute;
+  top: $space-md;
+  right: $space-md;
+  z-index: $lightbox-overlay-close;
+}
+
+// Lightbox
+.cat-gallery__lightbox {
+  position: fixed;
+  align-items: center;
+  background: $gray-darkest-95;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  z-index: $lightbox-overlay;
+
+  .gallery-button {
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  .gallery-button--prev {
+    left: $space-md;
+  }
+
+  .gallery-button--next {
+    right: $space-md;
+  }
+}
+
+.cat-gallery__lightbox-image {
+  cursor: default;
+  max-height: 90%;
+  max-width: 90%;
+  object-fit: contain;
+}
+
+.cat-gallery__lightbox-counter {
+  position: absolute;
+  bottom: $space-md;
+  left: 50%;
+  color: color(gray, lightest);
+  margin: 0;
+  transform: translateX(-50%);
+}

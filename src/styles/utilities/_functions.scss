@@ -1,9 +1,24 @@
+@use 'sass:map';
+@use 'sass:math';
 @use 'variables' as *;
 
-@use "sass:map";
+// Width of a grid item spanning $columns of $grid-columns, less the gutter.
+@function grid-basis($columns, $gutter) {
+  @return calc(#{math.div(100% * $columns, $grid-columns)} - #{$gutter});
+}
 
-@function color($color, $tone: 'light') {
-	@if map.has-key($color-map, $color) {
-		@return map.get(map.get($color-map, $color), $tone);
-	}
+// Returns a tone from $color-map. An unknown group or tone stops the build
+// with a message naming it.
+@function color($group, $tone) {
+  @if not map.has-key($color-map, $group) {
+    @error 'Unknown color group: #{$group}';
+  }
+
+  $tones: map.get($color-map, $group);
+
+  @if not map.has-key($tones, $tone) {
+    @error 'Unknown tone: #{$group}, #{$tone}';
+  }
+
+  @return map.get($tones, $tone);
 }

@@ -1,13 +1,13 @@
+@use 'base/base';
+@use 'base/grid';
+
 @use 'components/header';
 @use 'components/footer';
-@use 'components/layout';
-@use 'components/main';
-
-@use 'pages/buttons';
-@use 'pages/cards';
-@use 'pages/filters';
-@use 'pages/forms';
-@use 'pages/gallery';
-@use 'pages/sections';
+@use 'components/buttons';
+@use 'components/accordion';
+@use 'components/cards';
+@use 'components/filters';
+@use 'components/gallery';
+@use 'components/sections';
 
 @use 'utilities/helpers';

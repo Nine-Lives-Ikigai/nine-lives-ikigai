@@ -1,49 +1,69 @@
-// Colors accessible via nested maps
+@use 'sass:color';
+@use 'sass:map';
+
+// Palette: read tones through color(group, tone), never directly.
 $color-map: (
-    primary: (
-        lightest    : #d1dacc,
-        light       : #a3b59a,
-        mid         : #80a06f,
-        dark        : #678557,
-        darkest     : #526a45
-    ),
-    secondary: (
-        lightest    : #ffe34c,
-        light       : #ffd700,
-        mid         : #e5c100,
-        dark        : #ccac00,
-        darkest     : #a38900
-    ),
-    gray: (
-        lightest    : #f0f2f3,
-        light       : #a9b2bc,
-        mid         : #708090,
-        dark        : #434c56,
-        darkest     : #21262b
-    )
+  primary: (
+    lightest: #d1dacc,
+    light: #a3b59a,
+    mid: #80a06f,
+    dark: #678557,
+    darkest: #526a45
+  ),
+  secondary: (
+    lightest: #ffe34c,
+    light: #ffd700,
+    mid: #e5c100,
+    dark: #ccac00,
+    darkest: #a38900
+  ),
+  gray: (
+    lightest: #f0f2f3,
+    light: #a9b2bc,
+    mid: #708090,
+    dark: #434c56,
+    darkest: #21262b
+  )
 );
 
-// Media query upper sizes
-$mobile-screen: 480px;
+// Translucent tones for shadows, scrims and overlays: gray-darkest at 50%,
+// 80% and 95% opacity, and a black shade at 25%.
+$gray-darkest-50: color.change(map.get(map.get($color-map, gray), darkest), $alpha: 0.5);
+$gray-darkest-80: color.change(map.get(map.get($color-map, gray), darkest), $alpha: 0.8);
+$gray-darkest-95: color.change(map.get(map.get($color-map, gray), darkest), $alpha: 0.95);
+$shade-25: color.change(#000, $alpha: 0.25);
+
+// Select arrow fill: gray-lightest, URL-encoded. An SVG data URI cannot call
+// color(), so this value matches that tone by hand.
+$select-arrow-color: '%23f0f2f3';
+
+// Breakpoints (minimum widths)
 $small-screen: 768px;
 $medium-screen: 1024px;
 $large-screen: 1366px;
-$xl-screen: 1440px;
 
-// Fonts
-$default-font: 'Oxygen', sans-serif;
-$header-font: $default-font;
+// Font
+$font-family: 'Oxygen', sans-serif;
+
+// Spacing steps
+$space-xs: 5.5px;
+$space-sm: 11px;
+$space-md: 22px;
+$space-lg: 44px;
+
+// Controls and bars
+$radius-sm: 5px;
+$touch-target: 44px;
+$footer-height: 55px;
+
+// Motion
+$transition: all 0.3s ease-out;
+
+// Grid
+$grid-columns: 12;
 
 // Vertical indices
-// $banner-canvas is local to $banner-container's stacking context — sits behind
-// sibling content within the banner, not the page
-$banner-canvas: -1;
-$banner-container: 1000;
-$banner-particle: 1002;
-$section-before: 1009;
 $header-container: 1010;
-
 $button-return-top: 1011;
-
 $lightbox-overlay: 1100;
 $lightbox-overlay-close: 1101;

@@ -1,29 +1,32 @@
 @use '../utilities' as *;
 
+// Site header: a fixed brand bar with the logo, nav list and hamburger toggle.
+// Script-toggled, all set by Header.tsx: .fixed (hard-coded in the markup),
+// .header-container--slim (useSlimHeader, past 100px of scroll) and .show-nav
+// (the nav list's open state on narrow screens).
 .header-container {
   position: fixed;
   top: -65px;
-  width: 100%;
-
-  overflow: hidden;
-  z-index: $header-container;
-  opacity: 0;
-  
-  color: color(secondary, lightest);
   background-color: color(primary, dark);
   border-bottom: 2px solid color(secondary, dark);
-  box-shadow: 0px 2px 8px 0px rgba(color(gray, darkest), 0.8);
-
-  transition: all 0.3s ease-out;
+  box-shadow: 0 2px 8px 0 $gray-darkest-80;
+  color: color(secondary, lightest);
+  opacity: 0;
+  overflow: hidden;
+  transition: $transition;
+  visibility: hidden;
+  width: 100%;
+  z-index: $header-container;
 
   &.fixed {
     top: 0;
     opacity: 1;
+    visibility: visible;
   }
 
   .button {
-    margin: 11px 0;
     font-weight: 700;
+    margin: $space-sm 0;
   }
 
   .button--alt {
@@ -31,17 +34,16 @@
     border: 2px solid color(gray, lightest);
     color: color(gray, lightest);
 
-      &:hover {
-        background-color: color(gray, lightest);
-        border-color: color(secondary, lightest);
-        color: color(secondary, lightest);
-      }
+    &:hover {
+      background-color: color(gray, lightest);
+      border-color: color(secondary, lightest);
+      color: color(gray, darkest);
+    }
   }
 }
 
-
 .header-container--slim {
-  @include breakpoint($small-screen) { 
+  @include breakpoint($small-screen) {
     .button {
       margin: 6px 0;
     }
@@ -49,91 +51,111 @@
 }
 
 .header-controls {
+  height: auto;
   margin: 0 auto;
   max-width: $large-screen;
-  height: auto;
-  overflow: hidden; 
+  overflow: hidden;
 
   .header-logo {
-    margin: 0 0 0 22px;
     float: left;
     line-height: 33px;
+    margin: 0 0 0 $space-md;
   }
 }
 
 .header-controls ul {
-  margin: 0;
-  padding: 0 11px;
   display: none;
-  width: auto;
-  height: auto;
   float: right;
+  height: auto;
   line-height: 33px;
   list-style: none;
+  margin: 0;
+  padding: 0 $space-sm;
+  width: auto;
 
   &.show-nav {
-    margin: 0 0 22px;
-    width: 100%;
     display: block;
+    margin: 0 0 $space-md;
+    width: 100%;
 
-    li { 
-      float: none; 
+    li {
+      float: none;
       text-align: right;
     }
   }
 
   li {
-    padding: 0 22px 0 0;
     float: left;
+    padding: 0 $space-md 0 0;
   }
 
-  @include breakpoint($small-screen) { display: block; }
+  @include breakpoint($small-screen) {
+    display: block;
+  }
 }
 
 .header-controls__nav-toggle {
-  margin: 20px 22px;
   position: relative;
-  width: 28px;
-  height: 24px;
   float: right;
+  height: 24px;
+  margin: 20px $space-md;
+  width: 28px;
 
-  input[type="checkbox"] {
-    margin: 0;
+  input[type='checkbox'] {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 1;
     cursor: pointer;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    width: 100%;
+    z-index: 1;
 
     &:checked + span {
       background: transparent;
+    }
 
-      &:before { transform: rotate(-45deg) translate(-4px, 12px); }
-      &:after { transform: rotate(45deg) translate(-1px, -8px); }
+    &:checked + span:before {
+      transform: rotate(-45deg) translate(-4px, 12px);
+    }
+
+    &:checked + span:after {
+      transform: rotate(45deg) translate(-1px, -8px);
+    }
+
+    // The checkbox is transparent, so its focus ring shows on the icon.
+    &:focus-visible + span {
+      outline: 2px solid color(gray, lightest);
+      outline-offset: 2px;
     }
   }
 
-  @include breakpoint($small-screen) { display: none; }
+  @include breakpoint($small-screen) {
+    display: none;
+  }
 }
 
 .nav-icon {
   position: absolute;
   top: 9.5px;
-  width: 100%;
+  background: color(gray, lightest);
   height: 5px;
-  background: color(gray, lightest);    
+  width: 100%;
 
-  &:before, 
+  &:before,
   &:after {
-    position: absolute;    
-    width: 100%;
-    height: 5px;
-    content: "";
+    position: absolute;
     background: color(gray, lightest);
-    transition: all 0.3s ease-out;
+    content: '';
+    height: 5px;
+    transition: $transition;
+    width: 100%;
   }
 
-  &:before { top: -9px; }
-  &:after { top: 9px; }
+  &:before {
+    top: -9px;
+  }
+
+  &:after {
+    top: 9px;
+  }
 }

@@ -1,13 +1,15 @@
 @use '../utilities' as *;
- 
+
+// Filter bar and its collapsible controls. The open state is
+// .filters__controls--open, set in Adopt.tsx.
 .filters__bar {
   margin: 0 auto;
   max-width: $large-screen;
 }
- 
+
 .filters__controls {
   display: none;
- 
+
   &.filters__controls--open {
     display: block;
   }

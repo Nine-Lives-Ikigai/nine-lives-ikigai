@@ -3,56 +3,68 @@
 
 // Mobile first breakpoint
 @mixin breakpoint($point) {
-	@media screen and (min-width: $point) { @content; }
+  @media screen and (min-width: $point) { @content; }
 }
 
-@mixin social-icon($name) {
-	background-image: url('../../../app/img/logo-' + $name + '.svg');
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	display: block;	
-	height: 22px;
-	transition: all 0.3s ease-in-out;
-	width: 22px;
+// Shared hover affordance for bordered controls: border and text shift to
+// the lightest gray. Extra declarations go in the content block.
+@mixin hover-highlight {
+  &:hover {
+    border-color: color(gray, lightest);
+    color: color(gray, lightest);
 
-	&:hover { transform: translateY(-0.25rem); }
+    @content;
+  }
 }
 
-@mixin rule-icon($name) {
-	border: 0;
-	border-top: 1px solid color(gray, mid);
-	display: block;
-	height: 1px;
-	margin: 0 0 22px;
-	overflow: visible;
-	padding: 0;
-	position: relative;
-
- 	&:after {
-	    background-image: url('../../../app/img/rule-' + $name + '.svg');
-	    background-position: center;
-	    background-repeat: no-repeat;
-	    background-size: cover;
-	    content: "";
-		display: block;
-	    height: 12px;
-	    left: 50%;
-	    position: absolute;
-	    top: 0;
-	    transform: translateY(-50%) translateX(-50%);
-	    width: 12px;
-	}
+// Icon-only buttons: clears the size and spacing the base button look adds,
+// so the declared touch target holds.
+@mixin icon-button {
+  height: $touch-target;
+  margin: 0;
+  min-height: auto;
+  min-width: auto;
+  padding: 0;
+  width: $touch-target;
 }
 
-@mixin banner($name, $mobile-pos) {
-	background: url('../../../app/img/banner-' + $name + '.jpg');
-	background-position: $mobile-pos;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 100%;
+// Base button look, shared by the bare button element (base/_base.scss) and
+// the .button class (components/_buttons.scss).
+@mixin button-base {
+  background-color: transparent;
+  border: 2px solid color(secondary, mid);
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px 0 $gray-darkest-80;
+  color: color(secondary, light);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 16px;
+  margin: $space-md 0 0;
+  min-width: 80px;
+  padding: $space-sm $space-md;
+  text-align: center;
+  text-decoration: none;
+  transition: $transition;
 
-	@include breakpoint($small-screen) {
-		background-position: center left;
-	}
+  &.center {
+    max-width: 120px;
+  }
+
+  &.wide {
+    max-width: 240px;
+  }
+
+  &.full {
+    max-width: 100%;
+  }
+
+  @include hover-highlight {
+    box-shadow: none;
+    text-decoration: none;
+  }
+
+  @include breakpoint($small-screen) {
+    font-size: 16px;
+  }
 }

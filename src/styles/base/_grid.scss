@@ -1,0 +1,70 @@
+@use '../utilities' as *;
+
+// 12-column flex grid. .flex__small--N sets the width from the narrowest
+// viewport; .flex__large--N sets it from $small-screen. An item may carry
+// both. Every item shares one base through %flex-item.
+
+// Base flex container
+.flex-content {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+  justify-content: center;
+}
+
+// Alignment modifiers (apply to .flex-content)
+.flex--tall {
+  height: 100%;
+}
+
+.flex--center {
+  align-items: center;
+}
+
+.flex--stretch {
+  align-items: stretch;
+}
+
+.flex--column {
+  flex-direction: column;
+}
+
+.flex--column-mobile {
+  flex-direction: column;
+
+  @include breakpoint($small-screen) {
+    flex-direction: row;
+  }
+}
+
+.flex--row {
+  flex-direction: row;
+}
+
+%flex-item {
+  flex: 1 1 100%;
+  max-width: 100%;
+  padding: 0 $space-xs;
+}
+
+// Every .flex__small--N rule is emitted before every .flex__large--N rule, so
+// an element carrying both gets the large behavior from $small-screen up.
+@for $i from 1 through $grid-columns {
+  .flex__small--#{$i} {
+    @extend %flex-item;
+
+    flex-basis: grid-basis($i, $space-sm);
+  }
+}
+
+@for $i from 1 through $grid-columns {
+  .flex__large--#{$i} {
+    @extend %flex-item;
+
+    @include breakpoint($small-screen) {
+      flex-basis: grid-basis($i, $space-md);
+      padding: 0 $space-sm;
+    }
+  }
+}

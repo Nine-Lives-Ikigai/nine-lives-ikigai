@@ -1,0 +1,37 @@
+@use '../utilities' as *;
+
+// Accordion: a full-width trigger with a chevron icon and a content panel.
+// The open state is aria-expanded="true" on .accordion-button.
+.accordion-button {
+  align-items: center;
+  background-color: transparent;
+  color: color(secondary, dark);
+  display: flex;
+  justify-content: space-between;
+  padding: $space-md $space-sm;
+  text-align: left;
+  width: 100%;
+
+  &[aria-expanded='true'] {
+    border-color: color(secondary, light);
+    color: color(secondary, light);
+
+    .accordion-button__icon {
+      color: color(secondary, light);
+    }
+  }
+}
+
+.accordion-button__icon {
+  color: color(secondary, dark);
+  flex-shrink: 0;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.accordion-button__content {
+  color: color(secondary, mid);
+  line-height: 1.6;
+  margin: 0;
+  padding: $space-sm $space-sm $space-md;
+}

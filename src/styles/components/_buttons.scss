@@ -1,0 +1,103 @@
+@use '../utilities' as *;
+
+// Buttons: the .button base and its variants, the filter chip and the
+// return-to-top circle.
+.button {
+  @include button-base;
+}
+
+// Variants
+.button--primary {
+  background-color: color(primary, dark);
+  border-color: color(secondary, light);
+  color: color(secondary, light);
+
+  @include hover-highlight {
+    background-color: color(primary, mid);
+  }
+}
+
+.button--secondary {
+  background-color: color(secondary, darkest);
+  border-color: color(secondary, light);
+  color: color(secondary, light);
+
+  @include hover-highlight {
+    background-color: color(secondary, dark);
+  }
+}
+
+.button--gray {
+  background-color: $gray-darkest-50;
+  border-color: color(gray, light);
+  color: color(gray, lightest);
+
+  @include hover-highlight {
+    background-color: color(gray, mid);
+  }
+}
+
+// Fixed circle at the bottom-right corner.
+.button__return-top {
+  @include icon-button;
+
+  position: fixed;
+  right: $space-sm;
+  bottom: $space-sm;
+  align-items: center;
+  background-color: color(primary, dark);
+  border-radius: 50%;
+  box-shadow: -2px 2px 4px 0 $gray-darkest-80;
+  display: flex;
+  justify-content: center;
+  transform: rotate(-90deg);
+  transition: $transition;
+  z-index: $button-return-top;
+
+  // Chevron points right; the button's -90deg rotation turns it upward.
+  span::after {
+    border-right: 3px solid currentColor;
+    border-top: 3px solid currentColor;
+    content: '';
+    display: block;
+    height: 12px;
+    // Optical centering: the chevron's visible mass sits right of its box center.
+    margin-left: -4px;
+    transform: rotate(45deg);
+    width: 12px;
+  }
+
+  @include hover-highlight {
+    background-color: color(primary, mid);
+    transform: rotate(-90deg) translateX(2px);
+  }
+}
+
+// Filter chip. The 38px height matches the .button touch target. The active
+// state class is set by React state; the hover rule precedes it so an active
+// chip keeps its fill and dark text on hover.
+.button__chip {
+  background-color: transparent;
+  border: 2px solid color(secondary, dark);
+  border-radius: $radius-sm;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 16px;
+  margin: $space-sm 2px 0;
+  padding: 9px 14px;
+  text-decoration: none;
+  transition: $transition;
+
+  @include hover-highlight {
+    text-decoration: none;
+  }
+
+  &.button__chip--active {
+    background-color: color(secondary, lightest);
+    color: color(gray, dark);
+  }
+
+  @include breakpoint($small-screen) {
+    font-size: 16px;
+  }
+}

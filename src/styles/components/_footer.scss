@@ -1,59 +1,57 @@
 @use '../utilities' as *;
 
+// Site footer: a brand bar with the signature and the social icon list.
 .footer-container {
-   background-color: color(primary, dark);
-   border-top: 2px solid color(secondary, dark);
-   box-shadow: 0px 2px 4px 0px rgba(color(gray, darkest), 0.8) inset;
-   
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   
-   min-height: 55px;
-   padding: 11px 0;
-   width: 100%;
-   
-   .footer-controls {
-      margin: 0 auto;
-      position: relative;
-      max-width: $large-screen;
-      height: auto;
-      text-align: left;
-      
-      @include breakpoint($small-screen) { text-align: center; }
-   }
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: color(primary, dark);
+  border-top: 2px solid color(secondary, dark);
+  box-shadow: 0 2px 4px 0 $gray-darkest-80 inset;
+  min-height: $footer-height;
+  padding: $space-sm 0;
+  width: 100%;
 
-   .footer-signature {
-      margin: 11px;
-      display: inline-block;
-      color: color(secondary, lightest);
-      font-size: 12px;
-      font-weight: 600;
-      line-height: 16px;
+  .footer-controls {
+    position: relative;
+    height: auto;
+    margin: 0 auto;
+    max-width: $large-screen;
+    text-align: left;
 
-      @include breakpoint($small-screen) { 
-         margin: 0;
-         line-height: 32px; 
-         text-align: center;
-      }
-   }  
+    @include breakpoint($small-screen) {
+      text-align: center;
+    }
+  }
+
+  .footer-signature {
+    color: color(secondary, lightest);
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    margin: $space-sm;
+
+    @include breakpoint($small-screen) {
+      line-height: 32px;
+      margin: 0;
+      text-align: center;
+    }
+  }
 }
 
 .social-icon__container {
-   position: absolute;
-   top: 0;
-   right: 0;
-   padding: 0 11px;
-   width: auto;
-   height: auto;
-   float: right;
-   line-height: 55px;
-   list-style: none;
-   
-   .social-icon {
-      padding: 0 8px;
-      float: left;
-      
-      //.social-example { @include social-icon('example'); }
-   }
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: auto;
+  line-height: $footer-height;
+  list-style: none;
+  padding: 0 $space-sm;
+  width: auto;
+
+  .social-icon {
+    float: left;
+    padding: 0 8px;
+  }
 }
