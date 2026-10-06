@@ -44,8 +44,10 @@
   border-radius: $radius-sm;
   cursor: pointer;
   flex: 0 0 auto;
+  height: 72px;
   overflow: hidden;
   transition: $transition;
+  width: 72px;
 
   &:first-child {
     margin-left: auto;
@@ -93,11 +95,11 @@
 }
 
 .gallery-button--prev {
-  left: $space-sm;
+  left: $space-xs;
 }
 
 .gallery-button--next {
-  right: $space-sm;
+  right: $space-xs;
 }
 
 .gallery-button--lightbox-close {
