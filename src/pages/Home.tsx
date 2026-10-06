@@ -1,6 +1,6 @@
 import CatCard from '../components/CatCard';
 import CtaButton from '../components/CtaButton';
-import CtaGroup from '../components/CtaGroup.tsx';
+import CtaGroup from '../components/CtaGroup';
 import PageSection from '../components/PageSection';
 import type { HomeData } from '../utils/data';
 
@@ -37,7 +37,7 @@ const Home = ({ data }: HomeProps) => {
       <PageSection id="services">
         <h2 className="section__title">{services.title}</h2>
         <p className="section__label">{services.label}</p>
-        <div className="flex-content services__grid">
+        <div className="flex-content card-grid">
           {services.items.map((service) => (
             <div
               className="service-card flex__small--12 flex__large--3"
@@ -55,7 +55,7 @@ const Home = ({ data }: HomeProps) => {
       <PageSection id="adopt">
         <h2 className="section__title">{adoptTeaser.title}</h2>
         <p className="section__label">{adoptTeaser.label}</p>
-        <div className="flex-content services__grid">
+        <div className="flex-content card-grid">
           {featuredCats.map((cat) => (
             <CatCard key={cat.id} cat={cat} />
           ))}

@@ -62,7 +62,7 @@ const Donate = ({ data }: DonateProps) => {
           {otherWays.items.map((item) => {
             const isExternal = item.cta?.href?.startsWith('http') ?? false;
             return (
-              <div className="service-card service-card--tall flex__small--12 flex__large--4" key={item.title}>
+              <div className="service-card flex__small--12 flex__large--4" key={item.title}>
                 <h3 className="service-card__title">{item.title}</h3>
                 <p className="service-card__description">{item.description}</p>
                 {item.cta && (
